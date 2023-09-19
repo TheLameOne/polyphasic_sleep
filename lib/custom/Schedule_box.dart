@@ -11,7 +11,7 @@ class Schedule_box extends StatelessWidget {
       width: 180,
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(20)),
+          borderRadius: BorderRadius.circular(14)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -20,6 +20,7 @@ class Schedule_box extends StatelessWidget {
               "BIPHASIC",
               style: TextStyle(color: Colors.black, fontSize: 22),
             ),
+            SizedBox(height: 16),
             // Render
             AnimatedCircularChart(
               size: Size(150.0, 150.0),

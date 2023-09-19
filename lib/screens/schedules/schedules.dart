@@ -35,10 +35,12 @@ class _SchedulesState extends State<Schedules> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [Schedule_box(), Schedule_box()],
                   ),
+                  SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [Schedule_box(), Schedule_box()],
                   ),
+                  SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [Schedule_box(), Schedule_box()],

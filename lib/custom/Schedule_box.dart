@@ -7,6 +7,8 @@ class Schedule_box extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 220,
+      width: 180,
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(20)),

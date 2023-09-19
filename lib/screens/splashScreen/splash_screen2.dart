@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep/TestScreen.dart';
+import 'package:polyphasic_sleep/screens/schedules/schedules.dart';
 
 class SplashScreen2 extends StatefulWidget {
   static const String routeNamed = "SplashScreen2";
@@ -18,7 +19,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => TestScreen(),
+            builder: (context) => Schedules(),
           ));
     });
   }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep/custom/bullet_list.dart';
 import 'package:polyphasic_sleep/custom/justify_text.dart';
 
+import '../../custom/custom_container.dart';
+
 class HowItWorks extends StatefulWidget {
   const HowItWorks({super.key});
 
@@ -41,26 +43,31 @@ class _HowItWorksState extends State<HowItWorks> {
                     // Containers
                     Row(
                       children: [
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(child: Text("NREM1"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(child: Text("NREM2"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(child: Text("SWS"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(child: Text("REM"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(child: Text("Sleep Cycle"))),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "NREM1",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "NREM2",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "SWS",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "REM",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "Sleep Cycle",
+                        ),
                       ],
                     ),
                     JustifyText(
@@ -72,30 +79,26 @@ class _HowItWorksState extends State<HowItWorks> {
                     JustifyText(data: "Why Polyphasic Sleep Works"),
                     Row(
                       children: [
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text(
-                                    "Repartitioning: Prioritizing Vital Sleep"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text(
-                                    "Minimum Sleep Threshold: How Low Can You Go"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text(
-                                    "Wake Time Programming – Wake up EASILY!"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text(
-                                    "Why Shortened Monophasic DOES NOT WORK"))),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "Repartitioning: Prioritizing Vital Sleep",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "Minimum Sleep Threshold: How Low Can You Go",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "Wake Time Programming – Wake up EASILY!",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.cyan,
+                          data: "Why Shortened Monophasic DOES NOT WORK",
+                        ),
                       ],
                     ),
                     // Animation

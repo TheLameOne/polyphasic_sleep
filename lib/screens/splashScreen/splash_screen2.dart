@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep/TestScreen.dart';
+import 'package:polyphasic_sleep/screens/how_it_works/how_it_works2.dart';
 import 'package:polyphasic_sleep/screens/schedules/schedules.dart';
 
+import '../how_it_works/how_it_works.dart';
 import '../schedules/schedule_details.dart';
 
 class SplashScreen2 extends StatefulWidget {
@@ -21,7 +23,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => ScheduleDetails(),
+            builder: (context) => HowItWorks(),
           ));
     });
   }

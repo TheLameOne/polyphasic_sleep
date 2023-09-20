@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'Polyphasic Sleep',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(
+        textTheme: GoogleFonts.latoTextTheme(
           Theme.of(context).textTheme,
         ),
       ),
@@ -34,15 +34,6 @@ class MyApp extends StatelessWidget {
       routes: {
         // LoginScreen.routeNamed: (BuildContext context) => LoginScreen(),
         SplashScreen.routeNamed: (BuildContext context) => SplashScreen(),
-        // HomeScreen.routeNamed: (BuildContext context) => HomeScreen(),
-        // PackageOverviewScreen.routeNamed: (BuildContext context) =>
-        //     PackageOverviewScreen(),
-        // // CheckoutScreen.routeNamed: (BuildContext context) => CheckoutScreen(),
-        // BookingScreen.routeNamed: (BuildContext context) => BookingScreen(),
-        // ProfileScreen.routeNamed: (BuildContext context) => ProfileScreen(),
-        // ReferScreen.routeNamed: (BuildContext context) => ReferScreen(),
-        // FavouriteScreen.routeNamed: (BuildContext context) => FavouriteScreen(),
-        // PackagesScreen.routeNamed: (BuildContext context) => PackagesScreen(),
       },
     );
   }

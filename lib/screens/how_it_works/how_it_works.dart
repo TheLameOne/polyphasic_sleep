@@ -183,6 +183,38 @@ class _HowItWorksState extends State<HowItWorks> {
                                 child: Text("Naturally Segmented Sleepers"))),
                       ],
                     ),
+                    JustifyText(
+                        data:
+                            "If you are fascinated enough by the concepts of polyphasic sleeping so far, let’s take one step further! This section details certain reasons why a polyphasic schedule can be good for you. Furthermore, you may have already been a natural polyphasic sleeper without knowing. (Hello, Segmented sleep?)"),
+                    JustifyText(
+                        data:
+                            "As always, though, it is also necessary to look at different ends of the spectrum to be aware of how polyphasic sleep may not entirely work for you, or suit your timetable. "),
+                    JustifyText(data: "Research & Resources"),
+                    Row(
+                      children: [
+                        Container(
+                            height: 50,
+                            width: 80,
+                            child:
+                                Center(child: Text("Peer-reviewed Research"))),
+                        Container(
+                            height: 50,
+                            width: 80,
+                            child: Center(
+                                child: Text("Community Research Effort"))),
+                        Container(
+                            height: 50,
+                            width: 80,
+                            child: Center(
+                                child: Text("Community Research Effort"))),
+                      ],
+                    ),
+                    JustifyText(
+                        data:
+                            "Phew! After understanding basic materials, you totally can start kicking ass with your own adaptation and thorough preparation. "),
+                    JustifyText(
+                        data:
+                            "However, if you are curious about polyphasic sleeping behavior in humans, definitely consider checking out these alternative resources and research on polyphasic sleep in humans. If you are interested in helping us with our ongoing projects, you are more than welcome anytime. Enjoy our collection! ")
                   ]),
             ),
           ),

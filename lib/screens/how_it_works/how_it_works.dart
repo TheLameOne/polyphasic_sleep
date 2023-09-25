@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep/custom/bullet_list.dart';
+import 'package:polyphasic_sleep/custom/heading.dart';
 import 'package:polyphasic_sleep/custom/justify_text.dart';
 
 import '../../custom/custom_container.dart';
@@ -23,7 +24,7 @@ class _HowItWorksState extends State<HowItWorks> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    JustifyText(data: "Introduction"),
+                    Heading(data: "Introduction"),
                     JustifyText(
                       data:
                           "In this how it works section, you will have a lot of opportunities to learn about several mechanics of polyphasic sleeping. Explaining how the whole thing works seems very complicated, but our resources will help you learn as much as possible about polyphasic sleeping.",
@@ -39,34 +40,40 @@ class _HowItWorksState extends State<HowItWorks> {
                       "Other sleep phenomena such as: Wake Maintenance Zone, minimum sleep threshold for long-term health, etc.",
                       "Research on polyphasic sleep"
                     ]),
-                    JustifyText(data: "Sleep Stages 101"),
+                    Heading(data: "Sleep Stages 101"),
                     // Containers
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomContainer(
                           borderColor: Colors.black87,
                           color: Colors.cyan,
                           data: "NREM1",
+                          noOfItems: 5,
                         ),
                         CustomContainer(
                           borderColor: Colors.black87,
                           color: Colors.cyan,
                           data: "NREM2",
+                          noOfItems: 5,
                         ),
                         CustomContainer(
                           borderColor: Colors.black87,
                           color: Colors.cyan,
                           data: "SWS",
+                          noOfItems: 5,
                         ),
                         CustomContainer(
                           borderColor: Colors.black87,
                           color: Colors.cyan,
                           data: "REM",
+                          noOfItems: 5,
                         ),
                         CustomContainer(
                           borderColor: Colors.black87,
                           color: Colors.cyan,
                           data: "Sleep Cycle",
+                          noOfItems: 5,
                         ),
                       ],
                     ),
@@ -76,27 +83,28 @@ class _HowItWorksState extends State<HowItWorks> {
                     JustifyText(
                         data:
                             "With this section, we want to spread the message about certain misconceptions and myths over these sleep stages. These myths have perpetuated for years in the community and they need to go. In addition, do not forget to check out how your own sleep cycle may change on a polyphasic schedule as well!"),
-                    JustifyText(data: "Why Polyphasic Sleep Works"),
+                    Heading(data: "Why Polyphasic Sleep Works"),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomContainer(
                           borderColor: Colors.black87,
-                          color: Colors.cyan,
+                          color: Colors.yellow,
                           data: "Repartitioning: Prioritizing Vital Sleep",
                         ),
                         CustomContainer(
                           borderColor: Colors.black87,
-                          color: Colors.cyan,
+                          color: Colors.yellow,
                           data: "Minimum Sleep Threshold: How Low Can You Go",
                         ),
                         CustomContainer(
                           borderColor: Colors.black87,
-                          color: Colors.cyan,
+                          color: Colors.yellow,
                           data: "Wake Time Programming – Wake up EASILY!",
                         ),
                         CustomContainer(
                           borderColor: Colors.black87,
-                          color: Colors.cyan,
+                          color: Colors.yellow,
                           data: "Why Shortened Monophasic DOES NOT WORK",
                         ),
                       ],
@@ -117,39 +125,52 @@ class _HowItWorksState extends State<HowItWorks> {
                     JustifyText(
                         data:
                             "Keep in mind, though, there are A LOT of options for you to pick, especially if you're a beginner! "),
+                    Heading(
+                        data:
+                            "Sleep Mechanics: Conquer YOUR Body and Use it to Your Advantage"),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(child: Text("Biological Rhythms"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(child: Text("Glymphatic System"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(child: Text("Sleep Pressure"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child:
-                                Center(child: Text("Wake After Sleep Onset"))),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.green,
+                          data: "Biological Rhythms",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.green,
+                          data: "Glymphatic System",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.green,
+                          data: "Sleep Pressure",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.green,
+                          data: "Wake After Sleep Onset",
+                        ),
                       ],
                     ),
+                    SizedBox(height: 8),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child:
-                                Center(child: Text("Wake Maintenance Zone"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text("Determining SWS & REM Peaks"))),
+                        CustomContainer(
+                          width: 160,
+                          borderColor: Colors.black87,
+                          color: Colors.green,
+                          data: "Wake Maintenance Zone",
+                          noOfItems: 2,
+                        ),
+                        CustomContainer(
+                          width: 160,
+                          borderColor: Colors.black87,
+                          color: Colors.green,
+                          data: "Determining SWS & REM Peaks",
+                          noOfItems: 2,
+                        ),
                       ],
                     ),
                     JustifyText(
@@ -158,32 +179,30 @@ class _HowItWorksState extends State<HowItWorks> {
                     JustifyText(
                         data:
                             "While these mechanics may appear negative as you read them, you can actually use them to your advantage! It takes incremental change in sleep habits, one step at a time! Your adaptation may go smoother or rougher depending on how well you apply these concepts. Good luck! "),
-                    JustifyText(
-                        data: "Reasons to Pursue a Polyphasic Schedule"),
+                    Heading(data: "Reasons to Pursue a Polyphasic Schedule"),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child:
-                                    Text("Starting a Polyphasic Lifestyle"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text("Advantages of Polyphasic Sleep"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child:
-                                    Text("Disadvantages of Polyphasic Sleep"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text("Naturally Segmented Sleepers"))),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.red,
+                          data: "Starting a Polyphasic Lifestyle",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.red,
+                          data: "Advantages of Polyphasic Sleep",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.red,
+                          data: "Disadvantages of Polyphasic Sleep",
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.red,
+                          data: "Naturally Segmented Sleepers",
+                        ),
                       ],
                     ),
                     JustifyText(
@@ -192,24 +211,28 @@ class _HowItWorksState extends State<HowItWorks> {
                     JustifyText(
                         data:
                             "As always, though, it is also necessary to look at different ends of the spectrum to be aware of how polyphasic sleep may not entirely work for you, or suit your timetable. "),
-                    JustifyText(data: "Research & Resources"),
+                    Heading(data: "Research & Resources"),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child:
-                                Center(child: Text("Peer-reviewed Research"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text("Community Research Effort"))),
-                        Container(
-                            height: 50,
-                            width: 80,
-                            child: Center(
-                                child: Text("Community Research Effort"))),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.red,
+                          data: "Peer-reviewed Research",
+                          noOfItems: 3,
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.red,
+                          data: "Community Research Effort",
+                          noOfItems: 3,
+                        ),
+                        CustomContainer(
+                          borderColor: Colors.black87,
+                          color: Colors.red,
+                          data: "Polyphasic Sleep Resources",
+                          noOfItems: 3,
+                        ),
                       ],
                     ),
                     JustifyText(

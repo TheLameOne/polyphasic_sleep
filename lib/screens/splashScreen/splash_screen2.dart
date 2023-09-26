@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep/TestScreen.dart';
-import 'package:polyphasic_sleep/screens/how_it_works/how_it_works2.dart';
+import 'package:polyphasic_sleep/screens/home_screen.dart';
 import 'package:polyphasic_sleep/screens/schedules/schedules.dart';
 
 import '../how_it_works/how_it_works.dart';
@@ -23,7 +23,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HowItWorks(),
+            builder: (context) => HomeScreen(),
           ));
     });
   }

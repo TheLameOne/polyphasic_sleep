@@ -4,7 +4,7 @@ import '../../custom/Schedule_box.dart';
 import '../../utils/styles.dart';
 
 class Schedules extends StatefulWidget {
-  const Schedules({super.key});
+  static const String routeNamed = "Schedules";
 
   @override
   State<Schedules> createState() => _SchedulesState();

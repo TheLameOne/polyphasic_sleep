@@ -6,7 +6,7 @@ import 'package:polyphasic_sleep/custom/justify_text.dart';
 import '../../custom/custom_container.dart';
 
 class HowItWorks extends StatefulWidget {
-  const HowItWorks({super.key});
+  static const String routeNamed = "HowItWorks";
 
   @override
   State<HowItWorks> createState() => _HowItWorksState();

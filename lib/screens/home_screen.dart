@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:polyphasic_sleep/screens/how_it_works/how_it_works.dart';
+import 'package:polyphasic_sleep/screens/schedules/schedules.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  static const String routeNamed = "HomeScreen";
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -89,53 +91,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(236, 163, 163, 1),
-                          borderRadius: BorderRadius.circular(30)),
-                      height: 200,
-                      width: (size.width - 32) / 2,
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Translate \nEverything",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        color: Color.fromRGBO(45, 44, 45, 1),
-                                        borderRadius:
-                                            BorderRadius.circular(30)),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 8, right: 8, top: 8, bottom: 8),
-                                      child: Icon(
-                                        Icons.play_arrow_rounded,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Schedules.routeNamed);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: const Color.fromRGBO(236, 163, 163, 1),
+                            borderRadius: BorderRadius.circular(30)),
+                        height: 100,
+                        width: (size.width - 32) / 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Center(
+                            child: Text(
+                              "Schedules",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold),
                             ),
-                            Container(
-                              color: Colors.red,
-                              child: Text("Image"),
-                            )
-                          ],
+                          ),
                         ),
                       ),
                     ),
@@ -146,51 +122,54 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Color.fromRGBO(167, 206, 180, 1),
+                          // const Color.fromRGBO(236, 163, 163, 1),
                           borderRadius: BorderRadius.circular(30)),
-                      height: 200,
+                      height: 100,
                       width: (size.width - 32) / 2,
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Some \nText",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: Color.fromRGBO(45, 44, 45, 1),
-                                      borderRadius: BorderRadius.circular(30)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8, top: 8, bottom: 8),
-                                    child: Icon(
-                                      Icons.play_arrow_rounded,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Container(
-                              color: Colors.red,
-                              child: Text("Image"),
-                            )
-                          ],
+                        child: Center(
+                          child: Text(
+                            "Sounds",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.only(left: 8, right: 8),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, HowItWorks.routeNamed);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: const Color.fromRGBO(236, 163, 163, 1),
+                        borderRadius: BorderRadius.circular(30)),
+                    height: 100,
+                    width: (size.width),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Center(
+                        child: Text(
+                          "How it Works",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

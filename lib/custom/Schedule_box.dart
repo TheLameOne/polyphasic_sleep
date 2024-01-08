@@ -2,7 +2,10 @@ import 'package:awesome_circular_chart/awesome_circular_chart.dart';
 import 'package:flutter/material.dart';
 
 class Schedule_box extends StatelessWidget {
-  const Schedule_box({super.key});
+  final String name;
+  final String link;
+
+  Schedule_box({required this.name, required this.link});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class Schedule_box extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "BIPHASIC",
+              name,
               style: TextStyle(color: Colors.black, fontSize: 22),
             ),
             SizedBox(height: 16),

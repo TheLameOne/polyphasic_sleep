@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:polyphasic_sleep/screens/home_screen.dart';
 import 'package:polyphasic_sleep/screens/how_it_works/how_it_works.dart';
 import 'package:polyphasic_sleep/screens/schedules/schedules.dart';
+import 'package:polyphasic_sleep/screens/sleep/sleep.dart';
 import 'package:polyphasic_sleep/screens/splashScreen/splash_screen.dart';
 import 'package:polyphasic_sleep/screens/splashScreen/splash_screen2.dart';
 
@@ -38,8 +39,9 @@ class MyApp extends StatelessWidget {
         // LoginScreen.routeNamed: (BuildContext context) => LoginScreen(),
         SplashScreen.routeNamed: (BuildContext context) => SplashScreen(),
         HomeScreen.routeNamed: (BuildContext context) => HomeScreen(),
-        Schedules.routeNamed: (BuildContext context) => Schedules(),
+        // Schedules.routeNamed: (BuildContext context) => Schedules(),
         HowItWorks.routeNamed: (BuildContext context) => HowItWorks(),
+        Sleep.routeNamed: (BuildContext context) => Sleep(),
       },
     );
   }

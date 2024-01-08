@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep/screens/how_it_works/how_it_works.dart';
 import 'package:polyphasic_sleep/screens/schedules/schedules.dart';
+import 'package:polyphasic_sleep/screens/sleep/sleep.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeNamed = "HomeScreen";
@@ -57,19 +58,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fontSize: 32,
                                     fontWeight: FontWeight.bold),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: Color.fromRGBO(45, 44, 45, 1),
-                                    borderRadius: BorderRadius.circular(30)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20, right: 20, top: 8, bottom: 8),
-                                  child: Text(
-                                    "Start",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, Sleep.routeNamed);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color.fromRGBO(45, 44, 45, 1),
+                                      borderRadius: BorderRadius.circular(30)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20, right: 20, top: 8, bottom: 8),
+                                    child: Text(
+                                      "Start",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
                               )
@@ -93,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.only(left: 8.0),
                     child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, Schedules.routeNamed);
+                        // Navigator.pushNamed(context, Schedules.routeNamed);
                       },
                       child: Container(
                         decoration: BoxDecoration(

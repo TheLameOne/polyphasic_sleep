@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_swiper_view: ^1.1.8
   google_fonts: ^6.0.0
   hex: ^0.2.0
 

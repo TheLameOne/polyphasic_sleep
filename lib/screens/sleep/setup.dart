@@ -13,7 +13,7 @@ class _SetupScreenState extends State<SetupScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          child: Text("Setup Screen"),
+          child: Center(),
         ),
       ),
     );

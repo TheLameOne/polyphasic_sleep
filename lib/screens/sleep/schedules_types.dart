@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:polyphasic_sleep/custom/schedule_type_box.dart';
 import 'package:polyphasic_sleep/models/schedules_model.dart';
+import 'package:polyphasic_sleep/screens/sleep/setup.dart';
 
 class SchedulesTypes extends StatefulWidget {
   List<ScheduleTypeModel> data;
@@ -16,33 +17,56 @@ class _SchedulesTypesState extends State<SchedulesTypes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(191, 215, 221, 1),
         appBar: AppBar(
-          title: Text(
-            "Select Schedule Types",
-            style: TextStyle(color: Colors.black),
+          automaticallyImplyLeading: false,
+          title: Center(
+            child: Text(
+              "Select Schedule Types",
+              style: TextStyle(color: Colors.black),
+            ),
           ),
-          shadowColor: Colors.white,
+          shadowColor: Color.fromRGBO(191, 215, 221, 1),
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromRGBO(191, 215, 221, 1),
         ),
         body: SafeArea(
-          child: Swiper(
-            itemCount: widget.data.length,
-            viewportFraction: 0.8,
-            scale: 0.8,
-            itemHeight: 400.0,
-            itemBuilder: (context, index) {
-              return Container(
-                // height: 200,
-                // width: 200,
-                color: Colors.amber,
-                child: Text(
-                  widget.data[index].scheduleType.toString(),
-                  style: TextStyle(color: Colors.black),
-                ),
-              );
-            },
+          child: Padding(
+            padding: const EdgeInsets.only(top: 16, bottom: 16),
+            child: Container(
+              child: Swiper(
+                itemCount: widget.data.length,
+                viewportFraction: 0.8,
+                scale: 0.8,
+                itemHeight: 400.0,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SetupScreen()));
+                    },
+                    child: Container(
+                      // height: 200,
+                      // width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Colors.white,
+                      ),
+
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          widget.data[index].scheduleType.toString(),
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
         )
         // SafeArea(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:polyphasic_sleep/screens/how_it_works/how_it_works.dart';
-import 'package:polyphasic_sleep/screens/schedules/schedules.dart';
-import 'package:polyphasic_sleep/screens/sleep/sleep.dart';
+import 'package:polyphasic_sleep/screens/all_schedules/all_schedules_screen.dart';
+import 'package:polyphasic_sleep/screens/how_it_works_screen/how_it_works.dart';
+import 'package:polyphasic_sleep/screens/all_schedules/schedules.dart';
+import 'package:polyphasic_sleep/screens/current_schedule/sleep.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeNamed = "HomeScreen";
@@ -100,7 +101,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.only(left: 8.0),
                     child: InkWell(
                       onTap: () {
-                        // Navigator.pushNamed(context, Schedules.routeNamed);
+                        Navigator.pushNamed(
+                            context, AllSchedulesScreen.routeNamed);
                       },
                       child: Container(
                         decoration: BoxDecoration(

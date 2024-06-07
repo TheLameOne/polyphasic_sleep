@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:polyphasic_sleep/custom/schedule_type_box.dart';
 import 'package:polyphasic_sleep/models/schedules_model.dart';
-import 'package:polyphasic_sleep/screens/sleep/setup.dart';
+import 'package:polyphasic_sleep/screens/current_schedule/setup.dart';
 
-class SchedulesTypes extends StatefulWidget {
+class CurrentScheduleScreen extends StatefulWidget {
+  static const String routeNamed = "CurrentScheduleScreen";
   List<ScheduleTypeModel> data;
-
-  SchedulesTypes({required this.data});
+  CurrentScheduleScreen({required this.data});
 
   @override
-  State<SchedulesTypes> createState() => _SchedulesTypesState();
+  State<CurrentScheduleScreen> createState() => _CurrentScheduleScreenState();
 }
 
-class _SchedulesTypesState extends State<SchedulesTypes> {
+class _CurrentScheduleScreenState extends State<CurrentScheduleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

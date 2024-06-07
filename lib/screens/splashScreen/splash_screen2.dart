@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep/TestScreen.dart';
 import 'package:polyphasic_sleep/screens/home_screen.dart';
-import 'package:polyphasic_sleep/screens/schedules/schedules.dart';
+import 'package:polyphasic_sleep/screens/all_schedules/schedules.dart';
 
-import '../how_it_works/how_it_works.dart';
-import '../schedules/schedule_details.dart';
+import '../how_it_works_screen/how_it_works.dart';
+import '../all_schedules/all_schedules_screen.dart';
 
 class SplashScreen2 extends StatefulWidget {
   static const String routeNamed = "SplashScreen2";

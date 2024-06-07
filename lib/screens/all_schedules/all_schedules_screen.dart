@@ -1,8 +1,8 @@
 import 'package:awesome_circular_chart/awesome_circular_chart.dart';
 import 'package:flutter/material.dart';
 
-class ScheduleDetails extends StatelessWidget {
-  const ScheduleDetails({super.key});
+class AllSchedulesScreen extends StatelessWidget {
+  static const String routeNamed = "AllSchedulesScreen";
 
   @override
   Widget build(BuildContext context) {

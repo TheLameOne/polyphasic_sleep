@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep/models/schedules_model.dart';
-import 'package:polyphasic_sleep/screens/sleep/schedules_types.dart';
-
+import 'package:polyphasic_sleep/screens/current_schedule/current_schedule_screen.dart';
 import '../../custom/Schedule_box.dart';
 import '../../utils/global.dart';
 import 'package:flutter/services.dart' as rootbundle;
@@ -54,7 +52,7 @@ class _SleepState extends State<Sleep> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                SchedulesTypes(
+                                                CurrentScheduleScreen(
                                                     data:
                                                         schedules[i].types!)));
                                   },

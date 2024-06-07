@@ -33,6 +33,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Color.fromRGBO(26, 33, 48, 1),
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarDividerColor: Color.fromRGBO(26, 33, 48, 1),
+        systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Color.fromRGBO(26, 33, 48, 1)));
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       title: 'Polyphasic Sleep',
       debugShowCheckedModeBanner: false,

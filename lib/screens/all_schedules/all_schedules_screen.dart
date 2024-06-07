@@ -1,5 +1,11 @@
-import 'package:awesome_circular_chart/awesome_circular_chart.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:polyphasic_sleep/custom/Schedule_box.dart';
+import 'package:polyphasic_sleep/models/schedules_model.dart';
+import 'package:polyphasic_sleep/screens/current_schedule/current_schedule_screen.dart';
+import 'package:polyphasic_sleep/utils/global.dart';
+import 'package:flutter/services.dart' as rootbundle;
+import 'package:polyphasic_sleep/utils/styles.dart';
 
 class AllSchedulesScreen extends StatelessWidget {
   static const String routeNamed = "AllSchedulesScreen";
@@ -8,54 +14,77 @@ class AllSchedulesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(children: [
-              // Title
-              Text(
-                "BIPHASIC",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold),
-              ),
-              // Info
-              Text(
-                "Biphasic sleep schedules have been prevalent through time. In a way or another, humans tend to sleep twice a day. There are two types of biphasic patterns; one has a daytime nap of some sort, while the other has 2 concentrated sleep blocks at night. Moreover, there are documents on a lot of famous biphasic sleepers in the modern era. ",
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 16,
-                ),
-              ),
-              // Animation
-              AnimatedCircularChart(
-                size: Size(300.0, 300.0),
-                initialChartData: <CircularStackEntry>[
-                  new CircularStackEntry(
-                    <CircularSegmentEntry>[
-                      new CircularSegmentEntry(
-                        10.0,
-                        Colors.blue[400],
-                        rankKey: 'completed',
-                      ),
-                      new CircularSegmentEntry(
-                        66.67,
-                        Colors.blueGrey[600],
-                        rankKey: 'remaining',
-                      ),
-                    ],
-                    rankKey: 'progress',
-                  ),
-                ],
-                chartType: CircularChartType.Radial,
-                edgeStyle: SegmentEdgeStyle.round,
-                percentageValues: true,
-              )
-            ]),
+        backgroundColor: Styles.backgroundColor,
+        appBar: AppBar(
+          backgroundColor: Styles.backgroundColor,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_rounded, color: Colors.white),
+            onPressed: () => Navigator.of(context).pop(),
           ),
+          title: Text(
+            "Sleep Schedules",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: FutureBuilder(
+              future: readJsonData(),
+              builder: (context, data) {
+                if (data.hasError) {
+                  return Center(child: Text("${data.error}"));
+                } else if (data.hasData) {
+                  var schedules = data.data as List<ScheduleModel>;
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        child: Column(
+                      children: [
+                        // Schedules
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            for (int i = 0; i < schedules.length; i++)
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              CurrentScheduleScreen(
+                                                  data: schedules[i].types!)));
+                                },
+                                child: Schedule_box(
+                                    name: schedules[i].scheduleName!.toString(),
+                                    link:
+                                        schedules[i].scheduleName!.toString()),
+                              ),
+                          ],
+                        )
+                      ],
+                    )),
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
         ),
       ),
     );
   }
+}
+
+Future<List<ScheduleModel>> readJsonData() async {
+  final jsondata =
+      await rootbundle.rootBundle.loadString('json/schedules.json');
+  // print(jsondata);
+  final list = json.decode(jsondata) as List<dynamic>;
+  List<ScheduleModel> res = [];
+  for (var item in list) {
+    res.add(ScheduleModel.fromJson(item));
+  }
+  return res;
+  // return list.map((e) => DataModel.fromJson(e)).toList();
 }

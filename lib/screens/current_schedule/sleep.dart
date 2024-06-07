@@ -21,6 +21,13 @@ class _SleepState extends State<Sleep> {
     } else {
       return SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back_rounded, color: Colors.black),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            title: Text("Select Sleep Schedules"),
+          ),
           body: SingleChildScrollView(
             child: FutureBuilder(
                 future: readJsonData(),
@@ -34,13 +41,6 @@ class _SleepState extends State<Sleep> {
                       child: Container(
                           child: Column(
                         children: [
-                          // Select sleep schedules
-                          const Text("Sleep Schedules",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold)),
-                          const SizedBox(height: 32),
                           // Schedules
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

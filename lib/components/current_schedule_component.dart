@@ -17,6 +17,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
   String? shortDesc;
   int? difficulty;
   String? totalSleep;
+  String? classification;
 
   @override
   void initState() {
@@ -32,6 +33,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
       shortDesc = box.get('short_desc');
       difficulty = box.get('difficulty');
       totalSleep = box.get('total_sleep');
+      classification = box.get('classification');
     });
 
     // print(box.get('id'));
@@ -88,7 +90,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
@@ -99,6 +101,18 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                                         .inversePrimary,
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                classification!,
+                                style: TextStyle(fontSize: 10),
+                              ),
+                              Text(
+                                "Difficulty : ${difficulty!.toString()}",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                              Text(
+                                totalSleep!,
+                                style: TextStyle(fontSize: 12),
                               ),
                               // Container(
                               //   decoration: BoxDecoration(

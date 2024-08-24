@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 
 class NeuBox extends StatelessWidget {
   final Widget? child;
-  bool padding;
-  NeuBox({super.key, required this.child, this.padding = true});
+  final bool padding;
+  const NeuBox({super.key, required this.child, this.padding = true});
 
   @override
   Widget build(BuildContext context) {

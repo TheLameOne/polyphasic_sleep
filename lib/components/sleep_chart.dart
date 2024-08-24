@@ -6,10 +6,10 @@ import 'package:polyphasic_sleep_new/models/setup_model.dart';
 import 'package:polyphasic_sleep_new/pages/edit_schedule.dart';
 
 class SleepChart extends StatefulWidget {
-  int id;
-  double centerSpaceRadius;
-  double thickness;
-  SleepChart(
+  final int id;
+  final double centerSpaceRadius;
+  final double thickness;
+  const SleepChart(
       {super.key,
       required this.id,
       this.centerSpaceRadius = 40,

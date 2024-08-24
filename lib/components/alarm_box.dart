@@ -5,11 +5,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 
 class AlarmBox extends StatefulWidget {
-  final alarmId;
+  final int alarmId;
   final String time;
   // final bool toggle;
-  bool? fullTime;
-  AlarmBox(
+  final bool fullTime;
+  const AlarmBox(
       {super.key,
       required this.time,
       // required this.toggle,
@@ -79,7 +79,7 @@ class _AlarmBoxState extends State<AlarmBox> {
 
     // If the time is earlier than the current time, set the date to tomorrow
     if (todayDateTime.isBefore(now)) {
-      todayDateTime = todayDateTime.add(Duration(days: 1));
+      todayDateTime = todayDateTime.add(const Duration(days: 1));
     }
 
     return todayDateTime;
@@ -102,7 +102,7 @@ class _AlarmBoxState extends State<AlarmBox> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              (widget.fullTime!)
+              (widget.fullTime)
                   ? Row(children: [
                       Text(
                         _timeOfDayConvert(widget.time.toString())
@@ -112,7 +112,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                         style: TextStyle(
                             fontSize: 32,
                             color: Theme.of(context).colorScheme.inverseSurface,
-                            fontWeight: (alarmData![widget.alarmId!])
+                            fontWeight: (alarmData![widget.alarmId])
                                 ? FontWeight.bold
                                 : FontWeight.normal),
                       ),
@@ -124,7 +124,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                               fontSize: 32,
                               color:
                                   Theme.of(context).colorScheme.inverseSurface,
-                              fontWeight: (alarmData![widget.alarmId!])
+                              fontWeight: (alarmData![widget.alarmId])
                                   ? FontWeight.bold
                                   : FontWeight.normal),
                         ),
@@ -137,7 +137,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                         style: TextStyle(
                             fontSize: 32,
                             color: Theme.of(context).colorScheme.inverseSurface,
-                            fontWeight: (alarmData![widget.alarmId!])
+                            fontWeight: (alarmData![widget.alarmId])
                                 ? FontWeight.bold
                                 : FontWeight.normal),
                       ),
@@ -152,7 +152,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                               fontSize: 32,
                               color:
                                   Theme.of(context).colorScheme.inverseSurface,
-                              fontWeight: (alarmData![widget.alarmId!])
+                              fontWeight: (alarmData![widget.alarmId])
                                   ? FontWeight.bold
                                   : FontWeight.normal),
                         ),
@@ -166,7 +166,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                                 color: Theme.of(context)
                                     .colorScheme
                                     .inverseSurface,
-                                fontWeight: (alarmData![widget.alarmId!])
+                                fontWeight: (alarmData![widget.alarmId])
                                     ? FontWeight.bold
                                     : FontWeight.normal),
                           ),
@@ -177,7 +177,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  (alarmData![widget.alarmId!])
+                  (alarmData![widget.alarmId])
                       ? Text("Tomorrow",
                           style: TextStyle(
                             fontSize: 14,
@@ -191,7 +191,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                           ),
                         ),
                   Switch(
-                      value: alarmData![widget.alarmId!],
+                      value: alarmData![widget.alarmId],
                       onChanged: (value) {
                         if (value == true) {
                           String alarmValue =
@@ -207,7 +207,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                         }
                         setState(() {
                           _updateAlarm();
-                          alarmData![widget.alarmId!] = value;
+                          alarmData![widget.alarmId] = value;
                         });
                       })
                 ],

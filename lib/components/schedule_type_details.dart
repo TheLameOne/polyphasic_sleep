@@ -6,18 +6,18 @@ import 'package:polyphasic_sleep_new/pages/setup_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ScheduleTypeDetails extends StatefulWidget {
-  String scheduleType;
-  String shortDescription;
-  String totalSleep;
-  String classification;
-  double difficulty;
-  String link;
-  String idealScheduling;
-  String svgPath;
-  HexColor color;
-  int id;
+  final String scheduleType;
+  final String shortDescription;
+  final String totalSleep;
+  final String classification;
+  final double difficulty;
+  final String link;
+  final String idealScheduling;
+  final String svgPath;
+  final HexColor color;
+  final int id;
 
-  ScheduleTypeDetails(
+  const ScheduleTypeDetails(
       {super.key,
       required this.scheduleType,
       required this.shortDescription,

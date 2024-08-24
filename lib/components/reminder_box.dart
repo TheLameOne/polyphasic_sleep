@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 import 'package:polyphasic_sleep_new/util/local_notifications.dart';
 
 class ReminderBox extends StatefulWidget {
-  final alarmId;
+  final int alarmId;
   final String time;
   // final bool toggle;
-  bool? fullTime;
-  ReminderBox(
+  final bool? fullTime;
+  const ReminderBox(
       {super.key,
       required this.time,
       // required this.toggle,
@@ -49,7 +48,7 @@ class _ReminderBoxState extends State<ReminderBox> {
   }
 
   _setReminder(TimeOfDay time, String schdeuleName, int id) {
-    print(id);
+    // print(id);
     LocalNotifications.showScheduleNotification(
         id: id,
         title: "This is $schdeuleName",
@@ -63,7 +62,7 @@ class _ReminderBoxState extends State<ReminderBox> {
   }
 
   _deleteReminder(int id) {
-    print(id);
+    // print(id);
     LocalNotifications.cancel(id);
   }
 
@@ -79,7 +78,7 @@ class _ReminderBoxState extends State<ReminderBox> {
 
     // If the time is earlier than the current time, set the date to tomorrow
     if (todayDateTime.isBefore(now)) {
-      todayDateTime = todayDateTime.add(Duration(days: 1));
+      todayDateTime = todayDateTime.add(const Duration(days: 1));
     }
 
     return todayDateTime;
@@ -112,7 +111,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                         style: TextStyle(
                             fontSize: 32,
                             color: Theme.of(context).colorScheme.inverseSurface,
-                            fontWeight: (reminderData![widget.alarmId!])
+                            fontWeight: (reminderData![widget.alarmId])
                                 ? FontWeight.bold
                                 : FontWeight.normal),
                       ),
@@ -124,7 +123,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                               fontSize: 32,
                               color:
                                   Theme.of(context).colorScheme.inverseSurface,
-                              fontWeight: (reminderData![widget.alarmId!])
+                              fontWeight: (reminderData![widget.alarmId])
                                   ? FontWeight.bold
                                   : FontWeight.normal),
                         ),
@@ -137,7 +136,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                         style: TextStyle(
                             fontSize: 32,
                             color: Theme.of(context).colorScheme.inverseSurface,
-                            fontWeight: (reminderData![widget.alarmId!])
+                            fontWeight: (reminderData![widget.alarmId])
                                 ? FontWeight.bold
                                 : FontWeight.normal),
                       ),
@@ -152,7 +151,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                               fontSize: 32,
                               color:
                                   Theme.of(context).colorScheme.inverseSurface,
-                              fontWeight: (reminderData![widget.alarmId!])
+                              fontWeight: (reminderData![widget.alarmId])
                                   ? FontWeight.bold
                                   : FontWeight.normal),
                         ),
@@ -166,7 +165,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                                 color: Theme.of(context)
                                     .colorScheme
                                     .inverseSurface,
-                                fontWeight: (reminderData![widget.alarmId!])
+                                fontWeight: (reminderData![widget.alarmId])
                                     ? FontWeight.bold
                                     : FontWeight.normal),
                           ),
@@ -177,7 +176,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  (reminderData![widget.alarmId!])
+                  (reminderData![widget.alarmId])
                       ? Text("Tomorrow",
                           style: TextStyle(
                             fontSize: 14,
@@ -191,7 +190,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                           ),
                         ),
                   Switch(
-                      value: reminderData![widget.alarmId!],
+                      value: reminderData![widget.alarmId],
                       onChanged: (value) {
                         if (value == true) {
                           String reminderValue = _timeDifference(
@@ -207,7 +206,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                         }
                         setState(() {
                           _updateReminder();
-                          reminderData![widget.alarmId!] = value;
+                          reminderData![widget.alarmId] = value;
                         });
                       })
                 ],

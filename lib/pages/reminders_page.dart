@@ -1,11 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/main.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 import 'package:numberpicker/numberpicker.dart';
-import 'package:polyphasic_sleep_new/components/alarm_box.dart';
-import 'package:polyphasic_sleep_new/components/alarm_component.dart';
 import 'package:polyphasic_sleep_new/components/reminder_box.dart';
 import 'package:polyphasic_sleep_new/util/local_notifications.dart';
 

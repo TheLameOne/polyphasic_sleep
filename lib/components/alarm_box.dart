@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:alarm/alarm.dart';
-import 'package:alarm/model/alarm_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';

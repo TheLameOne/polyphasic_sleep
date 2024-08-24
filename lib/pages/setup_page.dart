@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:action_slider/action_slider.dart';
 import 'package:alarm/alarm.dart';
-import 'package:alarm/model/alarm_settings.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,10 +8,8 @@ import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:hive/hive.dart';
 import 'package:polyphasic_sleep_new/components/neu_box.dart';
 import 'package:polyphasic_sleep_new/models/setup_model.dart';
-import 'package:polyphasic_sleep_new/pages/home_page.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'dart:math' as math;
-import 'package:flutter/services.dart' as rootbundle;
 
 class SetupPage extends StatefulWidget {
   // final List<({int s, int e})> setupData;

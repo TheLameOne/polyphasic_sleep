@@ -6,7 +6,6 @@ import 'package:polyphasic_sleep_new/components/current_schedule_component.dart'
 import 'package:polyphasic_sleep_new/components/how_it_works_component.dart';
 import 'package:polyphasic_sleep_new/components/reminder_component.dart';
 import 'package:polyphasic_sleep_new/components/settings_component.dart';
-import 'package:polyphasic_sleep_new/components/sleep_quality_component.dart';
 import 'package:polyphasic_sleep_new/components/sound_component.dart';
 
 class HomePage extends StatefulWidget {

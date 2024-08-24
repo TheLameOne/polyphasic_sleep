@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:polyphasic_sleep_new/components/schedule_type_details.dart';
 
 typedef PageChangedCallback = void Function(double? page);
 typedef PageSelectedCallback = void Function(int index);

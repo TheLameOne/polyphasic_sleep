@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:polyphasic_sleep_new/components/sleep_chart.dart';
 
 class SleepQualityPage extends StatelessWidget {

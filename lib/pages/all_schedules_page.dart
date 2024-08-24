@@ -5,7 +5,6 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:polyphasic_sleep_new/components/neu_box.dart';
 import 'package:polyphasic_sleep_new/components/schedule_component.dart';
 import 'package:polyphasic_sleep_new/models/classification_model.dart';
-import 'package:polyphasic_sleep_new/models/schedules_model.dart';
 import 'package:polyphasic_sleep_new/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 

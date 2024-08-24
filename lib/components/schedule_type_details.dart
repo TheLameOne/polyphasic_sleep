@@ -1,7 +1,5 @@
-import 'dart:math';
 import 'package:action_slider/action_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:polyphasic_sleep_new/components/sleep_chart.dart';
 import 'package:polyphasic_sleep_new/pages/setup_page.dart';

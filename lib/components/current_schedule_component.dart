@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:hive/hive.dart';
 import 'package:polyphasic_sleep_new/components/neu_box.dart';
 import 'package:polyphasic_sleep_new/components/sleep_chart.dart';
-import 'package:polyphasic_sleep_new/theme/theme_provider.dart';
-import 'package:polyphasic_sleep_new/util/global.dart';
-import 'package:provider/provider.dart';
 
 class CurrentScheduleComponent extends StatefulWidget {
   const CurrentScheduleComponent({super.key});

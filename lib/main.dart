@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:polyphasic_sleep_new/models/sound_provider.dart';
 import 'package:polyphasic_sleep_new/pages/alarm_page.dart';
 import 'package:polyphasic_sleep_new/pages/all_schedules_page.dart';
@@ -28,7 +27,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await LocalNotifications.init();
-  var dir = await getApplicationDocumentsDirectory();
+  // var dir = await getApplicationDocumentsDirectory();
   await Hive.initFlutter();
   await Hive.openBox('myBox');
   await Alarm.init();

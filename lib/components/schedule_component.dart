@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:polyphasic_sleep_new/components/sleep_chart.dart';
-import 'package:polyphasic_sleep_new/models/schedules_model.dart';
+
 import 'package:polyphasic_sleep_new/pages/schedule_types_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 

@@ -1,9 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/main.dart';
 import 'package:hive/hive.dart';
 import 'package:polyphasic_sleep_new/components/alarm_box.dart';
-import 'package:polyphasic_sleep_new/components/alarm_component.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({super.key});

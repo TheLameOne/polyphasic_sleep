@@ -54,8 +54,9 @@ class _AllSchedulesPageState extends State<AllSchedulesPage> {
                           totalSleep: snapshot.data![i].totalSleep!,
                           link: snapshot.data![i].link!,
                           svgPath: (Provider.of<ThemeProvider>(context,
-                                      listen: false)
-                                  .isDarkMode)
+                                          listen: false)
+                                      .currentThemeIndex ==
+                                  1)
                               ? "assets/svg/dark/${snapshot.data![i].svgPath}.svg"
                               : "assets/svg/light/${snapshot.data![i].svgPath}.svg",
                           contains: snapshot.data![i].contains!,

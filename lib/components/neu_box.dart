@@ -9,7 +9,8 @@ class NeuBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode;
+    bool isDarkMode =
+        Provider.of<ThemeProvider>(context).currentThemeIndex == 1;
 
     return Container(
       decoration: BoxDecoration(

@@ -91,6 +91,7 @@ class _ScheduleTypesPageState extends State<ScheduleTypesPage> {
                                   snapshot.data![index].idealScheduling!,
                               link: snapshot.data![index].link!,
                               svgPath: snapshot.data![index].svg!,
+                              setup: snapshot.data![index].setup!,
                               color: HexColor(
                                   snapshot.data![index].lightModeColor!),
                             ));

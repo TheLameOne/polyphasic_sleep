@@ -2,6 +2,7 @@ import 'package:action_slider/action_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:polyphasic_sleep_new/components/sleep_chart.dart';
+import 'package:polyphasic_sleep_new/components/sleep_chart_without_id.dart';
 import 'package:polyphasic_sleep_new/pages/setup_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,6 +17,7 @@ class ScheduleTypeDetails extends StatefulWidget {
   final String svgPath;
   final HexColor color;
   final int id;
+  final List<dynamic> setup;
 
   const ScheduleTypeDetails(
       {super.key,
@@ -28,7 +30,8 @@ class ScheduleTypeDetails extends StatefulWidget {
       required this.link,
       required this.svgPath,
       required this.color,
-      required this.id});
+      required this.id,
+      required this.setup});
 
   @override
   State<ScheduleTypeDetails> createState() => _ScheduleTypeDetailsState();
@@ -113,8 +116,8 @@ class _ScheduleTypeDetailsState extends State<ScheduleTypeDetails> {
                     // color: Theme.of(context).colorScheme.surface,
                     height: size.height * 0.3,
                     width: size.width * 0.3,
-                    child: SleepChart(
-                      id: widget.id,
+                    child: SleepChartWithoutId(
+                      setup: widget.setup,
                     )
                     // SvgPicture.asset("assets/svg/light/$svgPath.svg",
                     //     semanticsLabel: 'Acme Logo'),

@@ -16,7 +16,7 @@ class AlarmComponent extends StatelessWidget {
           padding: false,
           child: Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(15)),
             height: size.height * 0.2,
             width: (size.width - 48) / 2,
@@ -28,7 +28,7 @@ class AlarmComponent extends StatelessWidget {
                   children: [
                     Text("A L A R M S",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.inverseSurface,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 18)),
                     const SizedBox(height: 16),
                     Icon(

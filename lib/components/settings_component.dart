@@ -16,7 +16,7 @@ class SettingsComponent extends StatelessWidget {
           padding: false,
           child: Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(15)),
             height: size.height * 0.1,
             width: (size.width - 48) / 2,
@@ -25,7 +25,7 @@ class SettingsComponent extends StatelessWidget {
               child: Center(
                   child: Text("S E T T I N G S",
                       style: TextStyle(
-                          color: Theme.of(context).colorScheme.inverseSurface,
+                          color: Theme.of(context).colorScheme.onPrimary,
                           fontSize: 18))),
             ),
           ),

@@ -18,12 +18,16 @@ class NeuBox extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-                color: isDarkMode ? Colors.black : Colors.grey.shade500,
-                blurRadius: 15,
+                color: isDarkMode
+                    ? Theme.of(context).colorScheme.secondary
+                    : Theme.of(context).colorScheme.onSecondary,
+                blurRadius: 10,
                 offset: const Offset(4, 4)),
             BoxShadow(
-                color: isDarkMode ? Colors.grey.shade800 : Colors.white,
-                blurRadius: 15,
+                color: isDarkMode
+                    ? Theme.of(context).colorScheme.onSecondary
+                    : Theme.of(context).colorScheme.secondary,
+                blurRadius: 10,
                 offset: const Offset(-4, -4)),
           ]),
       padding: (padding) ? const EdgeInsets.all(12) : const EdgeInsets.all(0),

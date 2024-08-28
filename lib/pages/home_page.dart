@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
           title: Center(
             child: Text("P O L Y P H A S I C      S L E E P",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.inverseSurface,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
                     fontSize: 24)),
           )),

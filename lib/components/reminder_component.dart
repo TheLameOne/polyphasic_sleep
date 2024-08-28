@@ -16,7 +16,7 @@ class RemindersComponent extends StatelessWidget {
           padding: false,
           child: Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(15)),
             height: size.height * 0.15,
             width: (size.width - 48) / 2,
@@ -30,9 +30,7 @@ class RemindersComponent extends StatelessWidget {
                       children: [
                         Text("R E M I N D E R S",
                             style: TextStyle(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inverseSurface,
+                                color: Theme.of(context).colorScheme.onPrimary,
                                 fontSize: 18)),
                       ],
                     ),

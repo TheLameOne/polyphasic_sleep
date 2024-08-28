@@ -92,7 +92,7 @@ class _SetupPageState extends State<SetupPage> {
             padding: const EdgeInsets.only(right: 40.0),
             child: Text("S E T U P",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.inverseSurface,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 20)),
           ),
         ),
@@ -167,7 +167,7 @@ class _SetupPageState extends State<SetupPage> {
                                   cornerStyle: CornerStyle.bothCurve,
                                   width: 6,
                                   sizeUnit: GaugeSizeUnit.logicalPixel,
-                                  color: Colors.red,
+                                  color: Theme.of(context).colorScheme.tertiary,
                                 ),
                                 MarkerPointer(
                                   value: radialValue,
@@ -188,7 +188,8 @@ class _SetupPageState extends State<SetupPage> {
                                   markerWidth: 20,
                                   markerType: MarkerType.circle,
                                   borderWidth: 2,
-                                  borderColor: Colors.red,
+                                  borderColor:
+                                      Theme.of(context).colorScheme.tertiary,
                                 )
                               ],
                               // annotations: [
@@ -269,6 +270,7 @@ class _SetupPageState extends State<SetupPage> {
                           });
                         },
                         child: Icon(
+                          size: 28,
                           Icons.remove_circle_outline,
                           color: Colors.red,
                         ),
@@ -284,6 +286,7 @@ class _SetupPageState extends State<SetupPage> {
                           });
                         },
                         child: Icon(
+                          size: 28,
                           Icons.add_circle_outline_rounded,
                           color: Colors.green,
                         ),
@@ -302,7 +305,10 @@ class _SetupPageState extends State<SetupPage> {
                       padding: const EdgeInsets.only(right: 64),
                       child: Text(
                         "Sleep " + (i + 1).toString(),
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
                       ),
                     ),
                     SizedBox(width: 8),
@@ -355,17 +361,12 @@ class _SetupPageState extends State<SetupPage> {
                     ),
                     SizedBox(width: 8),
                     InkWell(
-                      onTap: () {}
-
-                      // () => _selectTime(context, i, 'e',
-                      //     _timeOfDayConvert(finalData[i].e.toString()))
-                      ,
+                      onTap: () {},
                       child: NeuBox(
                         padding: false,
                         child: Padding(
                           padding: const EdgeInsets.all(4.0),
                           child: Container(
-                            // color: Colors.green,
                             child: Row(children: [
                               (currentFormat == 0)
                                   ? Row(
@@ -435,7 +436,7 @@ class _SetupPageState extends State<SetupPage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ActionSlider.standard(
-                toggleColor: Colors.redAccent,
+                toggleColor: Theme.of(context).colorScheme.tertiary,
                 width: 300.0,
                 action: (controller) async {
                   controller.loading(); //starts loading animation
@@ -518,7 +519,7 @@ class _SetupPageState extends State<SetupPage> {
             titleStyle:
                 TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].toDouble(),
-            color: Colors.red,
+            color: Theme.of(context).colorScheme.tertiary,
             showTitle: false,
             title: list[i].toString()));
       } else {

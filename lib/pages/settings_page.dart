@@ -24,10 +24,11 @@ class SettingsPage extends StatelessWidget {
           ListTile(
             title: const Text("Dark Mode"),
             trailing: Switch(
-                value: _getCurrentThemeIndex(context) == 1,
+                value: Provider.of<ThemeProvider>(context, listen: false)
+                    .isDarkMode,
                 onChanged: (value) =>
                     Provider.of<ThemeProvider>(context, listen: false)
-                        .toggleTheme()),
+                        .toggleDarkMode()),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),

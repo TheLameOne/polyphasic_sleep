@@ -22,7 +22,7 @@ class AllScheduleComponent extends StatelessWidget {
           padding: false,
           child: Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(15)),
             height: size.height * 0.1,
             width: (size.width - 48) / 2,
@@ -31,7 +31,7 @@ class AllScheduleComponent extends StatelessWidget {
               child: Center(
                 child: Text("S C H E D U L E S",
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.inverseSurface,
+                        color: Theme.of(context).colorScheme.onPrimary,
                         fontSize: 18)),
               ),
             ),

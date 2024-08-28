@@ -50,7 +50,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
       padding: false,
       child: Container(
         decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(15)),
         height: size.height * 0.2,
         width: size.width - 16,
@@ -66,7 +66,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                       Text(
                         "S E L E C T",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 22,
                             fontWeight: FontWeight.w500),
                       ),
@@ -74,7 +74,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                       Text(
                         "S C H E D U L E",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 22,
                             fontWeight: FontWeight.w500),
                       ),
@@ -96,23 +96,34 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                               Text(
                                 _convertName(scheduleName!),
                                 style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary,
+                                    color:
+                                        Theme.of(context).colorScheme.onPrimary,
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 classification!,
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
                               ),
                               Text(
                                 "Difficulty : ${difficulty!.toString()}",
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
                               ),
                               Text(
                                 totalSleep!,
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
                               ),
                               // Container(
                               //   decoration: BoxDecoration(

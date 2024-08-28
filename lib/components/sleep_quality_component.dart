@@ -16,7 +16,7 @@ class SleepQualityComponent extends StatelessWidget {
           padding: false,
           child: Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(15)),
             height: size.height * 0.15,
             width: (size.width - 24) / 2,
@@ -30,15 +30,11 @@ class SleepQualityComponent extends StatelessWidget {
                       children: [
                         Text("S L E E P",
                             style: TextStyle(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inverseSurface,
+                                color: Theme.of(context).colorScheme.onPrimary,
                                 fontSize: 20)),
                         Text("Q U A L I T Y",
                             style: TextStyle(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inverseSurface,
+                                color: Theme.of(context).colorScheme.onPrimary,
                                 fontSize: 20)),
                       ],
                     ),

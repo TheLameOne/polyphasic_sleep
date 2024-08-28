@@ -91,7 +91,7 @@ class _ReminderBoxState extends State<ReminderBox> {
       padding: const EdgeInsets.only(left: 12.0, top: 4, bottom: 4, right: 12),
       child: Container(
         decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(20)),
         width: size.width - 16,
         height: size.height * 0.14,

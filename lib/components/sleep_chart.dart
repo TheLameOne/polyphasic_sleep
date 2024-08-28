@@ -107,7 +107,7 @@ class _SleepChartState extends State<SleepChart> {
             titleStyle:
                 TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].toDouble(),
-            color: Colors.redAccent,
+            color: Theme.of(context).colorScheme.tertiary,
             title: list[i].toString(),
             showTitle: false));
       } else {
@@ -116,7 +116,7 @@ class _SleepChartState extends State<SleepChart> {
             titleStyle:
                 TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].abs().toDouble(),
-            color: Theme.of(context).colorScheme.tertiary,
+            color: Colors.black26,
             title: list[i].toString(),
             showTitle: false));
       }

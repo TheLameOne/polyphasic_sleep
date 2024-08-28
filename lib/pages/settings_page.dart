@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:polyphasic_sleep_new/theme/brick_dark.dart';
+import 'package:polyphasic_sleep_new/theme/burnt_umber_dark.dart';
+import 'package:polyphasic_sleep_new/theme/cocoa_dark.dart';
+import 'package:polyphasic_sleep_new/theme/copper_sand_light.dart';
+import 'package:polyphasic_sleep_new/theme/ebony_dark.dart';
+import 'package:polyphasic_sleep_new/theme/mocha_dark.dart';
+import 'package:polyphasic_sleep_new/theme/muted_desert_light.dart';
+import 'package:polyphasic_sleep_new/theme/rustic_beige_light.dart';
+import 'package:polyphasic_sleep_new/theme/terracotta_light.dart';
 import 'package:polyphasic_sleep_new/theme/theme_provider.dart';
+import 'package:polyphasic_sleep_new/theme/warm_earth_light.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -39,7 +49,9 @@ class SettingsPage extends StatelessWidget {
                     onTap: () => _setTheme(context, 0),
                     child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: (_getDarkMode(context))
+                                ? copperSandLight.primaryColor
+                                : brickDark.primaryColor,
                             borderRadius: BorderRadius.circular(5)),
                         height: (_getCurrentThemeIndex(context) == 0) ? 30 : 20,
                         width:
@@ -50,7 +62,9 @@ class SettingsPage extends StatelessWidget {
                       height: (_getCurrentThemeIndex(context) == 1) ? 30 : 20,
                       width: (_getCurrentThemeIndex(context) == 1) ? 30 : 20,
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: (_getDarkMode(context))
+                              ? burntUmberDark.primaryColor
+                              : mutedDesertLight.primaryColor,
                           borderRadius: BorderRadius.circular(5)),
                     )),
                 InkWell(
@@ -60,7 +74,9 @@ class SettingsPage extends StatelessWidget {
                         height: (_getCurrentThemeIndex(context) == 2) ? 30 : 20,
                         width: (_getCurrentThemeIndex(context) == 2) ? 30 : 20,
                         decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: (_getDarkMode(context))
+                                ? cocoaDark.primaryColor
+                                : rusticBeigeLight.primaryColor,
                             borderRadius: BorderRadius.circular(5)),
                       ),
                     )),
@@ -70,7 +86,9 @@ class SettingsPage extends StatelessWidget {
                       height: (_getCurrentThemeIndex(context) == 3) ? 30 : 20,
                       width: (_getCurrentThemeIndex(context) == 3) ? 30 : 20,
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          color: (_getDarkMode(context))
+                              ? ebonyDark.primaryColor
+                              : terracottaLight.primaryColor,
                           borderRadius: BorderRadius.circular(5)),
                     )),
                 InkWell(
@@ -79,7 +97,9 @@ class SettingsPage extends StatelessWidget {
                       height: (_getCurrentThemeIndex(context) == 4) ? 30 : 20,
                       width: (_getCurrentThemeIndex(context) == 4) ? 30 : 20,
                       decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: (_getDarkMode(context))
+                              ? mochaDark.primaryColor
+                              : warmEarthLight.primaryColor,
                           borderRadius: BorderRadius.circular(5)),
                     ))
               ],
@@ -97,4 +117,8 @@ _setTheme(context, int i) {
 
 _getCurrentThemeIndex(context) {
   return Provider.of<ThemeProvider>(context, listen: false).currentThemeIndex;
+}
+
+_getDarkMode(context) {
+  return Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
 }

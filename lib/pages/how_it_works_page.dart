@@ -59,15 +59,17 @@ class _HowItWorksPageState extends State<HowItWorksPage> {
     // final size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            foregroundColor: Theme.of(context).colorScheme.onSurface,
             title: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(right: 40.0),
-            child: Text(" H O W    I T    W O R K S",
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.inverseSurface,
-                    fontSize: 18)),
-          ),
-        )),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 40.0),
+                child: Text(" H O W    I T    W O R K S",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontSize: 18)),
+              ),
+            )),
         backgroundColor: Theme.of(context).colorScheme.surface,
         body: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,11 +98,15 @@ class _HowItWorksPageState extends State<HowItWorksPage> {
                                               vertical: 8.0),
                                           child: BubbleSpecialOne(
                                             text: qna[i].question!,
-                                            color: const Color(0xFF1B97F3),
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondaryContainer,
                                             tail: true,
                                             isSender: true,
-                                            textStyle: const TextStyle(
-                                                color: Colors.white,
+                                            textStyle: TextStyle(
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer,
                                                 fontSize: 16),
                                           ),
                                         ),
@@ -110,15 +116,17 @@ class _HowItWorksPageState extends State<HowItWorksPage> {
                                           (j == 0)
                                               ? BubbleSpecialOne(
                                                   text: qna[i].answer![j],
-                                                  color:
-                                                      const Color(0xFFE8E8EE),
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .tertiaryContainer,
                                                   tail: true,
                                                   isSender: false,
                                                 )
                                               : BubbleSpecialOne(
                                                   text: qna[i].answer![j],
-                                                  color:
-                                                      const Color(0xFFE8E8EE),
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .tertiaryContainer,
                                                   tail: false,
                                                   isSender: false,
                                                 ),
@@ -186,57 +194,67 @@ class _HowItWorksPageState extends State<HowItWorksPage> {
   Widget _buildquestion(String question) {
     return BubbleSpecialOne(
       text: question,
-      color: const Color(0xFF1B97F3),
+      color: Theme.of(context).colorScheme.secondaryContainer,
       tail: true,
       isSender: true,
-      textStyle: const TextStyle(color: Colors.white, fontSize: 16),
+      textStyle: TextStyle(
+          color: Theme.of(context).colorScheme.onSecondaryContainer,
+          fontSize: 16),
     );
   }
 
   Widget _buildanswer(String answer) {
     return BubbleSpecialOne(
       text: answer,
-      color: const Color(0xFFE8E8EE),
+      color: Theme.of(context).colorScheme.tertiaryContainer,
       tail: true,
       isSender: false,
+      textStyle:
+          TextStyle(color: Theme.of(context).colorScheme.onTertiaryContainer),
     );
   }
 
   Widget _buildUserInput() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+      padding: const EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 8),
       child: Row(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
+            flex: 7,
             child: MyTextfield(
               focusNode: myFocusNode,
               hintText: "Ask me more about Polyphasic Sleep",
               controller: _messageController,
             ),
           ),
-          Container(
-            decoration: const BoxDecoration(
-                color: Color.fromARGB(220, 76, 175, 79),
-                shape: BoxShape.circle),
-            child: IconButton(
-                onPressed: () async {
-                  var question = _messageController.text;
-                  setState(() {
-                    questionList.add(_buildquestion(question));
-                  });
+          SizedBox(width: 8),
+          Expanded(
+            flex: 1,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  shape: BoxShape.circle),
+              child: IconButton(
+                  onPressed: () async {
+                    var question = _messageController.text;
+                    setState(() {
+                      questionList.add(_buildquestion(question));
+                    });
 
-                  var url = "https://polyphasic-ai.onrender.com/$question";
-                  _messageController.clear();
-                  var answer = await getAPiData(url);
-                  setState(() {
-                    answerList.add(_buildanswer(answer));
-                  });
-                  print(answer);
-                },
-                icon: Icon(
-                  Icons.arrow_upward,
-                  color: Theme.of(context).colorScheme.surface,
-                )),
+                    var url = "https://polyphasic-ai.onrender.com/$question";
+                    _messageController.clear();
+                    var answer = await getAPiData(url);
+                    setState(() {
+                      answerList.add(_buildanswer(answer));
+                    });
+                    print(answer);
+                  },
+                  icon: Icon(
+                    Icons.arrow_upward,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  )),
+            ),
           )
         ],
       ),

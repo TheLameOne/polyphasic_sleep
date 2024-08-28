@@ -15,28 +15,33 @@ class MyTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: SizedBox(
-        width: size.width - 80,
-        child: TextField(
-          focusNode: focusNode,
-          controller: controller,
-          decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
-                    color: Theme.of(context).colorScheme.inversePrimary),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
-                    color: Theme.of(context).colorScheme.inversePrimary),
-              ),
-              fillColor: Theme.of(context).colorScheme.secondary,
-              filled: true,
-              hintText: hintText),
-        ),
+    return SizedBox(
+      width: size.width - 80,
+      child: TextField(
+        focusNode: focusNode,
+        controller: controller,
+        decoration: InputDecoration(
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.secondaryContainer),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.secondaryContainer),
+            ),
+            fillColor: Theme.of(context)
+                .colorScheme
+                .secondaryContainer
+                .withOpacity(0.4),
+            filled: true,
+            hintStyle: TextStyle(
+                color: Theme.of(context)
+                    .colorScheme
+                    .onSecondaryContainer
+                    .withOpacity(0.5)),
+            hintText: hintText),
       ),
     );
   }

@@ -16,30 +16,18 @@ class AlarmComponent extends StatelessWidget {
           padding: false,
           child: Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.secondaryContainer,
                 borderRadius: BorderRadius.circular(15)),
             height: size.height * 0.2,
             width: (size.width - 48) / 2,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("A L A R M S",
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
-                            fontSize: 18)),
-                    const SizedBox(height: 16),
-                    Icon(
-                      Icons.alarm_rounded,
-                      size: 64,
-
-                      color: Theme.of(context).colorScheme.inversePrimary,
-                      // weight: 1,
-                    )
-                  ],
-                ),
+                child: Text("A L A R M S",
+                    style: TextStyle(
+                        color:
+                            Theme.of(context).colorScheme.onSecondaryContainer,
+                        fontSize: 18)),
               ),
             ),
           ),

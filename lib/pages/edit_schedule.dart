@@ -76,7 +76,7 @@ class _EditScheduleState extends State<EditSchedule> {
             padding: const EdgeInsets.only(right: 40.0),
             child: Text(_convertName(scheduleName.toString()),
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.inverseSurface,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 20)),
           ),
         ),
@@ -95,373 +95,287 @@ class _EditScheduleState extends State<EditSchedule> {
         // ],
       ),
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: size.height * 0.5,
-              width: size.width - 4,
-              child: Padding(
-                padding: const EdgeInsets.all(48.0),
-                child: Center(
-                  child: Stack(
-                    children: <Widget>[
-                      Transform.rotate(
-                        angle: ((radialValue) * math.pi / 180 / 4),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: PieChart(PieChartData(
-                              startDegreeOffset: offset + rotateChart,
-                              sectionsSpace: 0,
-                              sections: _list(setupData))),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: size.height * 0.5,
+                width: size.width - 4,
+                child: Padding(
+                  padding: const EdgeInsets.all(48.0),
+                  child: Center(
+                    child: Stack(
+                      children: <Widget>[
+                        Transform.rotate(
+                          angle: ((radialValue) * math.pi / 180 / 4),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: PieChart(PieChartData(
+                                startDegreeOffset: offset + rotateChart,
+                                sectionsSpace: 0,
+                                sections: _list(setupData, context))),
+                          ),
                         ),
-                      ),
-                      PieChart(PieChartData(startDegreeOffset: 263, sections: [
-                        for (int i = 0; i < 24; i++)
-                          PieChartSectionData(
-                              value: 100 / 24,
-                              color: Colors.black54,
-                              title: "$i:00",
-                              titleStyle: const TextStyle(fontSize: 12),
-                              radius: 2,
-                              titlePositionPercentageOffset: 10),
-                      ])),
-                      Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Total Sleep",
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            Text(totalSleep.toString(),
-                                style: TextStyle(fontSize: 20)),
-                          ],
-                        ),
-                      )
-                    ],
+                        PieChart(
+                            PieChartData(startDegreeOffset: 263, sections: [
+                          for (int i = 0; i < 24; i++)
+                            PieChartSectionData(
+                                value: 100 / 24,
+                                color: Colors.black54,
+                                title: "$i:00",
+                                titleStyle: const TextStyle(fontSize: 12),
+                                radius: 2,
+                                titlePositionPercentageOffset: 10),
+                        ])),
+                        Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Total Sleep",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              Text(totalSleep.toString(),
+                                  style: TextStyle(fontSize: 20)),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Sleep Cycles",
-                    style: TextStyle(fontSize: 26),
-                  ),
-                  FlutterToggleTab(
-                    width: 20, // width in percent
-                    borderRadius: 10,
-                    height: 30,
-                    selectedIndex: formatSwitch,
-                    selectedBackgroundColors: const [
-                      Colors.blue,
-                      Colors.blueAccent
-                    ],
-                    unSelectedBackgroundColors: const [
-                      Colors.grey,
-                      Colors.blueGrey
-                    ],
-                    selectedTextStyle: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700),
-                    unSelectedTextStyle: const TextStyle(
-                        color: Colors.black87,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500),
-                    labels: const ["24", "12"],
-                    selectedLabelIndex: (index) {
-                      setState(() {
-                        formatSwitch = index;
-                        currentFormat = formatSwitch;
-                      });
-                    },
-                    isScroll: false,
-                  ),
-                  // Row(
-                  //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     InkWell(
-                  //       onTap: () {
-                  //         setState(() {
-                  //           radialValue = radialValue - 1;
-                  //           updateValues(radialValue.toInt());
-                  //           // Haptic Feedback
-                  //         });
-                  //       },
-                  //       child: Icon(
-                  //         Icons.remove_circle_outline,
-                  //         color: Colors.red,
-                  //       ),
-                  //     ),
-                  //     SizedBox(width: 4),
-                  //     InkWell(
-                  //       onTap: () {
-                  //         setState(() {
-                  //           radialValue = radialValue + 1;
-                  //           updateValues(radialValue.toInt());
-                  //           // Haptic Feedback
-                  //         });
-                  //       },
-                  //       child: Icon(
-                  //         Icons.add_circle_outline_rounded,
-                  //         color: Colors.green,
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-                ],
-              ),
-            ),
-            // Column(
-            //   children: [
-            //     for (int i = 0; i < setupData.length; i++)
-            //       Row(
-            //         children: [
-            //           // cycle
-            //           Text(
-            //             "Sleep " + (i + 1).toString(),
-            //             style: TextStyle(fontSize: 18),
-            //           ),
-            //           // time
-            //           Container(
-            //               decoration: BoxDecoration(
-            //                 borderRadius: BorderRadius.circular(20),
-            //                 color: Colors.grey,
-            //               ),
-            //               child: Padding(
-            //                 padding: const EdgeInsets.all(4.0),
-            //                 child: Text(
-            //                   _convertTimeToSmallTime(
-            //                       _timeOfDayConvert(setupData[i].s.toString()),
-            //                       _timeOfDayConvert(setupData[i].e.toString())),
-            //                   style: TextStyle(fontSize: 14),
-            //                 ),
-            //               )),
-            //           // time start
-            //           NeuBox(
-            //             padding: false,
-            //             child: Padding(
-            //               padding: const EdgeInsets.all(4.0),
-            //               child: Container(
-            //                 // color: Colors.amber,
-            //                 child: Row(
-            //                   children: [
-            //                     (currentFormat == 0)
-            //                         ? Row(children: [
-            //                             Text(
-            //                               _timeOfDayConvert(
-            //                                       finalData[i].s.toString())
-            //                                   .hour
-            //                                   .toString()
-            //                                   .padLeft(2, '0'),
-            //                               style: TextStyle(fontSize: 18),
-            //                             ),
-            //                             Text(
-            //                               " : ",
-            //                               style: TextStyle(fontSize: 18),
-            //                             ),
-            //                             Text(
-            //                               _timeOfDayConvert(
-            //                                       finalData[i].s.toString())
-            //                                   .minute
-            //                                   .toString()
-            //                                   .padLeft(2, '0'),
-            //                               style: TextStyle(fontSize: 18),
-            //                             ),
-            //                           ])
-            //                         : Text(
-            //                             _convertTime(_timeOfDayConvert(
-            //                                 finalData[i].s.toString())),
-            //                             style: TextStyle(fontSize: 18),
-            //                           )
-            //                   ],
-            //                 ),
-            //               ),
-            //             ),
-            //           ),
-            //           SizedBox(width: 8),
-            //           NeuBox(
-            //             padding: false,
-            //             child: Padding(
-            //               padding: const EdgeInsets.all(4.0),
-            //               child: Container(
-            //                 // color: Colors.green,
-            //                 child: Row(children: [
-            //                   (currentFormat == 0)
-            //                       ? Row(
-            //                           children: [
-            //                             Text(
-            //                               _timeOfDayConvert(
-            //                                       finalData[i].e.toString())
-            //                                   .hour
-            //                                   .toString()
-            //                                   .padLeft(2, '0'),
-            //                               style: TextStyle(fontSize: 18),
-            //                             ),
-            //                             Text(
-            //                               " : ",
-            //                               style: TextStyle(fontSize: 18),
-            //                             ),
-            //                             Text(
-            //                               _timeOfDayConvert(
-            //                                       finalData[i].e.toString())
-            //                                   .minute
-            //                                   .toString()
-            //                                   .padLeft(2, '0'),
-            //                               style: TextStyle(fontSize: 18),
-            //                             ),
-            //                           ],
-            //                         )
-            //                       : Text(
-            //                           _convertTime(_timeOfDayConvert(
-            //                               finalData[i].e.toString())),
-            //                           style: TextStyle(fontSize: 18),
-            //                         )
-            //                 ]),
-            //               ),
-            //             ),
-            //           ),
-            //         ],
-            //       )
-
-            //     // time end
-            //   ],
-            // ),
-            for (int i = 0; i < setupData.length; i++)
               Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 4),
+                padding: const EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Text(data),
-                    Row(
-                      children: [
-                        Text(
-                          "Sleep " + (i + 1).toString(),
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        SizedBox(width: 4),
-                        // 20m
-                        Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.grey,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Text(
-                                _convertTimeToSmallTime(
-                                    _timeOfDayConvert(
-                                        setupData[i].s.toString()),
-                                    _timeOfDayConvert(
-                                        setupData[i].e.toString())),
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            )),
-                      ],
+                    Text(
+                      "Sleep Cycles",
+                      style: TextStyle(
+                          fontSize: 32,
+                          color: Theme.of(context).colorScheme.onSurface),
                     ),
-                    // start time
-                    Row(
-                      children: [
-                        NeuBox(
-                          padding: false,
-                          child: Padding(
+                    FlutterToggleTab(
+                      width: 20, // width in percent
+                      borderRadius: 10,
+                      height: 30,
+                      selectedIndex: formatSwitch,
+                      selectedBackgroundColors: [
+                        Theme.of(context).colorScheme.primary
+                      ],
+                      unSelectedBackgroundColors: [
+                        Theme.of(context).colorScheme.primaryContainer
+                      ],
+                      selectedTextStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700),
+                      unSelectedTextStyle: TextStyle(
+                          color:
+                              Theme.of(context).colorScheme.onPrimaryContainer,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400),
+                      labels: const ["24", "12"],
+                      selectedLabelIndex: (index) {
+                        setState(() {
+                          formatSwitch = index;
+                          currentFormat = formatSwitch;
+                        });
+                      },
+                      isScroll: false,
+                    ),
+                  ],
+                ),
+              ),
+              for (int i = 0; i < setupData.length; i++)
+                Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16, top: 4),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Text(data),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Sleep " + (i + 1).toString(),
+                            style: TextStyle(
+                              fontSize: 26,
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
+                          ),
+                          SizedBox(width: 4),
+                          // 20m
+                          Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .tertiaryContainer,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text(
+                                  _convertTimeToSmallTime(
+                                      _timeOfDayConvert(
+                                          setupData[i].s.toString()),
+                                      _timeOfDayConvert(
+                                          setupData[i].e.toString())),
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onTertiaryContainer),
+                                ),
+                              )),
+                        ],
+                      ),
+                      // start time
+                      Row(
+                        children: [
+                          Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: Container(
                               // color: Colors.amber,
-                              child: Row(
-                                children: [
-                                  (currentFormat == 0)
-                                      ? Row(children: [
-                                          Text(
-                                            _timeOfDayConvert(
-                                                    finalData[i].s.toString())
-                                                .hour
-                                                .toString()
-                                                .padLeft(2, '0'),
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          Text(
-                                            " : ",
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          Text(
-                                            _timeOfDayConvert(
-                                                    finalData[i].s.toString())
-                                                .minute
-                                                .toString()
-                                                .padLeft(2, '0'),
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                        ])
-                                      : Text(
-                                          _convertTime(_timeOfDayConvert(
-                                              finalData[i].s.toString())),
-                                          style: TextStyle(fontSize: 18),
-                                        )
-                                ],
+
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .secondaryContainer),
+
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Row(
+                                  children: [
+                                    (currentFormat == 0)
+                                        ? Row(children: [
+                                            Text(
+                                              _timeOfDayConvert(
+                                                      finalData[i].s.toString())
+                                                  .hour
+                                                  .toString()
+                                                  .padLeft(2, '0'),
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSecondaryContainer),
+                                            ),
+                                            Text(
+                                              " : ",
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSecondaryContainer),
+                                            ),
+                                            Text(
+                                              _timeOfDayConvert(
+                                                      finalData[i].s.toString())
+                                                  .minute
+                                                  .toString()
+                                                  .padLeft(2, '0'),
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSecondaryContainer),
+                                            ),
+                                          ])
+                                        : Text(
+                                            _convertTime(_timeOfDayConvert(
+                                                finalData[i].s.toString())),
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer),
+                                          )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 8),
-                        NeuBox(
-                          padding: false,
-                          child: Padding(
+                          SizedBox(width: 8),
+                          Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .secondaryContainer),
                               // color: Colors.green,
                               child: Row(children: [
                                 (currentFormat == 0)
-                                    ? Row(
-                                        children: [
-                                          Text(
-                                            _timeOfDayConvert(
-                                                    finalData[i].e.toString())
-                                                .hour
-                                                .toString()
-                                                .padLeft(2, '0'),
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          Text(
-                                            " : ",
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          Text(
-                                            _timeOfDayConvert(
-                                                    finalData[i].e.toString())
-                                                .minute
-                                                .toString()
-                                                .padLeft(2, '0'),
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                        ],
+                                    ? Padding(
+                                        padding: const EdgeInsets.all(4.0),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              _timeOfDayConvert(
+                                                      finalData[i].e.toString())
+                                                  .hour
+                                                  .toString()
+                                                  .padLeft(2, '0'),
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSecondaryContainer),
+                                            ),
+                                            Text(
+                                              " : ",
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSecondaryContainer),
+                                            ),
+                                            Text(
+                                              _timeOfDayConvert(
+                                                      finalData[i].e.toString())
+                                                  .minute
+                                                  .toString()
+                                                  .padLeft(2, '0'),
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSecondaryContainer),
+                                            ),
+                                          ],
+                                        ),
                                       )
-                                    : Text(
-                                        _convertTime(_timeOfDayConvert(
-                                            finalData[i].e.toString())),
-                                        style: TextStyle(fontSize: 18),
+                                    : Padding(
+                                        padding: const EdgeInsets.all(4.0),
+                                        child: Text(
+                                          _convertTime(_timeOfDayConvert(
+                                              finalData[i].e.toString())),
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onSecondaryContainer),
+                                        ),
                                       )
                               ]),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
 
-                    // end time
-                  ],
+                      // end time
+                    ],
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -611,7 +525,7 @@ void _setupAlarm() async {
           notificationBody: 'This is the body'));
 }
 
-List<PieChartSectionData> _list(List<({int s, int e})> v) {
+List<PieChartSectionData> _list(List<({int s, int e})> v, context) {
   int temp = 0;
   List<({int s, int e})> value = [...v];
   List<int> list = [];
@@ -631,10 +545,10 @@ List<PieChartSectionData> _list(List<({int s, int e})> v) {
   if (v.last.e < v.last.s) {
     list[0] = list[0] + v.last.e;
   }
-  return _sections(list);
+  return _sections(list, context);
 }
 
-List<PieChartSectionData> _sections(List<int> list) {
+List<PieChartSectionData> _sections(List<int> list, context) {
   List<PieChartSectionData> sleep = [];
   for (int i = 0; i < list.length; i++) {
     if (list[i] > 0) {
@@ -642,7 +556,7 @@ List<PieChartSectionData> _sections(List<int> list) {
           titleStyle:
               TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
           value: list[i].toDouble(),
-          color: Colors.red,
+          color: Theme.of(context).colorScheme.tertiary,
           showTitle: false,
           title: list[i].toString()));
     } else {

@@ -57,7 +57,7 @@ class _ScheduleTypeDetailsState extends State<ScheduleTypeDetails> {
                 Text(
                   widget.scheduleType,
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 32),
                 ),
                 InkWell(
@@ -80,31 +80,31 @@ class _ScheduleTypeDetailsState extends State<ScheduleTypeDetails> {
                       Text(
                         widget.shortDescription,
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize: 12),
                       ),
                       Text(
                         widget.totalSleep,
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize: 12),
                       ),
                       Text(
                         widget.classification,
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize: 12),
                       ),
                       Text(
                         widget.difficulty.toString(),
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize: 12),
                       ),
                       Text(
                         widget.idealScheduling,
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize: 12),
                       ),
                     ],

@@ -50,18 +50,34 @@ class _AlarmPageState extends State<AlarmPage> {
                   }
                 },
                 itemBuilder: (context) => [
-                  PopupMenuItem(value: 1, child: Text("24 Hrs Format")),
-                  PopupMenuItem(value: 2, child: Text("12 Hrs Format")),
+                  PopupMenuItem(
+                      value: 1,
+                      child: Text(
+                        "24 Hrs Format",
+                        style: TextStyle(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer),
+                      )),
+                  PopupMenuItem(
+                      value: 2,
+                      child: Text(
+                        "12 Hrs Format",
+                        style: TextStyle(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer),
+                      )),
                 ],
                 offset: Offset(0, 50),
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.primaryContainer,
                 elevation: 2,
               ),
             ],
             title: Center(
               child: Text("A L A R M S",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inverseSurface,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 20)),
             )),
         body: (setup != null)
@@ -83,7 +99,7 @@ class _AlarmPageState extends State<AlarmPage> {
                 child: Text(
                   "Select schedule to edit Alarms",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inverseSurface,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 16,
                       fontWeight: FontWeight.w300),
                 ),

@@ -41,12 +41,15 @@ class ScheduleComponent extends StatelessWidget {
       },
       child: Container(
           decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
+              color: Theme.of(context)
+                  .colorScheme
+                  .secondaryContainer
+                  .withOpacity(0.7),
               borderRadius: BorderRadius.circular(15)),
           // height: size.height * 0.1,
           // width: (size.width - 24),
           child: Card(
-            color: Theme.of(context).colorScheme.surface,
+            color: Theme.of(context).colorScheme.secondaryContainer,
             elevation: 0,
             child: SizedBox(
               height: size.height * 0.3,
@@ -67,7 +70,9 @@ class ScheduleComponent extends StatelessWidget {
                         Text(
                           name,
                           style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                             fontSize: 32,
                           ),
                         ),
@@ -92,7 +97,7 @@ class ScheduleComponent extends StatelessWidget {
                                 style: TextStyle(
                                     color: Theme.of(context)
                                         .colorScheme
-                                        .inversePrimary,
+                                        .onSecondaryContainer,
                                     fontSize: 12,
                                     overflow: TextOverflow.clip),
                               ),
@@ -103,14 +108,14 @@ class ScheduleComponent extends StatelessWidget {
                                     style: TextStyle(
                                         color: Theme.of(context)
                                             .colorScheme
-                                            .inversePrimary,
+                                            .onSecondaryContainer,
                                         fontSize: 14,
                                         overflow: TextOverflow.clip)),
                                 Text(difficulty,
                                     style: TextStyle(
                                         color: Theme.of(context)
                                             .colorScheme
-                                            .inversePrimary,
+                                            .onSecondaryContainer,
                                         fontSize: 14,
                                         overflow: TextOverflow.clip)),
                               ],
@@ -121,14 +126,14 @@ class ScheduleComponent extends StatelessWidget {
                                     style: TextStyle(
                                         color: Theme.of(context)
                                             .colorScheme
-                                            .inversePrimary,
+                                            .onSecondaryContainer,
                                         fontSize: 14,
                                         overflow: TextOverflow.clip)),
                                 Text(totalSleep,
                                     style: TextStyle(
                                         color: Theme.of(context)
                                             .colorScheme
-                                            .inversePrimary,
+                                            .onSecondaryContainer,
                                         fontSize: 14,
                                         overflow: TextOverflow.clip)),
                               ],
@@ -136,7 +141,8 @@ class ScheduleComponent extends StatelessWidget {
                           ],
                         ),
                         Container(
-                          color: Theme.of(context).colorScheme.surface,
+                          color:
+                              Theme.of(context).colorScheme.secondaryContainer,
                           height: size.height * 0.2,
                           width: size.width * 0.3,
                           child: SvgPicture.asset(

@@ -9,8 +9,7 @@ class NeuBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode =
-        Provider.of<ThemeProvider>(context).currentThemeIndex == 1;
+    bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode;
 
     return Container(
       decoration: BoxDecoration(
@@ -19,15 +18,15 @@ class NeuBox extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 color: isDarkMode
-                    ? Theme.of(context).colorScheme.secondary
-                    : Theme.of(context).colorScheme.onSecondary,
-                blurRadius: 10,
+                    ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+                    : Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                blurRadius: 2,
                 offset: const Offset(4, 4)),
             BoxShadow(
                 color: isDarkMode
-                    ? Theme.of(context).colorScheme.onSecondary
-                    : Theme.of(context).colorScheme.secondary,
-                blurRadius: 10,
+                    ? Theme.of(context).colorScheme.onPrimary.withOpacity(0.1)
+                    : Theme.of(context).colorScheme.onPrimary.withOpacity(0.5),
+                blurRadius: 2,
                 offset: const Offset(-4, -4)),
           ]),
       padding: (padding) ? const EdgeInsets.all(12) : const EdgeInsets.all(0),

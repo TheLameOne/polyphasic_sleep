@@ -31,6 +31,7 @@ void main() async {
   await Hive.initFlutter();
   await Hive.openBox('myBox');
   await Alarm.init();
+
   var initialNotification =
       await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
   if (initialNotification?.didNotificationLaunchApp == true) {
@@ -41,6 +42,10 @@ void main() async {
       //     arguments: initialNotification?.notificationResponse?.payload);
     });
   }
+  SystemChrome.setSystemUIChangeCallback((systemOverlaysAreVisible) async {
+    await Future.delayed(const Duration(seconds: 1));
+    SystemChrome.restoreSystemUIOverlays();
+  });
 
   runApp(
     MultiProvider(
@@ -62,7 +67,13 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: [
+        SystemUiOverlay.top, // Shows Status bar and hides Navigation bar
+      ],
+    );
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Polyphasic Sleep',

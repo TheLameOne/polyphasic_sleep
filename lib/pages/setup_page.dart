@@ -82,6 +82,37 @@ class _SetupPageState extends State<SetupPage> {
     });
   }
 
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Confirm Selection'),
+          content: const SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Proceeding will replace the current schedule.'),
+                Text('Would you like to continue ?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                  context, '/homepage', (Route<dynamic> route) => false),
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -111,6 +142,25 @@ class _SetupPageState extends State<SetupPage> {
         ],
       ),
       backgroundColor: Theme.of(context).colorScheme.surface,
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+          child: Icon(
+            size: 32,
+            Icons.check,
+            color: Theme.of(context).colorScheme.onSecondaryContainer,
+          ),
+          onPressed: () async {
+            _saveData(SetupModel(
+                classification: data!.classification,
+                difficulty: data!.difficulty,
+                shortDesc: data!.shortDesc,
+                id: data!.id,
+                scheduleName: data!.scheduleName,
+                totalSleep: data!.totalSleep.toString(),
+                setup: convertToList(finalData),
+                svg: data!.svg));
+            await _showMyDialog();
+          }),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -208,8 +258,18 @@ class _SetupPageState extends State<SetupPage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Total Sleep"),
-                            Text(data!.totalSleep.toString()),
+                            Text(
+                              "Total Sleep",
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface),
+                            ),
+                            Text(
+                              data!.totalSleep.toString(),
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface),
+                            ),
                           ],
                         ),
                       )
@@ -218,37 +278,36 @@ class _SetupPageState extends State<SetupPage> {
                 ),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     "Sleep Cycles",
-                    style: TextStyle(fontSize: 26),
+                    style: TextStyle(
+                        fontSize: 32,
+                        color: Theme.of(context).colorScheme.onSurface),
                   ),
                   FlutterToggleTab(
                     width: 20, // width in percent
                     borderRadius: 10,
                     height: 30,
                     selectedIndex: formatSwitch,
-                    selectedBackgroundColors: const [
-                      Colors.blue,
-                      Colors.blueAccent
+                    selectedBackgroundColors: [
+                      Theme.of(context).colorScheme.primary
                     ],
-                    unSelectedBackgroundColors: const [
-                      Colors.grey,
-                      Colors.blueGrey
+                    unSelectedBackgroundColors: [
+                      Theme.of(context).colorScheme.primaryContainer
                     ],
-                    selectedTextStyle: const TextStyle(
-                        color: Colors.white,
+                    selectedTextStyle: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimary,
                         fontSize: 16,
                         fontWeight: FontWeight.w700),
-                    unSelectedTextStyle: const TextStyle(
-                        color: Colors.black87,
+                    unSelectedTextStyle: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
                         fontSize: 12,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w400),
                     labels: const ["24", "12"],
                     selectedLabelIndex: (index) {
                       setState(() {
@@ -298,31 +357,53 @@ class _SetupPageState extends State<SetupPage> {
             ),
             for (int i = 0; i < setupData.length; i++)
               Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: const EdgeInsets.only(left: 16, right: 16, top: 4),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 64),
-                      child: Text(
-                        "Sleep " + (i + 1).toString(),
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Theme.of(context).colorScheme.onSurface,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Sleep " + (i + 1).toString(),
+                          style: TextStyle(
+                            fontSize: 26,
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                    SizedBox(width: 8),
-                    InkWell(
-                      onTap: () {}
-                      // () => _selectTime(context, i, 's',
-                      //     _timeOfDayConvert(finalData[i].s.toString())),
-                      ,
-                      child: NeuBox(
-                        padding: false,
+                    SizedBox(width: 4),
+                    Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color:
+                              Theme.of(context).colorScheme.tertiaryContainer,
+                        ),
                         child: Padding(
                           padding: const EdgeInsets.all(4.0),
-                          child: Container(
-                            // color: Colors.amber,
+                          child: Text(
+                            _convertTimeToSmallTime(
+                                _timeOfDayConvert(setupData[i].s.toString()),
+                                _timeOfDayConvert(setupData[i].e.toString())),
+                            style: TextStyle(
+                                fontSize: 10,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer),
+                          ),
+                        )),
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .secondaryContainer),
+                          // color: Colors.amber,
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
                             child: Row(
                               children: [
                                 (currentFormat == 0)
@@ -333,11 +414,19 @@ class _SetupPageState extends State<SetupPage> {
                                               .hour
                                               .toString()
                                               .padLeft(2, '0'),
-                                          style: TextStyle(fontSize: 18),
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onSecondaryContainer),
                                         ),
                                         Text(
                                           " : ",
-                                          style: TextStyle(fontSize: 18),
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onSecondaryContainer),
                                         ),
                                         Text(
                                           _timeOfDayConvert(
@@ -345,136 +434,146 @@ class _SetupPageState extends State<SetupPage> {
                                               .minute
                                               .toString()
                                               .padLeft(2, '0'),
-                                          style: TextStyle(fontSize: 18),
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onSecondaryContainer),
                                         ),
                                       ])
                                     : Text(
                                         _convertTime(_timeOfDayConvert(
                                             finalData[i].s.toString())),
-                                        style: TextStyle(fontSize: 18),
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSecondaryContainer),
                                       )
                               ],
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
                     SizedBox(width: 8),
-                    InkWell(
-                      onTap: () {},
-                      child: NeuBox(
-                        padding: false,
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .secondaryContainer),
                         child: Padding(
                           padding: const EdgeInsets.all(4.0),
-                          child: Container(
-                            child: Row(children: [
-                              (currentFormat == 0)
-                                  ? Row(
-                                      children: [
-                                        Text(
-                                          _timeOfDayConvert(
-                                                  finalData[i].e.toString())
-                                              .hour
-                                              .toString()
-                                              .padLeft(2, '0'),
-                                          style: TextStyle(fontSize: 18),
-                                        ),
-                                        Text(
-                                          " : ",
-                                          style: TextStyle(fontSize: 18),
-                                        ),
-                                        Text(
-                                          _timeOfDayConvert(
-                                                  finalData[i].e.toString())
-                                              .minute
-                                              .toString()
-                                              .padLeft(2, '0'),
-                                          style: TextStyle(fontSize: 18),
-                                        ),
-                                      ],
-                                    )
-                                  : Text(
-                                      _convertTime(_timeOfDayConvert(
-                                          finalData[i].e.toString())),
-                                      style: TextStyle(fontSize: 18),
-                                    )
-                            ]),
-                          ),
+                          child: Row(children: [
+                            (currentFormat == 0)
+                                ? Row(
+                                    children: [
+                                      Text(
+                                        _timeOfDayConvert(
+                                                finalData[i].e.toString())
+                                            .hour
+                                            .toString()
+                                            .padLeft(2, '0'),
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSecondaryContainer),
+                                      ),
+                                      Text(
+                                        " : ",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSecondaryContainer),
+                                      ),
+                                      Text(
+                                        _timeOfDayConvert(
+                                                finalData[i].e.toString())
+                                            .minute
+                                            .toString()
+                                            .padLeft(2, '0'),
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSecondaryContainer),
+                                      ),
+                                    ],
+                                  )
+                                : Text(
+                                    _convertTime(_timeOfDayConvert(
+                                        finalData[i].e.toString())),
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSecondaryContainer),
+                                  )
+                          ]),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-            // Container(
-            //   child: ListView.builder(
-            //       itemCount: value.length,
-            //       itemBuilder: (BuildContext context, int index) {
-            //         return ListTile(
-            //           leading: Icon(Icons.abc),
-            //           trailing: Text("Harsh"),
-            //           title: Text("Verma"),
-            //         );
-            //       }),
-            // ),
             // Padding(
-            //   padding: const EdgeInsets.all(8.0),
+            //   padding: const EdgeInsets.all(16.0),
             //   child: ActionSlider.standard(
+            //     toggleColor: Theme.of(context).colorScheme.tertiary,
+            //     backgroundColor:
+            //         Theme.of(context).colorScheme.secondaryContainer,
             //     width: 300.0,
             //     action: (controller) async {
             //       controller.loading(); //starts loading animation
             //       await Future.delayed(const Duration(seconds: 1));
-            //       _stopAlarm();
+            //       // _setupAlarm();
             //       controller.success(); //starts success animation
             //       await Future.delayed(const Duration(seconds: 1));
             //       controller.reset(); //resets the slider
+            //       // additional sleep add
+            //       _saveData(SetupModel(
+            //           classification: data!.classification,
+            //           difficulty: data!.difficulty,
+            //           shortDesc: data!.shortDesc,
+            //           id: data!.id,
+            //           scheduleName: data!.scheduleName,
+            //           totalSleep: data!.totalSleep.toString(),
+            //           setup: convertToList(finalData),
+            //           svg: data!.svg));
+            //       // _saveAlarm(convertToList(finalData));
+            //       // Navigator.popUntil(context, ModalRoute.withName('/homepage'));
+
+            //       // Navigator.pushNamedAndRemoveUntil(
+            //       //     context, '/homepage', ModalRoute.withName('/homepage'));
+            //       // Navigator.popUntil(
+            //       //   context,
+            //       //   ModalRoute.withName('/homepage'),
+            //       // );
+            //       // Navigator.popUntil(context, ModalRoute.withName('/homepage'));
+            //       // // Navigator.pop(context);
+            //       // Navigator.pushNamed(context, '/homepage');
+            //       // Navigator.pop(context);
+            //       Navigator.pushNamedAndRemoveUntil(
+            //           context, '/homepage', (Route<dynamic> route) => false);
             //     },
+            //     icon: Icon(
+            //       Icons.arrow_forward_rounded,
+            //       color: Theme.of(context).colorScheme.onPrimary,
+            //     ),
             //     direction: TextDirection.ltr,
-            //     child: const Text('Stop Alarm #debug'),
+            //     child: Text(
+            //       'Setup Sleep Cycle',
+            //       style: TextStyle(
+            //         color: Theme.of(context).colorScheme.onSecondaryContainer,
+            //       ),
+            //     ),
             //   ),
             // ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ActionSlider.standard(
-                toggleColor: Theme.of(context).colorScheme.tertiary,
-                width: 300.0,
-                action: (controller) async {
-                  controller.loading(); //starts loading animation
-                  await Future.delayed(const Duration(seconds: 1));
-                  // _setupAlarm();
-                  controller.success(); //starts success animation
-                  await Future.delayed(const Duration(seconds: 1));
-                  controller.reset(); //resets the slider
-                  // additional sleep add
-                  _saveData(SetupModel(
-                      classification: data!.classification,
-                      difficulty: data!.difficulty,
-                      shortDesc: data!.shortDesc,
-                      id: data!.id,
-                      scheduleName: data!.scheduleName,
-                      totalSleep: data!.totalSleep.toString(),
-                      setup: convertToList(finalData),
-                      svg: data!.svg));
-                  // _saveAlarm(convertToList(finalData));
-                  // Navigator.popUntil(context, ModalRoute.withName('/homepage'));
-
-                  // Navigator.pushNamedAndRemoveUntil(
-                  //     context, '/homepage', ModalRoute.withName('/homepage'));
-                  // Navigator.popUntil(
-                  //   context,
-                  //   ModalRoute.withName('/homepage'),
-                  // );
-                  // Navigator.popUntil(context, ModalRoute.withName('/homepage'));
-                  // // Navigator.pop(context);
-                  // Navigator.pushNamed(context, '/homepage');
-                  // Navigator.pop(context);
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, '/homepage', (Route<dynamic> route) => false);
-                },
-                direction: TextDirection.ltr,
-                child: const Text('Setup Sleep Cycle'),
-              ),
-            ),
           ],
         ),
       ),
@@ -577,6 +676,25 @@ class _SetupPageState extends State<SetupPage> {
     }
   }
 
+  String _convertTimeToSmallTime(TimeOfDay startTime, TimeOfDay endTime) {
+    final startMinutes = startTime.hour * 60 + startTime.minute;
+    final endMinutes = endTime.hour * 60 + endTime.minute;
+    int differenceInMinutes = endMinutes - startMinutes;
+    if (differenceInMinutes < 0) {
+      differenceInMinutes += 24 * 60;
+    }
+    final hours = differenceInMinutes ~/ 60;
+    final minutes = differenceInMinutes % 60;
+    String formattedTime = '';
+    if (hours > 0) {
+      formattedTime += '${hours}H ';
+    }
+    if (minutes > 0) {
+      formattedTime += '${minutes.toString().padLeft(2, '0')}M';
+    }
+    return formattedTime.trim();
+  }
+
   String _convertTime(TimeOfDay timeOfDay) {
     final hour = timeOfDay.hour;
     final minute = timeOfDay.minute;
@@ -639,42 +757,8 @@ void _saveData(SetupModel data) async {
   await box.put('reminder_data', alarmData);
   await box.put('classification', data.classification);
   await box.put('reminder_time', 0);
-
-  // print(box.get('id'));
-  // print(box.get('schedule_name'));
-  // print(box.get('setup'));
-  // print(box.get('svg'));
-  // print(box.get('total_sleep'));
 }
-
-// void _saveAlarm(List<int> data) async {
-//   var box = Hive.box('myAlarm');
-//   await box.put('alarm_data', alarmData);
-// }
 
 void _stopAlarm() async {
   await Alarm.stop(1);
 }
-
-// void _setupAlarm() async {
-//   await Alarm.set(
-//       alarmSettings: AlarmSettings(
-//           id: 1,
-//           dateTime: DateTime.now(),
-//           assetAudioPath: 'assets/alarm/alarm.mp3',
-//           notificationTitle: 'This is the title',
-//           notificationBody: 'This is the body'));
-// }
-
-
-// [
-//   PieChartSectionData(
-//     value: 360,
-//     color: Colors.red,
-//   ),
-//   PieChartSectionData(
-//       value: 480, color: Colors.black12),
-//   PieChartSectionData(value: 20, color: Colors.red),
-//   PieChartSectionData(
-//       value: 580, color: Colors.black12),
-// ]

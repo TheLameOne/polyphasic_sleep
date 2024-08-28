@@ -92,7 +92,7 @@ class _AlarmBoxState extends State<AlarmBox> {
       padding: const EdgeInsets.only(left: 12.0, top: 4, bottom: 4, right: 12),
       child: Container(
         decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Theme.of(context).colorScheme.secondaryContainer,
             borderRadius: BorderRadius.circular(20)),
         width: size.width - 16,
         height: size.height * 0.14,
@@ -111,7 +111,9 @@ class _AlarmBoxState extends State<AlarmBox> {
                             .padLeft(2, '0'),
                         style: TextStyle(
                             fontSize: 32,
-                            color: Theme.of(context).colorScheme.inverseSurface,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                             fontWeight: (alarmData![widget.alarmId])
                                 ? FontWeight.bold
                                 : FontWeight.normal),
@@ -122,8 +124,9 @@ class _AlarmBoxState extends State<AlarmBox> {
                           ":",
                           style: TextStyle(
                               fontSize: 32,
-                              color:
-                                  Theme.of(context).colorScheme.inverseSurface,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSecondaryContainer,
                               fontWeight: (alarmData![widget.alarmId])
                                   ? FontWeight.bold
                                   : FontWeight.normal),
@@ -136,7 +139,9 @@ class _AlarmBoxState extends State<AlarmBox> {
                             .padLeft(2, '0'),
                         style: TextStyle(
                             fontSize: 32,
-                            color: Theme.of(context).colorScheme.inverseSurface,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                             fontWeight: (alarmData![widget.alarmId])
                                 ? FontWeight.bold
                                 : FontWeight.normal),
@@ -150,8 +155,9 @@ class _AlarmBoxState extends State<AlarmBox> {
                           _convertTime(_timeOfDayConvert(widget.time)),
                           style: TextStyle(
                               fontSize: 32,
-                              color:
-                                  Theme.of(context).colorScheme.inverseSurface,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSecondaryContainer,
                               fontWeight: (alarmData![widget.alarmId])
                                   ? FontWeight.bold
                                   : FontWeight.normal),
@@ -165,7 +171,7 @@ class _AlarmBoxState extends State<AlarmBox> {
                                 fontSize: 12,
                                 color: Theme.of(context)
                                     .colorScheme
-                                    .inverseSurface,
+                                    .onSecondaryContainer,
                                 fontWeight: (alarmData![widget.alarmId])
                                     ? FontWeight.bold
                                     : FontWeight.normal),
@@ -181,16 +187,24 @@ class _AlarmBoxState extends State<AlarmBox> {
                       ? Text("Tomorrow",
                           style: TextStyle(
                             fontSize: 14,
-                            color: Theme.of(context).colorScheme.inverseSurface,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                           ))
                       : Text(
                           "Not Scheduled",
                           style: TextStyle(
                             fontSize: 14,
-                            color: Theme.of(context).colorScheme.inverseSurface,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                           ),
                         ),
                   Switch(
+                      activeColor: Theme.of(context).colorScheme.primary,
+                      inactiveTrackColor:
+                          Theme.of(context).colorScheme.onPrimary,
+                      inactiveThumbColor: Theme.of(context).colorScheme.primary,
                       value: alarmData![widget.alarmId],
                       onChanged: (value) {
                         if (value == true) {

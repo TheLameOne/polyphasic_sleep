@@ -30,7 +30,7 @@ class SoundPlaybackPage extends StatelessWidget {
             padding: const EdgeInsets.only(right: 40.0),
             child: Text("S O U N D S",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.inverseSurface,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 20)),
           ),
         )),
@@ -100,13 +100,16 @@ class SoundPlaybackPage extends StatelessWidget {
                         thumbShape: const RoundSliderThumbShape(
                           enabledThumbRadius: 0,
                         ),
-                        inactiveTrackColor: Colors.grey.shade400,
+                        inactiveTrackColor: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.4),
                       ),
                       child: Slider(
                         min: 0,
                         max: value.totalduration.inSeconds.toDouble(),
                         value: value.currentDuration.inSeconds.toDouble(),
-                        activeColor: Colors.green,
+                        activeColor: Theme.of(context).colorScheme.primary,
                         onChanged: (double double) {},
                         onChangeEnd: (double double) {
                           value.seek(Duration(seconds: double.toInt()));
@@ -124,7 +127,12 @@ class SoundPlaybackPage extends StatelessWidget {
                       child: GestureDetector(
                         onTap: value.playPreviousSong,
                         child: NeuBox(
-                          child: Icon(Icons.skip_previous),
+                          child: Icon(
+                            Icons.skip_previous,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
+                          ),
                         ),
                       ),
                     ),
@@ -136,6 +144,9 @@ class SoundPlaybackPage extends StatelessWidget {
                         onTap: value.pauseOrResume,
                         child: NeuBox(
                           child: Icon(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onPrimaryContainer,
                               value.isPlaying ? Icons.pause : Icons.play_arrow),
                         ),
                       ),
@@ -146,7 +157,12 @@ class SoundPlaybackPage extends StatelessWidget {
                       child: GestureDetector(
                         onTap: value.playNextSong,
                         child: NeuBox(
-                          child: Icon(Icons.skip_next),
+                          child: Icon(
+                            Icons.skip_next,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
+                          ),
                         ),
                       ),
                     ),

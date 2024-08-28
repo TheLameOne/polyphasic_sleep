@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 ThemeData mutedDesertLight = ThemeData(
   fontFamily: GoogleFonts.openSans().fontFamily,
-  colorScheme: ColorScheme.light(
-    primary: HexColor("#BA6A28"), // Warm Copper
-    onPrimary: HexColor("#FFFFFF"),
-    primaryContainer: HexColor("#BA6A28"),
-    onPrimaryContainer: HexColor("#FFFFFF"),
-    secondary: HexColor("#B88576"), // Soft Clay
-    onSecondary: HexColor("#FFFFFF"),
-    secondaryContainer: HexColor("#B88576"),
-    onSecondaryContainer: HexColor("#FFFFFF"),
-    tertiary: HexColor("#8F6D33"), // Dusty Olive
-    onTertiary: HexColor("#FFFFFF"),
-    tertiaryContainer: HexColor("#8F6D33"),
-    onTertiaryContainer: HexColor("#FFFFFF"),
-    surface: HexColor("#EFEFEF"), // Light Grey Surface
-    onSurface: HexColor("#BA6A28"),
-    error: HexColor("#FF5449"), // Soft Red Error
+  colorScheme: const ColorScheme.light(
+    primary: Color(0xff415f91), // Copper
+    onPrimary: Color(0xffd6e3ff),
+    primaryContainer: Color(0xffd6e3ff),
+    onPrimaryContainer: Color(0xff001b3e),
+    secondary: Color(0xff565f71), // Soft Clay
+    onSecondary: Color(0xffffffff),
+    secondaryContainer: Color(0xffdae2f9),
+    onSecondaryContainer: Color(0xff131c2b),
+    tertiary: Color(0xff705575), // Desert Beige
+    onTertiary: Color(0xffffffff),
+    tertiaryContainer: Color(0xfffad8fd),
+    onTertiaryContainer: Color(0xff28132e),
+    surface: Color(0xfff9f9ff), // Beige Surface
+    onSurface: Color(0xff191c20),
+    error: Color(0xffba1a1a), // Soft Red Error
   ),
 );

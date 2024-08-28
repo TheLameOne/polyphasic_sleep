@@ -50,9 +50,9 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
       padding: false,
       child: Container(
         decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.secondaryContainer,
             borderRadius: BorderRadius.circular(15)),
-        height: size.height * 0.2,
+        height: size.height * 0.3,
         width: size.width - 16,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -66,7 +66,9 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                       Text(
                         "S E L E C T",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                             fontSize: 22,
                             fontWeight: FontWeight.w500),
                       ),
@@ -74,7 +76,9 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                       Text(
                         "S C H E D U L E",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                             fontSize: 22,
                             fontWeight: FontWeight.w500),
                       ),
@@ -96,33 +100,37 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                               Text(
                                 _convertName(scheduleName!),
                                 style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.onPrimary,
-                                    fontSize: 22,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSecondaryContainer,
+                                    fontSize: 26,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 classification!,
                                 style: TextStyle(
-                                  fontSize: 10,
-                                  color:
-                                      Theme.of(context).colorScheme.onPrimary,
+                                  fontSize: 12,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer,
                                 ),
                               ),
                               Text(
                                 "Difficulty : ${difficulty!.toString()}",
                                 style: TextStyle(
                                   fontSize: 10,
-                                  color:
-                                      Theme.of(context).colorScheme.onPrimary,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer,
                                 ),
                               ),
                               Text(
                                 totalSleep!,
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color:
-                                      Theme.of(context).colorScheme.onPrimary,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer,
                                 ),
                               ),
                               // Container(

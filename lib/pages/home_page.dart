@@ -60,14 +60,15 @@ class _HomePageState extends State<HomePage> {
           title: Center(
             child: Text("P O L Y P H A S I C      S L E E P",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
                     fontWeight: FontWeight.bold,
-                    fontSize: 24)),
+                    fontSize: 28)),
           )),
       // backgroundColor: Colors.amber,
       body: Padding(
         padding: EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // SizedBox(height: size.height * 0.05),
             Padding(
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage> {
               child: CurrentScheduleComponent(),
             ),
             // SizedBox(height: size.height * 0.05),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             Row(
               children: [
                 Column(

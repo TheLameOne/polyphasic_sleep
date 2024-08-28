@@ -42,7 +42,7 @@ class _ScheduleTypesPageState extends State<ScheduleTypesPage> {
             padding: const EdgeInsets.only(right: 40.0),
             child: Text(widget.title,
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.inverseSurface,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 20)),
           ),
         )),

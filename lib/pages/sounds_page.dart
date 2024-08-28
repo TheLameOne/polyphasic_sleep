@@ -34,7 +34,7 @@ class _SoundsPageState extends State<SoundsPage> {
           padding: const EdgeInsets.only(right: 40.0),
           child: Text("P L A Y L I S T",
               style: TextStyle(
-                  color: Theme.of(context).colorScheme.inverseSurface,
+                  color: Theme.of(context).colorScheme.onSurface,
                   fontSize: 20)),
         ),
       )),
@@ -46,8 +46,16 @@ class _SoundsPageState extends State<SoundsPage> {
             itemBuilder: (context, index) {
               final Sound sound = songlist[index];
               return ListTile(
-                title: Text(sound.songName),
-                subtitle: Text(sound.artistName),
+                title: Text(
+                  sound.songName,
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                ),
+                subtitle: Text(
+                  sound.artistName,
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                ),
                 leading: Image.asset(sound.albumArtImagePath),
                 onTap: () => goToSound(index),
               );

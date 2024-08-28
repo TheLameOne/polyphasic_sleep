@@ -16,7 +16,7 @@ class HowItWorksComponent extends StatelessWidget {
           padding: false,
           child: Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.secondaryContainer,
                 borderRadius: BorderRadius.circular(15)),
             height: size.height * 0.15,
             width: (size.width - 48) / 2,
@@ -28,15 +28,21 @@ class HowItWorksComponent extends StatelessWidget {
                   children: [
                     Text("H O W",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                             fontSize: 18)),
                     Text("I T",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                             fontSize: 18)),
                     Text("W O R K S ?",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                             fontSize: 18)),
                   ],
                 ),

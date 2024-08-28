@@ -86,18 +86,32 @@ class _RemindersPageState extends State<RemindersPage> {
                   }
                 },
                 itemBuilder: (context) => [
-                  PopupMenuItem(value: 1, child: Text("24 Hrs Format")),
-                  PopupMenuItem(value: 2, child: Text("12 Hrs Format")),
+                  PopupMenuItem(
+                      value: 1,
+                      child: Text(
+                        "24 Hrs Format",
+                        style: TextStyle(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer),
+                      )),
+                  PopupMenuItem(
+                      value: 2,
+                      child: Text("12 Hrs Format",
+                          style: TextStyle(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onPrimaryContainer))),
                 ],
                 offset: Offset(0, 50),
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.primaryContainer,
                 elevation: 2,
               ),
             ],
             title: Center(
               child: Text("R E M I N D E R S",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inverseSurface,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 20)),
             )),
         body: (setup != null)
@@ -116,11 +130,13 @@ class _RemindersPageState extends State<RemindersPage> {
                               selectedTextStyle: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 26,
-                                  color: Colors.blue),
+                                  color:
+                                      Theme.of(context).colorScheme.tertiary),
                               textStyle: TextStyle(
                                   color: Theme.of(context)
                                       .colorScheme
-                                      .inversePrimary),
+                                      .tertiary
+                                      .withOpacity(0.8)),
                               maxValue: 60,
                               minValue: 0,
                               axis: Axis.horizontal,
@@ -149,7 +165,8 @@ class _RemindersPageState extends State<RemindersPage> {
                             style: TextStyle(
                                 color: Theme.of(context)
                                     .colorScheme
-                                    .inversePrimary),
+                                    .tertiary
+                                    .withOpacity(0.6)),
                           )
                         ],
                       ),
@@ -177,7 +194,7 @@ class _RemindersPageState extends State<RemindersPage> {
                 child: Text(
                   "Select schedule to edit Reminders",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inverseSurface,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 16,
                       fontWeight: FontWeight.w300),
                 ),

@@ -320,7 +320,7 @@ class _SetupPageState extends State<SetupPage> {
                   Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      InkWell(
+                      GestureDetector(
                         onTap: () {
                           setState(() {
                             radialValue = radialValue - 1;
@@ -331,11 +331,11 @@ class _SetupPageState extends State<SetupPage> {
                         child: Icon(
                           size: 28,
                           Icons.remove_circle_outline,
-                          color: Colors.red,
+                          color: Theme.of(context).colorScheme.error,
                         ),
                       ),
                       SizedBox(width: 4),
-                      InkWell(
+                      GestureDetector(
                         onTap: () {
                           // print(radialValue);
                           setState(() {
@@ -347,7 +347,7 @@ class _SetupPageState extends State<SetupPage> {
                         child: Icon(
                           size: 28,
                           Icons.add_circle_outline_rounded,
-                          color: Colors.green,
+                          color: Colors.greenAccent,
                         ),
                       ),
                     ],
@@ -361,6 +361,7 @@ class _SetupPageState extends State<SetupPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // Text(data),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -371,153 +372,169 @@ class _SetupPageState extends State<SetupPage> {
                             color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
-                      ],
-                    ),
-                    SizedBox(width: 4),
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color:
-                              Theme.of(context).colorScheme.tertiaryContainer,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Text(
-                            _convertTimeToSmallTime(
-                                _timeOfDayConvert(setupData[i].s.toString()),
-                                _timeOfDayConvert(setupData[i].e.toString())),
-                            style: TextStyle(
-                                fontSize: 10,
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .onTertiaryContainer),
-                          ),
-                        )),
-                    Row(
-                      children: [
+                        SizedBox(width: 4),
+                        // 20m
                         Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
                               color: Theme.of(context)
                                   .colorScheme
-                                  .secondaryContainer),
-                          // color: Colors.amber,
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Row(
-                              children: [
-                                (currentFormat == 0)
-                                    ? Row(children: [
-                                        Text(
-                                          _timeOfDayConvert(
-                                                  finalData[i].s.toString())
-                                              .hour
-                                              .toString()
-                                              .padLeft(2, '0'),
+                                  .tertiaryContainer,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Text(
+                                _convertTimeToSmallTime(
+                                    _timeOfDayConvert(
+                                        setupData[i].s.toString()),
+                                    _timeOfDayConvert(
+                                        setupData[i].e.toString())),
+                                style: TextStyle(
+                                    fontSize: 10,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onTertiaryContainer),
+                              ),
+                            )),
+                      ],
+                    ),
+                    // start time
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Container(
+                            // color: Colors.amber,
+
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer),
+
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Row(
+                                children: [
+                                  (currentFormat == 0)
+                                      ? Row(children: [
+                                          Text(
+                                            _timeOfDayConvert(
+                                                    finalData[i].s.toString())
+                                                .hour
+                                                .toString()
+                                                .padLeft(2, '0'),
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer),
+                                          ),
+                                          Text(
+                                            " : ",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer),
+                                          ),
+                                          Text(
+                                            _timeOfDayConvert(
+                                                    finalData[i].s.toString())
+                                                .minute
+                                                .toString()
+                                                .padLeft(2, '0'),
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer),
+                                          ),
+                                        ])
+                                      : Text(
+                                          _convertTime(_timeOfDayConvert(
+                                              finalData[i].s.toString())),
                                           style: TextStyle(
                                               fontSize: 18,
                                               color: Theme.of(context)
                                                   .colorScheme
                                                   .onSecondaryContainer),
-                                        ),
-                                        Text(
-                                          " : ",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onSecondaryContainer),
-                                        ),
-                                        Text(
-                                          _timeOfDayConvert(
-                                                  finalData[i].s.toString())
-                                              .minute
-                                              .toString()
-                                              .padLeft(2, '0'),
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onSecondaryContainer),
-                                        ),
-                                      ])
-                                    : Text(
-                                        _convertTime(_timeOfDayConvert(
-                                            finalData[i].s.toString())),
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .onSecondaryContainer),
-                                      )
-                              ],
+                                        )
+                                ],
+                              ),
                             ),
                           ),
                         ),
+                        SizedBox(width: 8),
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer),
+                            // color: Colors.green,
+                            child: Row(children: [
+                              (currentFormat == 0)
+                                  ? Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            _timeOfDayConvert(
+                                                    finalData[i].e.toString())
+                                                .hour
+                                                .toString()
+                                                .padLeft(2, '0'),
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer),
+                                          ),
+                                          Text(
+                                            " : ",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer),
+                                          ),
+                                          Text(
+                                            _timeOfDayConvert(
+                                                    finalData[i].e.toString())
+                                                .minute
+                                                .toString()
+                                                .padLeft(2, '0'),
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Text(
+                                        _convertTime(_timeOfDayConvert(
+                                            finalData[i].e.toString())),
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSecondaryContainer),
+                                      ),
+                                    )
+                            ]),
+                          ),
+                        ),
                       ],
                     ),
-                    SizedBox(width: 8),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Theme.of(context)
-                                .colorScheme
-                                .secondaryContainer),
-                        child: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Row(children: [
-                            (currentFormat == 0)
-                                ? Row(
-                                    children: [
-                                      Text(
-                                        _timeOfDayConvert(
-                                                finalData[i].e.toString())
-                                            .hour
-                                            .toString()
-                                            .padLeft(2, '0'),
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .onSecondaryContainer),
-                                      ),
-                                      Text(
-                                        " : ",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .onSecondaryContainer),
-                                      ),
-                                      Text(
-                                        _timeOfDayConvert(
-                                                finalData[i].e.toString())
-                                            .minute
-                                            .toString()
-                                            .padLeft(2, '0'),
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .onSecondaryContainer),
-                                      ),
-                                    ],
-                                  )
-                                : Text(
-                                    _convertTime(_timeOfDayConvert(
-                                        finalData[i].e.toString())),
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSecondaryContainer),
-                                  )
-                          ]),
-                        ),
-                      ),
-                    ),
+
+                    // end time
                   ],
                 ),
               ),

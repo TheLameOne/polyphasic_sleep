@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:polyphasic_sleep_new/components/neu_box.dart';
+import 'package:polyphasic_sleep_new/components/rating.dart';
 import 'package:polyphasic_sleep_new/components/sleep_chart.dart';
 
 class CurrentScheduleComponent extends StatefulWidget {
@@ -87,89 +88,115 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                 )
               : InkWell(
                   onTap: () => Navigator.pushNamed(context, '/editschedule'),
-                  child: Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                _convertName(scheduleName!),
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSecondaryContainer,
-                                    fontSize: 26,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                classification!,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSecondaryContainer,
-                                ),
-                              ),
-                              Text(
-                                "Difficulty : ${difficulty!.toString()}",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSecondaryContainer,
-                                ),
-                              ),
-                              Text(
-                                totalSleep!,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSecondaryContainer,
-                                ),
-                              ),
-                              // Container(
-                              //   decoration: BoxDecoration(
-                              //       color: Theme.of(context)
-                              //           .colorScheme
-                              //           .inversePrimary,
-                              //       shape: BoxShape.circle),
-                              //   child: IconButton(
-                              //       onPressed: () => Navigator.pushNamed(
-                              //           context, '/editschedule'),
-                              //       icon: Icon(
-                              //         Icons.settings,
-                              //         color: Theme.of(context).colorScheme.surface,
-                              //       )),
-                              // )
-                            ],
-                          ),
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        // color: Colors.red,
+                        child: Text(
+                          _convertName(scheduleName!),
+                          style: TextStyle(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSecondaryContainer,
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
-                            height: size.height * 0.3,
-                            width: size.width * 0.3,
-                            child: SleepChart(id: id!)
-                            // (Provider.of<ThemeProvider>(context).isDarkMode)
-                            //     ? SvgPicture.asset(
-                            //         "assets/svg/dark/$svg.svg",
-                            //       )
-                            //     : SvgPicture.asset(
-                            //         "assets/svg/light/$svg.svg",
-                            //       )
-                            // PieChart(PieChartData(
-                            //     centerSpaceRadius: 40,
-                            //     startDegreeOffset: 263,
-                            //     sectionsSpace: 0,
-                            //     sections: _list(value))
-                            //     ),
-                            )
-                      ],
-                    ),
+                      ),
+                      Container(
+                        // color: Colors.amber,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: size.width * 0.45,
+                                      child: Text(
+                                        classification!,
+                                        textAlign: TextAlign.justify,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSecondaryContainer,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Total Sleep",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSecondaryContainer,
+                                        ),
+                                      ),
+                                      Text(
+                                        totalSleep!,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSecondaryContainer,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Difficulty",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSecondaryContainer,
+                                        ),
+                                      ),
+                                      Rating(
+                                          rating: difficulty!,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onPrimaryContainer),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                                // color: Colors.green,
+                                height: size.height * 0.2,
+                                width: size.width * 0.35,
+                                child: SleepChart(id: id!))
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
         ),

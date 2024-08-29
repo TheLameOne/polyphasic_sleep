@@ -116,6 +116,11 @@ class _HowItWorksPageState extends State<HowItWorksPage> {
                                           (j == 0)
                                               ? BubbleSpecialOne(
                                                   text: qna[i].answer![j],
+                                                  textStyle: TextStyle(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .onTertiaryContainer,
+                                                      fontSize: 16),
                                                   color: Theme.of(context)
                                                       .colorScheme
                                                       .tertiaryContainer,
@@ -124,6 +129,11 @@ class _HowItWorksPageState extends State<HowItWorksPage> {
                                                 )
                                               : BubbleSpecialOne(
                                                   text: qna[i].answer![j],
+                                                  textStyle: TextStyle(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .onTertiaryContainer,
+                                                      fontSize: 16),
                                                   color: Theme.of(context)
                                                       .colorScheme
                                                       .tertiaryContainer,

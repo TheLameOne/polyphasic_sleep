@@ -8,10 +8,7 @@
     "Difficulty": 3,
     "ideal_scheduling": "1 core around 21:00, should not be later than 22:00ish, 1 core till morning",
     "setup": [1290, 60, 240, 450],
-    "link": "https://www.polyphasic.net/schedules/segmented-sleep",
-    "svg": "Uberman",
-    "light_mode_color": "#81D4FA",
-    "dark_mode_color": "#0277BD"
+    "link": "https://www.polyphasic.net/schedules/segmented-sleep"
   },
   {
     "id": 1,
@@ -22,10 +19,7 @@
     "Difficulty": 3,
     "ideal_scheduling": "Core around midnight, siesta at noon",
     "setup": [1380, 240, 780, 870],
-    "link": "https://www.polyphasic.net/schedules/siesta",
-    "svg": "Uberman",
-    "light_mode_color": "#0288D1",
-    "dark_mode_color": "#01579B"
+    "link": "https://www.polyphasic.net/schedules/siesta"
   },
   {
     "id": 2,
@@ -36,10 +30,7 @@
     "Difficulty": 2,
     "ideal_scheduling": "Consistent dark period everyday, core sleep starts 1-2 hours after dark period. Nap during daytime, no later than 6 PM",
     "setup": [0, 420, 660, 750],
-    "link": "https://www.polyphasic.net/non-reducing-polyphasic-schedules/#biphasic-x",
-    "svg": "Uberman",
-    "light_mode_color": "#78909C",
-    "dark_mode_color": "#455A64"
+    "link": "https://www.polyphasic.net/non-reducing-polyphasic-schedules/#biphasic-x"
   },
   {
     "id": 3,
@@ -50,10 +41,7 @@
     "Difficulty": 3,
     "ideal_scheduling": "Core close to midnight, early-afternoon nap",
     "setup": [1380, 300, 780, 800],
-    "link": "https://www.polyphasic.net/schedules/everyman-1",
-    "svg": "Uberman",
-    "light_mode_color": "#4DB6AC",
-    "dark_mode_color": "#00796B"
+    "link": "https://www.polyphasic.net/schedules/everyman-1"
   },
   {
     "id": 4,
@@ -64,10 +52,7 @@
     "Difficulty": 3,
     "ideal_scheduling": "Core close to midnight, nap before work, early-afternoon nap",
     "setup": [1380, 210, 480, 500, 840, 860],
-    "link": "https://www.polyphasic.net/schedules/everyman-2",
-    "svg": "Uberman",
-    "light_mode_color": "#4DD0E1",
-    "dark_mode_color": "#0097A7"
+    "link": "https://www.polyphasic.net/schedules/everyman-2"
   },
   {
     "id": 5,
@@ -78,10 +63,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "Core starts around 21:00, naps in early morning, post-dawn, and early afternoon",
     "setup": [1260, 0, 250, 270, 490, 510, 880, 900],
-    "link": "https://www.polyphasic.net/schedules/everyman-3",
-    "svg": "Uberman",
-    "light_mode_color": "#9575CD",
-    "dark_mode_color": "#512DA8"
+    "link": "https://www.polyphasic.net/schedules/everyman-3"
   },
   {
     "id": 6,
@@ -92,10 +74,7 @@
     "Difficulty": 5,
     "ideal_scheduling": "Core before midnight, naps in the morning, noon, and afternoon",
     "setup": [1320, 1410, 190, 210, 460, 480, 720, 740, 980, 1000],
-    "link": "https://www.polyphasic.net/schedules/everyman-4",
-    "svg": "Uberman",
-    "light_mode_color": "#7986CB",
-    "dark_mode_color": "#3949AB"
+    "link": "https://www.polyphasic.net/schedules/everyman-4"
   },
   {
     "id": 7,
@@ -106,10 +85,7 @@
     "Difficulty": 5,
     "ideal_scheduling": "Core before midnight, naps in Uberman-like fashion",
     "setup": [1320, 1410, 120, 140, 360, 380, 600, 620, 840, 860, 1080, 1100],
-    "link": "https://www.polyphasic.net/schedules/everyman-5",
-    "svg": "Uberman",
-    "light_mode_color": "#7E57C2",
-    "dark_mode_color": "#5E35B1"
+    "link": "https://www.polyphasic.net/schedules/everyman-5"
   },
   {
     "id": 8,
@@ -120,10 +96,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "4-5 hour core, 2-6 naps of 10-20 minutes each",
     "setup": [1350, 180, 345, 360, 480, 495, 695, 710, 970, 985],
-    "link": "https://www.polyphasic.net/schedules/sevamayl",
-    "svg": "Uberman",
-    "light_mode_color": "#8BC34A",
-    "dark_mode_color": "#558B2F"
+    "link": "https://www.polyphasic.net/schedules/sevamayl"
   },
   {
     "id": 9,
@@ -134,10 +107,7 @@
     "Difficulty": 5,
     "ideal_scheduling": "Core sleep before midnight, naps at dawn, noon, and evening",
     "setup": [1350, 0, 330, 360, 690, 720, 1050, 1080],
-    "link": "https://www.polyphasic.net/schedules/trimaxion",
-    "svg": "Uberman",
-    "light_mode_color": "#CDDC39",
-    "dark_mode_color": "#827717"
+    "link": "https://www.polyphasic.net/schedules/trimaxion"
   },
   {
     "id": 10,
@@ -148,10 +118,7 @@
     "Difficulty": 3,
     "ideal_scheduling": "Dusk core around 21:00 to 22:00, dawn core around 07:00 or 08:00, REM nap around early afternoon",
     "setup": [1290, 50, 350, 450, 840, 860],
-    "link": "https://www.polyphasic.net/schedules/dual-core-1",
-    "svg": "Uberman",
-    "light_mode_color": "#F06292",
-    "dark_mode_color": "#C2185B"
+    "link": "https://www.polyphasic.net/schedules/dual-core-1"
   },
   {
     "id": 11,
@@ -162,10 +129,7 @@
     "Difficulty": 3,
     "ideal_scheduling": "First core around 22:00, second core around 05:40, noon nap and afternoon nap",
     "setup": [1320, 60, 330, 420, 720, 740, 960, 980],
-    "link": "https://www.polyphasic.net/schedules/dual-core-2",
-    "svg": "Uberman",
-    "light_mode_color": "#F48FB1",
-    "dark_mode_color": "#D81B60"
+    "link": "https://www.polyphasic.net/schedules/dual-core-2"
   },
   {
     "id": 12,
@@ -176,10 +140,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "3-hour wake between two cores, dawn nap, noon nap, and afternoon nap",
     "setup": [1320, 1410, 150, 240, 420, 440, 720, 740, 1000, 1020],
-    "link": "https://www.polyphasic.net/schedules/dual-core-3",
-    "svg": "Uberman",
-    "light_mode_color": "#E57373",
-    "dark_mode_color": "#C62828"
+    "link": "https://www.polyphasic.net/schedules/dual-core-3"
   },
   {
     "id": 13,
@@ -190,10 +151,7 @@
     "Difficulty": 5,
     "ideal_scheduling": "Cores before midnight and after midnight, dawn nap, mid-morning nap, mid-afternoon nap, and evening nap",
     "setup": [1320, 1410, 120, 210, 360, 380, 600, 620, 840, 860, 1080, 1100],
-    "link": "https://www.polyphasic.net/schedules/dual-core-4",
-    "svg": "Uberman",
-    "light_mode_color": "#81C784",
-    "dark_mode_color": "#388E3C"
+    "link": "https://www.polyphasic.net/schedules/dual-core-4"
   },
   {
     "id": 14,
@@ -204,10 +162,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "4.5-5 hours total sleep for both cores combined, 1-4 naps of 10-20 minutes each",
     "setup": [1350, 60, 300, 450, 720, 740, 960, 980],
-    "link": "https://www.polyphasic.net/schedules/ducamayl",
-    "svg": "Uberman",
-    "light_mode_color": "#4DB6AC",
-    "dark_mode_color": "#00796B"
+    "link": "https://www.polyphasic.net/schedules/ducamayl"
   },
   {
     "id": 15,
@@ -218,10 +173,7 @@
     "Difficulty": 5,
     "ideal_scheduling": "One core before midnight, one around dawn, Dymaxion noon nap, Dymaxion afternoon/evening nap",
     "setup": [1350, 0, 330, 420, 720, 750, 1035, 1065],
-    "link": "https://www.polyphasic.net/schedules/bimaxion",
-    "svg": "Uberman",
-    "light_mode_color": "#AED581",
-    "dark_mode_color": "#689F38"
+    "link": "https://www.polyphasic.net/schedules/bimaxion"
   },
   {
     "id": 16,
@@ -232,10 +184,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "Night core around 21:00, dawn core around 05:30, noon core around 12:00",
     "setup": [1350, 0, 390, 480, 870, 960],
-    "link": "https://www.polyphasic.net/schedules/triphasic",
-    "svg": "Uberman",
-    "light_mode_color": "#FF8A65",
-    "dark_mode_color": "#D84315"
+    "link": "https://www.polyphasic.net/schedules/triphasic"
   },
   {
     "id": 17,
@@ -246,10 +195,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "Dusk core, night core, dawn core, and one afternoon nap with a 3-hour rhythm between each core sleep",
     "setup": [1290, 1380, 120, 210, 390, 480, 870, 890],
-    "link": "https://www.polyphasic.net/schedules/tri-core-1",
-    "svg": "Uberman",
-    "light_mode_color": "#FFB74D",
-    "dark_mode_color": "#F57C00"
+    "link": "https://www.polyphasic.net/schedules/tri-core-1"
   },
   {
     "id": 18,
@@ -260,10 +206,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "Evening core, graveyard core, dawn core, and two daytime naps",
     "setup": [1380, 30, 300, 390, 580, 600, 800, 820, 1020, 1110],
-    "link": "https://www.polyphasic.net/schedules/tri-core-2",
-    "svg": "Uberman",
-    "light_mode_color": "#FFCC80",
-    "dark_mode_color": "#FFA726"
+    "link": "https://www.polyphasic.net/schedules/tri-core-2"
   },
   {
     "id": 19,
@@ -274,10 +217,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "Core around or before midnight, followed by cores around dawn, noon, and early/mid afternoon with adequate wake gaps.",
     "setup": [1320, 1410, 150, 240, 480, 570, 820, 910],
-    "link": "https://www.polyphasic.net/schedules/quad-core-0",
-    "svg": "Uberman",
-    "light_mode_color": "#FFE082",
-    "dark_mode_color": "#FFB300"
+    "link": "https://www.polyphasic.net/schedules/quad-core-0"
   },
   {
     "id": 20,
@@ -288,10 +228,7 @@
     "Difficulty": 4,
     "ideal_scheduling": "Approximately 4 core sleeps of 90 minutes each, spaced throughout the day based on natural sleepiness and sleep stage requirements.",
     "setup": [1320, 1410, 150, 240, 520, 610, 870, 960],
-    "link": "https://www.polyphasic.net/schedules/camayl",
-    "svg": "Uberman",
-    "light_mode_color": "#B2DFDB",
-    "dark_mode_color": "#00695C"
+    "link": "https://www.polyphasic.net/schedules/camayl"
   },
   {
     "id": 21,
@@ -302,10 +239,7 @@
     "Difficulty": 5,
     "ideal_scheduling": "Nap slots are rotated freely, but equidistant placement of naps is recommended.",
     "setup": [0, 20, 240, 260, 480, 500, 720, 740, 960, 980, 1200, 1220],
-    "link": "https://www.polyphasic.net/schedules/uberman",
-    "svg": "Uberman",
-    "light_mode_color": "#616161",
-    "dark_mode_color": "#212121"
+    "link": "https://www.polyphasic.net/schedules/uberman"
   },
   {
     "id": 22,
@@ -316,10 +250,7 @@
     "Difficulty": 5,
     "ideal_scheduling": "Naps placed at circadian spots: midnight, dawn, noon, and evening.",
     "setup": [1410, 0, 330, 360, 690, 720, 1050, 1080],
-    "link": "https://www.polyphasic.net/schedules/dymaxion",
-    "svg": "Uberman",
-    "light_mode_color": "#212121",
-    "dark_mode_color": "#EEEEEE"
+    "link": "https://www.polyphasic.net/schedules/dymaxion"
   },
   {
     "id": 23,
@@ -333,10 +264,7 @@
       1320, 1340, 0, 20, 120, 140, 240, 260, 360, 380, 480, 500, 780, 800, 1020,
       1040
     ],
-    "link": "https://www.polyphasic.net/schedules/spamayl",
-    "svg": "Uberman",
-    "light_mode_color": "#FFFFFF",
-    "dark_mode_color": "#BDBDBD"
+    "link": "https://www.polyphasic.net/schedules/spamayl"
   },
   {
     "id": 24,
@@ -347,9 +275,6 @@
     "Difficulty": 5,
     "ideal_scheduling": "Naps placed at circadian spots: midnight, dawn, noon, and evening.",
     "setup": [1420, 0, 340, 360, 700, 720, 1060, 1080],
-    "link": "https://www.polyphasic.net/schedules/tesla",
-    "svg": "Uberman",
-    "light_mode_color": "#F8BBD0",
-    "dark_mode_color": "#AD1457"
+    "link": "https://www.polyphasic.net/schedules/tesla"
   }
 ]

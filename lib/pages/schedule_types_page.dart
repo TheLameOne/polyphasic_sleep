@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' as rootbundle;
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:polyphasic_sleep_new/components/schedule_type_details.dart';
 import 'package:polyphasic_sleep_new/models/types_model.dart';
+import 'package:polyphasic_sleep_new/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class ScheduleTypesPage extends StatefulWidget {
   final List<int> contains;
@@ -29,6 +32,24 @@ class _ScheduleTypesPageState extends State<ScheduleTypesPage> {
       }
     }
     return res;
+  }
+
+  List<Color> color = [];
+  @override
+  void initState() {
+    _loadColors();
+    super.initState();
+  }
+
+  _loadColors() {
+    var x = Provider.of<ThemeProvider>(context, listen: false).getThemeList();
+    // Fix this later
+    for (int i = 0; i < x.length; i++) {
+      color.add(x[i].colorScheme.secondaryContainer);
+    }
+    for (int i = 0; i < x.length; i++) {
+      color.add(x[i].colorScheme.secondaryContainer);
+    }
   }
 
   @override
@@ -56,23 +77,33 @@ class _ScheduleTypesPageState extends State<ScheduleTypesPage> {
                 for (int i = 0; i < snapshot.data!.length; i++) {
                   names.add(snapshot.data![i].scheduleType!);
                 }
-                return Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Center(
-                    child: Swiper(
-                      scrollDirection: Axis.vertical,
-                      viewportFraction: 0.6,
-                      scale: 0.6,
-                      // layout: SwiperLayout.STACK,
-                      // itemWidth: 300.0,
-                      // itemHeight: 300,
+                return Center(
+                  child: Swiper(
+                    scrollDirection: Axis.vertical,
+                    viewportFraction: 0.6,
 
-                      itemCount: snapshot.data!.length,
-                      pagination: const SwiperPagination(),
-                      // control: SwiperControl(),
-                      itemBuilder: (context, index) {
-                        // print(index);
-                        return Container(
+                    scale: 0.5,
+
+                    // autoplay: true,
+                    // layout: SwiperLayout.STACK,
+                    // itemWidth: 300.0,
+                    // itemHeight: 300,
+
+                    itemCount: snapshot.data!.length,
+                    pagination: SwiperPagination(
+                      builder: DotSwiperPaginationBuilder(
+                          color: Theme.of(context).colorScheme.primary,
+                          activeColor: Theme.of(context).colorScheme.onPrimary),
+                    ),
+                    control: SwiperControl(
+                      color: Color(0xff38547C),
+                    ),
+
+                    itemBuilder: (context, index) {
+                      // print(index);
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 32.0, left: 16),
+                        child: Container(
                             height: size.height * 0.5,
                             decoration: BoxDecoration(
                                 // color: Colors.amber,
@@ -90,13 +121,11 @@ class _ScheduleTypesPageState extends State<ScheduleTypesPage> {
                               idealScheduling:
                                   snapshot.data![index].idealScheduling!,
                               link: snapshot.data![index].link!,
-                              svgPath: snapshot.data![index].svg!,
                               setup: snapshot.data![index].setup!,
-                              color: HexColor(
-                                  snapshot.data![index].lightModeColor!),
-                            ));
-                      },
-                    ),
+                              color: color[index],
+                            )),
+                      );
+                    },
                   ),
                 );
               } else {

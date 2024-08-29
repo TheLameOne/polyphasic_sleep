@@ -7,6 +7,7 @@ import 'package:polyphasic_sleep_new/theme/light.dart';
 import 'package:polyphasic_sleep_new/theme/orange_dark.dart';
 import 'package:polyphasic_sleep_new/theme/theme_provider.dart';
 import 'package:polyphasic_sleep_new/theme/yellow_dark.dart';
+import 'package:polyphasic_sleep_new/util/global.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -17,8 +18,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  int modes = 3;
-
   @override
   Widget build(BuildContext context) {
     Brightness systemBrightness = MediaQuery.of(context).platformBrightness;
@@ -229,23 +228,23 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ),
               ),
-              ListTile(
-                title: Text(
-                  "Dark Mode",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
-                  ),
-                ),
-                trailing: Switch(
-                    activeColor: Theme.of(context).colorScheme.primary,
-                    inactiveTrackColor: Theme.of(context).colorScheme.onPrimary,
-                    inactiveThumbColor: Theme.of(context).colorScheme.primary,
-                    value: Provider.of<ThemeProvider>(context, listen: false)
-                        .isDarkMode,
-                    onChanged: (value) =>
-                        Provider.of<ThemeProvider>(context, listen: false)
-                            .toggleDarkMode()),
-              ),
+              // ListTile(
+              //   title: Text(
+              //     "Dark Mode",
+              //     style: TextStyle(
+              //       color: Theme.of(context).colorScheme.onSurface,
+              //     ),
+              //   ),
+              //   trailing: Switch(
+              //       activeColor: Theme.of(context).colorScheme.primary,
+              //       inactiveTrackColor: Theme.of(context).colorScheme.onPrimary,
+              //       inactiveThumbColor: Theme.of(context).colorScheme.primary,
+              //       value: Provider.of<ThemeProvider>(context, listen: false)
+              //           .isDarkMode,
+              //       onChanged: (value) =>
+              //           Provider.of<ThemeProvider>(context, listen: false)
+              //               .toggleDarkMode()),
+              // ),
               // Padding(
               //   padding: const EdgeInsets.all(16.0),
               //   child: Row(

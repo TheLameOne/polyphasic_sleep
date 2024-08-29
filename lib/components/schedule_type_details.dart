@@ -14,8 +14,7 @@ class ScheduleTypeDetails extends StatefulWidget {
   final double difficulty;
   final String link;
   final String idealScheduling;
-  final String svgPath;
-  final HexColor color;
+  final Color color;
   final int id;
   final List<dynamic> setup;
 
@@ -28,7 +27,6 @@ class ScheduleTypeDetails extends StatefulWidget {
       required this.difficulty,
       required this.idealScheduling,
       required this.link,
-      required this.svgPath,
       required this.color,
       required this.id,
       required this.setup});
@@ -55,16 +53,19 @@ class _ScheduleTypeDetailsState extends State<ScheduleTypeDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.scheduleType,
+                  _convertName(widget.scheduleType),
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.onSurface,
-                      fontSize: 32),
+                      fontSize: 28),
                 ),
                 InkWell(
                     onTap: () {
                       _launchURL(widget.link);
                     },
-                    child: Icon(Icons.info_outline_rounded))
+                    child: Icon(
+                      Icons.info_outline_rounded,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ))
               ],
             ),
             Row(
@@ -133,7 +134,12 @@ class _ScheduleTypeDetailsState extends State<ScheduleTypeDetails> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ActionSlider.standard(
-                toggleColor: Colors.redAccent,
+                icon: Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  color: Theme.of(context).colorScheme.surface,
+                ),
+                toggleColor: Theme.of(context).colorScheme.onSurface,
+                backgroundColor: Theme.of(context).colorScheme.surface,
                 width: 250.0,
                 height: 50,
                 action: (controller) async {
@@ -155,7 +161,7 @@ class _ScheduleTypeDetailsState extends State<ScheduleTypeDetails> {
                   }
                 },
                 direction: TextDirection.ltr,
-                child: const Text('Select Schedule'),
+                child: const Text('Continue'),
               ),
             ),
           ],
@@ -170,4 +176,15 @@ _launchURL(_url) async {
   if (!await launchUrl(url)) {
     throw Exception('Could not launch $_url');
   }
+}
+
+String _convertName(String name) {
+  String newName = "";
+  for (int i = 0; i < name.length; i++) {
+    newName += name[i].toUpperCase();
+    if (i != name.length - 1) {
+      newName += " ";
+    }
+  }
+  return newName;
 }

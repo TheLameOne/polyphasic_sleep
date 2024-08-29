@@ -1,12 +1,10 @@
 import 'dart:convert';
-import 'package:action_slider/action_slider.dart';
 import 'package:alarm/alarm.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:hive/hive.dart';
-import 'package:polyphasic_sleep_new/components/neu_box.dart';
 import 'package:polyphasic_sleep_new/models/setup_model.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'dart:math' as math;
@@ -151,14 +149,14 @@ class _SetupPageState extends State<SetupPage> {
           ),
           onPressed: () async {
             _saveData(SetupModel(
-                classification: data!.classification,
-                difficulty: data!.difficulty,
-                shortDesc: data!.shortDesc,
-                id: data!.id,
-                scheduleName: data!.scheduleName,
-                totalSleep: data!.totalSleep.toString(),
-                setup: convertToList(finalData),
-                svg: data!.svg));
+              classification: data!.classification,
+              difficulty: data!.difficulty,
+              shortDesc: data!.shortDesc,
+              id: data!.id,
+              scheduleName: data!.scheduleName,
+              totalSleep: data!.totalSleep.toString(),
+              setup: convertToList(finalData),
+            ));
             await _showMyDialog();
           }),
       body: SingleChildScrollView(
@@ -766,7 +764,6 @@ void _saveData(SetupModel data) async {
   await box.put('id', data.id);
   await box.put('schedule_name', data.scheduleName);
   await box.put('setup', data.setup);
-  await box.put('svg', data.svg);
   await box.put('total_sleep', data.totalSleep);
   await box.put('short_desc', data.shortDesc);
   await box.put('difficulty', data.difficulty);

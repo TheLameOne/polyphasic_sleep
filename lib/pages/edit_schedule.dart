@@ -498,7 +498,6 @@ void _saveData(SetupModel data) async {
   await box.put('id', data.id);
   await box.put('schedule_name', data.scheduleName);
   await box.put('setup', data.setup);
-  await box.put('svg', data.svg);
   await box.put('total_sleep', data.totalSleep);
 
   // print(box.get('id'));

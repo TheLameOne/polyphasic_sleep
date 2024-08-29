@@ -6,7 +6,7 @@
     "Total Sleep": "7 hours",
     "classification": "Biphasic schedule in a Dual Core style",
     "Difficulty": 3,
-    "ideal_scheduling": "1 core around 21:00, should not be later than 22:00ish, 1 core till morning",
+    "ideal_scheduling": "One core around 21:00, should not be later than 22:00ish, One core till morning",
     "setup": [1290, 60, 240, 450],
     "link": "https://www.polyphasic.net/schedules/segmented-sleep"
   },
@@ -28,7 +28,7 @@
     "Total Sleep": "7-9 hours",
     "classification": "Flexible, Biphasic, Non-reducing Polyphasic Sleep",
     "Difficulty": 2,
-    "ideal_scheduling": "Consistent dark period everyday, core sleep starts 1-2 hours after dark period. Nap during daytime, no later than 6 PM",
+    "ideal_scheduling": "Consistent dark period everyday, core sleep starts 1-2 hours after dark period. Nap during daytime",
     "setup": [0, 420, 660, 750],
     "link": "https://www.polyphasic.net/non-reducing-polyphasic-schedules/#biphasic-x"
   },
@@ -149,7 +149,7 @@
     "Total Sleep": "4 hours 20 minutes",
     "classification": "Uberman transitional schedule in a Dual Core style",
     "Difficulty": 5,
-    "ideal_scheduling": "Cores before midnight and after midnight, dawn nap, mid-morning nap, mid-afternoon nap, and evening nap",
+    "ideal_scheduling": "Cores before midnight and after midnight, dawn nap, mid morning and afternoon nap, and evening nap",
     "setup": [1320, 1410, 120, 210, 360, 380, 600, 620, 840, 860, 1080, 1100],
     "link": "https://www.polyphasic.net/schedules/dual-core-4"
   },
@@ -171,7 +171,7 @@
     "Total Sleep": "4 hours",
     "classification": "Dymaxion transitional schedule in a Dual Core style",
     "Difficulty": 5,
-    "ideal_scheduling": "One core before midnight, one around dawn, Dymaxion noon nap, Dymaxion afternoon/evening nap",
+    "ideal_scheduling": "One core before midnight, one around dawn, one around noon nap and afternoon/evening nap",
     "setup": [1350, 0, 330, 420, 720, 750, 1035, 1065],
     "link": "https://www.polyphasic.net/schedules/bimaxion"
   },
@@ -193,7 +193,7 @@
     "Total Sleep": "4 hours 50 minutes",
     "classification": "Tri Core schedule",
     "Difficulty": 4,
-    "ideal_scheduling": "Dusk core, night core, dawn core, and one afternoon nap with a 3-hour rhythm between each core sleep",
+    "ideal_scheduling": "Dusk, night and dawn core, and one afternoon nap with a 3-hour rhythm between each core sleep",
     "setup": [1290, 1380, 120, 210, 390, 480, 870, 890],
     "link": "https://www.polyphasic.net/schedules/tri-core-1"
   },
@@ -215,18 +215,18 @@
     "Total Sleep": "6 hours",
     "classification": "Quad Core schedule",
     "Difficulty": 4,
-    "ideal_scheduling": "Core around or before midnight, followed by cores around dawn, noon, and early/mid afternoon with adequate wake gaps.",
+    "ideal_scheduling": "Core sleep around or before midnight, additional cores at dawn, noon, and early/mid-afternoon.",
     "setup": [1320, 1410, 150, 240, 480, 570, 820, 910],
     "link": "https://www.polyphasic.net/schedules/quad-core-0"
   },
   {
     "id": 20,
-    "schedule_type": "Core As Much As You Like (CAMAYL)",
-    "short_description": "Flexible schedule with multiple core sleeps, adapting from Quad Core 0 to allow for varying sleep stages based on homeostatic pressure.",
+    "schedule_type": "CAMAYL",
+    "short_description": "Flexible schedule with multiple core sleep.",
     "Total Sleep": "Averages around 6 hours",
     "classification": "Flexible schedule, Multi-core variant",
     "Difficulty": 4,
-    "ideal_scheduling": "Approximately 4 core sleeps of 90 minutes each, spaced throughout the day based on natural sleepiness and sleep stage requirements.",
+    "ideal_scheduling": "Four 90-minute core sleeps spaced throughout the day, aligned with natural sleepiness.",
     "setup": [1320, 1410, 150, 240, 520, 610, 870, 960],
     "link": "https://www.polyphasic.net/schedules/camayl"
   },
@@ -254,12 +254,12 @@
   },
   {
     "id": 23,
-    "schedule_type": "Sleep Polyphasically As Much As You Like (SPAMAYL)",
-    "short_description": "Flexible nap-only schedule with no fixed rhythm, allowing for more than 6 20-minute naps per day on average.",
+    "schedule_type": "SPAMAYL",
+    "short_description": "Flexible nap-only schedule with no fixed rhythm, allowing for more than 6 20-minute naps per day.",
     "Total Sleep": "Average around 2.5 hours",
     "classification": "Nap-only schedule, Flexible schedule",
     "Difficulty": 5,
-    "ideal_scheduling": "Most naps scheduled during graveyard hours to minimize daytime napping conflicts with work or social activities.",
+    "ideal_scheduling": "Most naps scheduled during graveyard hours to minimize daytime napping conflicts with work.",
     "setup": [
       1320, 1340, 0, 20, 120, 140, 240, 260, 360, 380, 480, 500, 780, 800, 1020,
       1040

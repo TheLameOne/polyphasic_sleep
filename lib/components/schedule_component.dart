@@ -68,8 +68,9 @@ class ScheduleComponent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          name,
+                          _convertName(name),
                           style: TextStyle(
+                            fontWeight: FontWeight.bold,
                             color: Theme.of(context)
                                 .colorScheme
                                 .onSecondaryContainer,
@@ -80,7 +81,13 @@ class ScheduleComponent extends StatelessWidget {
                             onTap: () {
                               _launchURL(link);
                             },
-                            child: Icon(Icons.info_outline_rounded))
+                            child: Icon(
+                              Icons.info_outline_rounded,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSecondaryContainer,
+                              size: 26,
+                            ))
                       ],
                     ),
                     Row(
@@ -89,19 +96,26 @@ class ScheduleComponent extends StatelessWidget {
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              width: size.width * 0.5,
-                              child: Text(
-                                desc,
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSecondaryContainer,
-                                    fontSize: 12,
-                                    overflow: TextOverflow.clip),
+                            SizedBox(
+                              width: size.width * 0.45,
+                              height: size.height * 0.12,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 6.0),
+                                child: Text(
+                                  desc,
+                                  textAlign: TextAlign.justify,
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSecondaryContainer,
+                                      fontSize: 14,
+                                      overflow: TextOverflow.clip),
+                                ),
                               ),
                             ),
+                            SizedBox(height: 16),
                             Row(
                               children: [
                                 Text("Difficulty : ",
@@ -109,17 +123,17 @@ class ScheduleComponent extends StatelessWidget {
                                         color: Theme.of(context)
                                             .colorScheme
                                             .onSecondaryContainer,
-                                        fontSize: 14,
+                                        fontSize: 16,
                                         overflow: TextOverflow.clip)),
-                                Text(difficulty,
+                                Text(difficulty.toUpperCase(),
                                     style: TextStyle(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSecondaryContainer,
-                                        fontSize: 14,
+                                        color: _difficultyColor(difficulty),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
                                         overflow: TextOverflow.clip)),
                               ],
                             ),
+                            SizedBox(height: 8),
                             Row(
                               children: [
                                 Text("Total Sleep : ",
@@ -127,14 +141,14 @@ class ScheduleComponent extends StatelessWidget {
                                         color: Theme.of(context)
                                             .colorScheme
                                             .onSecondaryContainer,
-                                        fontSize: 14,
+                                        fontSize: 16,
                                         overflow: TextOverflow.clip)),
                                 Text(totalSleep,
                                     style: TextStyle(
                                         color: Theme.of(context)
                                             .colorScheme
                                             .onSecondaryContainer,
-                                        fontSize: 14,
+                                        fontSize: 16,
                                         overflow: TextOverflow.clip)),
                               ],
                             )
@@ -163,6 +177,21 @@ class ScheduleComponent extends StatelessWidget {
             ),
           )),
     );
+  }
+}
+
+_difficultyColor(String name) {
+  if (name == "Extreme") {
+    return Colors.red;
+  }
+  if (name == "Moderate") {
+    return Colors.green;
+  }
+  if (name == "High") {
+    return const Color.fromARGB(255, 252, 180, 72);
+  }
+  if (name == "Very High") {
+    return Color.fromARGB(255, 230, 110, 62);
   }
 }
 

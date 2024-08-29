@@ -91,7 +91,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         // color: Colors.red,

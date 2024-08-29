@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.onPrimaryContainer,
                     fontWeight: FontWeight.bold,
-                    fontSize: 28)),
+                    fontSize: 26)),
           )),
       // backgroundColor: Colors.amber,
       body: Padding(

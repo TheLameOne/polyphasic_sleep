@@ -108,6 +108,23 @@ class ThemeProvider extends ChangeNotifier {
     return _darkThemes;
   }
 
+  void setDarkMode() {
+    _darkMode = true;
+    notifyListeners();
+  }
+
+  // Set to light mode
+  void setLightMode() {
+    _darkMode = false;
+    notifyListeners();
+  }
+
+  // Set to system default mode
+  void setSystemDefaultMode(Brightness systemBrightness) {
+    _darkMode = (systemBrightness == Brightness.dark);
+    notifyListeners();
+  }
+
   // Get the current theme index
   int get currentThemeIndex => _currentThemeIndex;
 

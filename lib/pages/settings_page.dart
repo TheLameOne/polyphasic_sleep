@@ -17,8 +17,11 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  int modes = 3;
+
   @override
   Widget build(BuildContext context) {
+    Brightness systemBrightness = MediaQuery.of(context).platformBrightness;
     return Scaffold(
       appBar: AppBar(
           title: Center(
@@ -138,73 +141,94 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
               SizedBox(height: 16),
-              // Container(
-              //   decoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(20),
-              //       color: Theme.of(context)
-              //           .colorScheme
-              //           .primaryContainer
-              //           .withOpacity(0.5)),
-              //   child: Padding(
-              //     padding: const EdgeInsets.all(8.0),
-              //     child: Padding(
-              //       padding: const EdgeInsets.all(8.0),
-              //       child: Column(
-              //         children: [
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: [
-              //               Text("Theme"),
-              //               SizedBox(),
-              //             ],
-              //           ),
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //             children: [
-              //               Column(
-              //                 children: [
-              //                   // PIC light Mode
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primaryContainer
+                        .withOpacity(0.5)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Theme"),
+                            SizedBox(),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              children: [
+                                // PIC light Mode
 
-              //                   Text("Light"),
-              //                   Radio.adaptive(
-              //                     value: null,
-              //                     groupValue: null,
-              //                     onChanged: (Null? value) {},
-              //                   ),
-              //                   // Radio Button
-              //                 ],
-              //               ),
-              //               Column(
-              //                 children: [
-              //                   // PIC light Mode
-              //                   Text("Dark"),
-              //                   Radio.adaptive(
-              //                     value: null,
-              //                     groupValue: null,
-              //                     onChanged: (Null? value) {},
-              //                   ),
-              //                   // Radio Button
-              //                 ],
-              //               ),
-              //               Column(
-              //                 children: [
-              //                   // PIC light Mode
-              //                   Text("System"),
-              //                   Radio.adaptive(
-              //                     value: null,
-              //                     groupValue: null,
-              //                     onChanged: (Null? value) {},
-              //                   ),
-              //                   // Radio Button
-              //                 ],
-              //               )
-              //             ],
-              //           )
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
+                                Text("Light"),
+                                Radio<int>(
+                                  value: 1,
+                                  groupValue: modes,
+                                  onChanged: (v) {
+                                    setState(() {
+                                      modes = v!;
+                                    });
+                                    Provider.of<ThemeProvider>(context,
+                                            listen: false)
+                                        .setLightMode();
+                                  },
+                                ),
+                                // Radio Button
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                // PIC light Mode
+                                Text("Dark"),
+                                Radio<int>(
+                                  value: 2,
+                                  groupValue: modes,
+                                  onChanged: (v) {
+                                    setState(() {
+                                      modes = v!;
+                                    });
+                                    Provider.of<ThemeProvider>(context,
+                                            listen: false)
+                                        .setDarkMode();
+                                  },
+                                ),
+                                // Radio Button
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                // PIC light Mode
+                                Text("System"),
+                                Radio<int>(
+                                  value: 3,
+                                  groupValue: modes,
+                                  onChanged: (v) {
+                                    setState(() {
+                                      modes = v!;
+                                    });
+                                    Provider.of<ThemeProvider>(context,
+                                            listen: false)
+                                        .setSystemDefaultMode(systemBrightness);
+                                  },
+                                ),
+                                // Radio Button
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
               ListTile(
                 title: Text(
                   "Dark Mode",

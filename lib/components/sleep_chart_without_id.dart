@@ -1,9 +1,6 @@
-import 'dart:convert';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:polyphasic_sleep_new/models/setup_model.dart';
-import 'package:polyphasic_sleep_new/pages/edit_schedule.dart';
 
 class SleepChartWithoutId extends StatefulWidget {
   final List<dynamic> setup;
@@ -36,10 +33,11 @@ class _SleepChartWithoutIdState extends State<SleepChartWithoutId> {
   void _loadData() async {
     setupData = convertToTuple(widget.setup);
     finalData = [...setupData];
-    if (setupData.last.s != 0)
+    if (setupData.last.s != 0) {
       setState(() {
         rotateChart = (setupData.last.e.toDouble() * 360 / 1440);
       });
+    }
   }
 
   List<({int s, int e})> convertToTuple(List<dynamic> dataBefore) {
@@ -53,12 +51,11 @@ class _SleepChartWithoutIdState extends State<SleepChartWithoutId> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: PieChart(PieChartData(
-            centerSpaceRadius: widget.centerSpaceRadius,
-            startDegreeOffset: offset + rotateChart,
-            sectionsSpace: 0,
-            sections: _list(setupData))));
+    return PieChart(PieChartData(
+        centerSpaceRadius: widget.centerSpaceRadius,
+        startDegreeOffset: offset + rotateChart,
+        sectionsSpace: 0,
+        sections: _list(setupData)));
   }
 
   List<PieChartSectionData> _list(List<({int s, int e})> v) {
@@ -93,8 +90,8 @@ class _SleepChartWithoutIdState extends State<SleepChartWithoutId> {
       if (list[i] > 0) {
         sleep.add(PieChartSectionData(
             radius: widget.thickness,
-            titleStyle:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+            titleStyle: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].toDouble(),
             color: Theme.of(context).colorScheme.tertiary,
             title: list[i].toString(),
@@ -102,8 +99,8 @@ class _SleepChartWithoutIdState extends State<SleepChartWithoutId> {
       } else {
         sleep.add(PieChartSectionData(
             radius: widget.thickness,
-            titleStyle:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+            titleStyle: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].abs().toDouble(),
             color: Colors.black26,
             title: list[i].toString(),

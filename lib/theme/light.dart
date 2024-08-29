@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData light = ThemeData(
-    fontFamily: GoogleFonts.roboto().fontFamily,
+    fontFamily: GoogleFonts.openSans().fontFamily,
     colorScheme: const ColorScheme.light(
       primary: Color(0xff9e9e9e), // equivalent to Colors.grey.shade500
       onPrimary: Color(0xff212121), // Dark grey for text on primary

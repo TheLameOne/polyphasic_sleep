@@ -1,10 +1,7 @@
-import 'package:alarm/alarm.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:hive/hive.dart';
-import 'package:polyphasic_sleep_new/components/neu_box.dart';
-import 'package:polyphasic_sleep_new/models/setup_model.dart';
 import 'dart:math' as math;
 
 class EditSchedule extends StatefulWidget {
@@ -48,10 +45,11 @@ class _EditScheduleState extends State<EditSchedule> {
       setupData = convertToTuple(setup!);
       finalData = [...setupData];
       // print("$id, $scheduleName, $setup, $svg, $totalSleep");
-      if (setupData.last.s != 0)
+      if (setupData.last.s != 0) {
         setState(() {
           rotateChart = (setupData.last.e.toDouble() * 360 / 1440);
         });
+      }
     });
   }
 
@@ -134,10 +132,17 @@ class _EditScheduleState extends State<EditSchedule> {
                           children: [
                             Text(
                               "Total Sleep",
-                              style: TextStyle(fontSize: 20),
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface),
                             ),
                             Text(totalSleep.toString(),
-                                style: TextStyle(fontSize: 20)),
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface)),
                           ],
                         ),
                       )
@@ -199,13 +204,13 @@ class _EditScheduleState extends State<EditSchedule> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          "Sleep " + (i + 1).toString(),
+                          "Sleep ${i + 1}",
                           style: TextStyle(
                             fontSize: 26,
                             color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         // 20m
                         Container(
                             decoration: BoxDecoration(
@@ -298,7 +303,7 @@ class _EditScheduleState extends State<EditSchedule> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Padding(
                           padding: const EdgeInsets.all(4.0),
                           child: Container(
@@ -371,29 +376,29 @@ class _EditScheduleState extends State<EditSchedule> {
                   ],
                 ),
               ),
-            SizedBox(height: 32)
+            const SizedBox(height: 32)
           ],
         ),
       ),
     );
   }
 
-  Future<void> _selectTime(
-      BuildContext context, int i, String s, TimeOfDay selectedTime) async {
-    final TimeOfDay? picked_s = await showTimePicker(
-        context: context,
-        initialTime: selectedTime,
-        builder: (BuildContext context, Widget? child) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-            child: child!,
-          );
-        });
-    if (picked_s != null && picked_s != selectedTime)
-      setState(() {
-        selectedTime = picked_s;
-      });
-  }
+  // Future<void> _selectTime(
+  //     BuildContext context, int i, String s, TimeOfDay selectedTime) async {
+  //   final TimeOfDay? picked_s = await showTimePicker(
+  //       context: context,
+  //       initialTime: selectedTime,
+  //       builder: (BuildContext context, Widget? child) {
+  //         return MediaQuery(
+  //           data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+  //           child: child!,
+  //         );
+  //       });
+  //   if (picked_s != null && picked_s != selectedTime)
+  //     setState(() {
+  //       selectedTime = picked_s;
+  //     });
+  // }
 
   TimeOfDay _timeOfDayConvert(String time) {
     int convertedTime = int.parse(time);
@@ -492,34 +497,34 @@ List<({int s, int e})> convertToTuple(List<int> dataBefore) {
   return result;
 }
 
-void _saveData(SetupModel data) async {
-  // print("Data" + data.scheduleName);
-  var box = Hive.box('myBox');
-  await box.put('id', data.id);
-  await box.put('schedule_name', data.scheduleName);
-  await box.put('setup', data.setup);
-  await box.put('total_sleep', data.totalSleep);
+// void _saveData(SetupModel data) async {
+//   // print("Data" + data.scheduleName);
+//   var box = Hive.box('myBox');
+//   await box.put('id', data.id);
+//   await box.put('schedule_name', data.scheduleName);
+//   await box.put('setup', data.setup);
+//   await box.put('total_sleep', data.totalSleep);
 
-  // print(box.get('id'));
-  // print(box.get('schedule_name'));
-  // print(box.get('setup'));
-  // print(box.get('svg'));
-  // print(box.get('total_sleep'));
-}
+//   // print(box.get('id'));
+//   // print(box.get('schedule_name'));
+//   // print(box.get('setup'));
+//   // print(box.get('svg'));
+//   // print(box.get('total_sleep'));
+// }
 
-void _stopAlarm() async {
-  await Alarm.stop(1);
-}
+// void _stopAlarm() async {
+//   await Alarm.stop(1);
+// }
 
-void _setupAlarm() async {
-  await Alarm.set(
-      alarmSettings: AlarmSettings(
-          id: 1,
-          dateTime: DateTime.now(),
-          assetAudioPath: 'assets/alarm/alarm.mp3',
-          notificationTitle: 'This is the title',
-          notificationBody: 'This is the body'));
-}
+// void _setupAlarm() async {
+//   await Alarm.set(
+//       alarmSettings: AlarmSettings(
+//           id: 1,
+//           dateTime: DateTime.now(),
+//           assetAudioPath: 'assets/alarm/alarm.mp3',
+//           notificationTitle: 'This is the title',
+//           notificationBody: 'This is the body'));
+// }
 
 List<PieChartSectionData> _list(List<({int s, int e})> v, context) {
   int temp = 0;
@@ -550,7 +555,7 @@ List<PieChartSectionData> _sections(List<int> list, context) {
     if (list[i] > 0) {
       sleep.add(PieChartSectionData(
           titleStyle:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
           value: list[i].toDouble(),
           color: Theme.of(context).colorScheme.tertiary,
           showTitle: false,
@@ -558,7 +563,7 @@ List<PieChartSectionData> _sections(List<int> list, context) {
     } else {
       sleep.add(PieChartSectionData(
           titleStyle:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
           value: list[i].abs().toDouble(),
           color: Colors.black12,
           showTitle: false));

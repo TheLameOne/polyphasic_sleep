@@ -1,7 +1,5 @@
 import 'package:action_slider/action_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:polyphasic_sleep_new/components/sleep_chart.dart';
 import 'package:polyphasic_sleep_new/components/sleep_chart_without_id.dart';
 import 'package:polyphasic_sleep_new/pages/setup_page.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -73,7 +71,7 @@ class _ScheduleTypeDetailsState extends State<ScheduleTypeDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Details
-                Container(
+                SizedBox(
                   width: size.width * 0.45,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,10 +169,10 @@ class _ScheduleTypeDetailsState extends State<ScheduleTypeDetails> {
   }
 }
 
-_launchURL(_url) async {
-  final Uri url = Uri.parse(_url);
-  if (!await launchUrl(url)) {
-    throw Exception('Could not launch $_url');
+_launchURL(url) async {
+  final Uri urlParsed = Uri.parse(url);
+  if (!await launchUrl(urlParsed)) {
+    throw Exception('Could not launch $url');
   }
 }
 

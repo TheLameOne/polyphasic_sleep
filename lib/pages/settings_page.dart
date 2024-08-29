@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
-import 'package:polyphasic_sleep_new/theme/blue_dark.dart';
-import 'package:polyphasic_sleep_new/theme/dark.dart';
-import 'package:polyphasic_sleep_new/theme/green_dark.dart';
-import 'package:polyphasic_sleep_new/theme/light.dart';
-import 'package:polyphasic_sleep_new/theme/orange_dark.dart';
 import 'package:polyphasic_sleep_new/theme/theme_provider.dart';
-import 'package:polyphasic_sleep_new/theme/yellow_dark.dart';
 import 'package:polyphasic_sleep_new/util/global.dart';
 import 'package:provider/provider.dart';
 
@@ -87,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -109,19 +102,19 @@ class _SettingsPageState extends State<SettingsPage> {
                                   decoration: BoxDecoration(
                                     border: _getCurrentThemeIndex(context) == i
                                         ? Border.all(
-                                            color: Provider.of<ThemeProvider>(
-                                                    context,
-                                                    listen: false)
-                                                .getThemeList()[i]
-                                                .colorScheme
-                                                .primary)
-                                        : Border.all(
-                                            color: Provider.of<ThemeProvider>(
-                                                    context,
-                                                    listen: false)
-                                                .getThemeList()[i]
-                                                .colorScheme
-                                                .inversePrimary),
+                                            width: 4,
+                                            color: (Provider.of<ThemeProvider>(
+                                                        context,
+                                                        listen: false)
+                                                    .isDarkMode)
+                                                ? Colors.white
+                                                : Provider.of<ThemeProvider>(
+                                                        context,
+                                                        listen: false)
+                                                    .getThemeList()[i]
+                                                    .colorScheme
+                                                    .primary)
+                                        : null,
                                     borderRadius: BorderRadius.circular(20),
                                     color: Provider.of<ThemeProvider>(context,
                                             listen: false)
@@ -134,12 +127,12 @@ class _SettingsPageState extends State<SettingsPage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 8)
+                      const SizedBox(height: 8)
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -156,10 +149,18 @@ class _SettingsPageState extends State<SettingsPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Theme"),
-                            SizedBox(),
+                            Text(
+                              "Theme",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onPrimaryContainer),
+                            ),
+                            const SizedBox(),
                           ],
                         ),
+                        SizedBox(height: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -167,7 +168,13 @@ class _SettingsPageState extends State<SettingsPage> {
                               children: [
                                 // PIC light Mode
 
-                                Text("Light"),
+                                Text(
+                                  "Light",
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer),
+                                ),
                                 Radio<int>(
                                   value: 1,
                                   groupValue: modes,
@@ -186,7 +193,13 @@ class _SettingsPageState extends State<SettingsPage> {
                             Column(
                               children: [
                                 // PIC light Mode
-                                Text("Dark"),
+                                Text(
+                                  "Dark",
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer),
+                                ),
                                 Radio<int>(
                                   value: 2,
                                   groupValue: modes,
@@ -205,7 +218,13 @@ class _SettingsPageState extends State<SettingsPage> {
                             Column(
                               children: [
                                 // PIC light Mode
-                                Text("System"),
+                                Text(
+                                  "System",
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer),
+                                ),
                                 Radio<int>(
                                   value: 3,
                                   groupValue: modes,

@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' as rootbundle;
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:polyphasic_sleep_new/components/schedule_type_details.dart';
 import 'package:polyphasic_sleep_new/models/types_model.dart';
 import 'package:polyphasic_sleep_new/theme/theme_provider.dart';
@@ -95,7 +93,7 @@ class _ScheduleTypesPageState extends State<ScheduleTypesPage> {
                           color: Theme.of(context).colorScheme.primary,
                           activeColor: Theme.of(context).colorScheme.onPrimary),
                     ),
-                    control: SwiperControl(
+                    control: const SwiperControl(
                       color: Color(0xff38547C),
                     ),
 

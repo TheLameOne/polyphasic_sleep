@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:polyphasic_sleep_new/theme/blue_dark.dart';
 import 'package:polyphasic_sleep_new/theme/blue_light.dart';
-import 'package:polyphasic_sleep_new/theme/burnt_umber_dark.dart';
-import 'package:polyphasic_sleep_new/theme/cocoa_dark.dart';
 import 'package:polyphasic_sleep_new/theme/dark.dart';
-import 'package:polyphasic_sleep_new/theme/ebony_dark.dart';
 import 'package:polyphasic_sleep_new/theme/green_dark.dart';
 import 'package:polyphasic_sleep_new/theme/green_light.dart';
 import 'package:polyphasic_sleep_new/theme/light.dart';
-import 'package:polyphasic_sleep_new/theme/mocha_dark.dart';
 import 'package:polyphasic_sleep_new/theme/orange_dark.dart';
 import 'package:polyphasic_sleep_new/theme/orange_light.dart';
-import 'package:polyphasic_sleep_new/theme/terracotta_light.dart';
-import 'package:polyphasic_sleep_new/theme/rustic_beige_light.dart';
-import 'package:polyphasic_sleep_new/theme/copper_sand_light.dart';
-import 'package:polyphasic_sleep_new/theme/warm_earth_light.dart';
-import 'package:polyphasic_sleep_new/theme/muted_desert_light.dart';
 import 'package:polyphasic_sleep_new/theme/yellow_dark.dart';
 import 'package:polyphasic_sleep_new/theme/yellow_light.dart';
 

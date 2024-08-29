@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 ThemeData orangeDark = ThemeData(
   fontFamily: GoogleFonts.openSans().fontFamily,

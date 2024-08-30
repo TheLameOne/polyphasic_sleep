@@ -103,6 +103,7 @@ flutter:
     - assets/svg/dark/
     - assets/svg/light/
     - assets/alarm/
+    - assets/images/
     - assets/images/logo.png
     - assets/sounds/images/
     - assets/sounds/music/

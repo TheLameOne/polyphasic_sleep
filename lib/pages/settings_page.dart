@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:polyphasic_sleep_new/components/neu_box.dart';
 import 'package:polyphasic_sleep_new/theme/theme_provider.dart';
 import 'package:polyphasic_sleep_new/util/global.dart';
 import 'package:provider/provider.dart';
@@ -167,7 +168,15 @@ class _SettingsPageState extends State<SettingsPage> {
                             Column(
                               children: [
                                 // PIC light Mode
-
+                                NeuBox(
+                                  padding: false,
+                                  child: Container(
+                                    height: 160,
+                                    child: Image.asset(
+                                        'assets/images/android_light.png'),
+                                  ),
+                                ),
+                                SizedBox(height: 12),
                                 Text(
                                   "Light",
                                   style: TextStyle(
@@ -193,6 +202,15 @@ class _SettingsPageState extends State<SettingsPage> {
                             Column(
                               children: [
                                 // PIC light Mode
+                                NeuBox(
+                                  padding: false,
+                                  child: Container(
+                                    height: 160,
+                                    child: Image.asset(
+                                        'assets/images/android_dark.png'),
+                                  ),
+                                ),
+                                SizedBox(height: 12),
                                 Text(
                                   "Dark",
                                   style: TextStyle(
@@ -218,6 +236,15 @@ class _SettingsPageState extends State<SettingsPage> {
                             Column(
                               children: [
                                 // PIC light Mode
+                                NeuBox(
+                                  padding: false,
+                                  child: Container(
+                                    height: 160,
+                                    child: Image.asset(
+                                        'assets/images/android_system.png'),
+                                  ),
+                                ),
+                                SizedBox(height: 12),
                                 Text(
                                   "System",
                                   style: TextStyle(

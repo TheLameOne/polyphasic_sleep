@@ -565,7 +565,7 @@ List<PieChartSectionData> _sections(List<int> list, context) {
           titleStyle:
               const TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
           value: list[i].abs().toDouble(),
-          color: Colors.black12,
+          color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
           showTitle: false));
     }
   }

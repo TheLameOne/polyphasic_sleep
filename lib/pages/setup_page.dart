@@ -198,14 +198,18 @@ class _SetupPageState extends State<SetupPage> {
                         child: SfRadialGauge(
                           axes: <RadialAxis>[
                             RadialAxis(
-                              axisLineStyle: const AxisLineStyle(
+                              axisLineStyle: AxisLineStyle(
                                   thickness: 6,
-                                  color: Colors.black12,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .tertiary
+                                      .withOpacity(0.1),
                                   cornerStyle: CornerStyle.bothCurve),
                               minimum: 0,
                               maximum: 1440,
                               startAngle: 0,
                               endAngle: 360,
+
                               showLabels: false,
                               showTicks: false,
                               radiusFactor: 0.6,
@@ -641,7 +645,7 @@ class _SetupPageState extends State<SetupPage> {
             titleStyle:
                 TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].abs().toDouble(),
-            color: Colors.black12,
+            color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
             title: list[i].toString(),
             showTitle: false));
       }

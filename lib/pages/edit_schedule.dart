@@ -53,6 +53,10 @@ class _EditScheduleState extends State<EditSchedule> {
     });
   }
 
+  _deleteData() {
+    Hive.box('myBox').clear();
+  }
+
   void updateValues(int value) {
     setState(() {
       for (int i = 0; i < finalData.length; i++) {
@@ -64,11 +68,70 @@ class _EditScheduleState extends State<EditSchedule> {
     });
   }
 
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Confirm Delete'),
+          content: const SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Proceeding will remove the current schedule.'),
+                Text('Would you like to continue ?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/homepage', (Route<dynamic> route) => false);
+                _deleteData();
+              },
+              child: const Text(
+                'DELETE',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          PopupMenuButton<int>(
+            onSelected: (value) {
+              if (value == 1) {
+                _showMyDialog();
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                  value: 1,
+                  child: Text(
+                    "Delete",
+                    style: TextStyle(
+                        color:
+                            Theme.of(context).colorScheme.onPrimaryContainer),
+                  )),
+            ],
+            offset: Offset(0, 50),
+            color: Theme.of(context).colorScheme.primaryContainer,
+            elevation: 2,
+          ),
+        ],
         title: Center(
           child: Padding(
             padding: const EdgeInsets.only(right: 40.0),

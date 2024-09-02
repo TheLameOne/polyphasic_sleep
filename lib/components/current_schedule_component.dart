@@ -67,21 +67,23 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                       Text(
                         "S E L E C T",
                         style: TextStyle(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onSecondaryContainer,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSecondaryContainer,
+                          fontSize: 20,
+                          // fontWeight: FontWeight.w500,
+                        ),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         "S C H E D U L E",
                         style: TextStyle(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onSecondaryContainer,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSecondaryContainer,
+                          fontSize: 20,
+                          // fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ],
                   ),

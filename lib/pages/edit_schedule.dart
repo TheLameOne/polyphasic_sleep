@@ -289,14 +289,36 @@ class _EditScheduleState extends State<EditSchedule> {
                                                     .onSecondaryContainer),
                                           ),
                                         ])
-                                      : Text(
-                                          _convertTime(_timeOfDayConvert(
-                                              finalData[i].s.toString())),
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onSecondaryContainer),
+                                      : Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              _convertTime(_timeOfDayConvert(
+                                                  finalData[i].s.toString())),
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSecondaryContainer),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 2, bottom: 2.0),
+                                              child: Text(
+                                                _ampm(_timeOfDayConvert(
+                                                        finalData[i]
+                                                            .s
+                                                            .toString()))
+                                                    .toLowerCase(),
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .onSecondaryContainer),
+                                              ),
+                                            ),
+                                          ],
                                         )
                                 ],
                               ),
@@ -356,16 +378,39 @@ class _EditScheduleState extends State<EditSchedule> {
                                     )
                                   : Padding(
                                       padding: const EdgeInsets.all(4.0),
-                                      child: Text(
-                                        _convertTime(_timeOfDayConvert(
-                                            finalData[i].e.toString())),
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .onSecondaryContainer),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            _convertTime(
+                                              _timeOfDayConvert(
+                                                finalData[i].e.toString(),
+                                              ),
+                                            ),
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondaryContainer),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 2, bottom: 2.0),
+                                            child: Text(
+                                              _ampm(_timeOfDayConvert(
+                                                finalData[i].e.toString(),
+                                              )).toLowerCase(),
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSecondaryContainer),
+                                            ),
+                                          )
+                                        ],
                                       ),
-                                    )
+                                    ),
                             ]),
                           ),
                         ),
@@ -428,14 +473,17 @@ class _EditScheduleState extends State<EditSchedule> {
   String _convertTime(TimeOfDay timeOfDay) {
     final hour = timeOfDay.hour;
     final minute = timeOfDay.minute;
-
-    final period = hour >= 12 ? 'PM' : 'AM';
     final hour12 = hour == 0 ? 12 : (hour > 12 ? hour - 12 : hour);
-
     final minuteStr = minute.toString().padLeft(2, '0');
     final hour12Str = hour12.toString().padLeft(2, '0');
 
-    return '$hour12Str : $minuteStr $period';
+    return '$hour12Str : $minuteStr';
+  }
+
+  String _ampm(TimeOfDay timeOfDay) {
+    final hour = timeOfDay.hour;
+    final period = hour >= 12 ? 'PM' : 'AM';
+    return period;
   }
 
   String _convertTimeToSmallTime(TimeOfDay startTime, TimeOfDay endTime) {

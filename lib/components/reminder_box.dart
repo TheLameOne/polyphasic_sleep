@@ -52,7 +52,7 @@ class _ReminderBoxState extends State<ReminderBox> {
     LocalNotifications.showScheduleNotification(
         id: id,
         title: "This is $schdeuleName",
-        body: "Time to Wake Up",
+        body: "Time to Sleep",
         payload: "payload",
         time: timeOfDayToDateTime(time));
     // LocalNotifications.showSimpleNotification(
@@ -222,7 +222,21 @@ class _ReminderBoxState extends State<ReminderBox> {
                           _updateReminder();
                           reminderData![widget.alarmId] = value;
                         });
-                      })
+                      }),
+                  // Testing reminders
+                  // InkWell(
+                  //   onTap: () => _setReminder(
+                  //       TimeOfDay(hour: 20, minute: 39), "uberman", 1),
+                  //   child: Container(
+                  //     child: Text("set"),
+                  //   ),
+                  // ),
+                  // InkWell(
+                  //   onTap: () => _deleteReminder(1),
+                  //   child: Container(
+                  //     child: Text("del"),
+                  //   ),
+                  // )
                 ],
               )
             ],

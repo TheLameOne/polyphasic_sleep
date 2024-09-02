@@ -72,42 +72,44 @@ class _RemindersPageState extends State<RemindersPage> {
         // ),
         backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
-            actions: [
-              PopupMenuButton<int>(
-                onSelected: (value) {
-                  if (value == 1) {
-                    setState(() {
-                      fullTime = true;
-                    });
-                  } else if (value == 2) {
-                    setState(() {
-                      fullTime = false;
-                    });
-                  }
-                },
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                      value: 1,
-                      child: Text(
-                        "24 Hrs Format",
-                        style: TextStyle(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onPrimaryContainer),
-                      )),
-                  PopupMenuItem(
-                      value: 2,
-                      child: Text("12 Hrs Format",
-                          style: TextStyle(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onPrimaryContainer))),
-                ],
-                offset: Offset(0, 50),
-                color: Theme.of(context).colorScheme.primaryContainer,
-                elevation: 2,
-              ),
-            ],
+            actions: (id != null)
+                ? [
+                    PopupMenuButton<int>(
+                      onSelected: (value) {
+                        if (value == 1) {
+                          setState(() {
+                            fullTime = true;
+                          });
+                        } else if (value == 2) {
+                          setState(() {
+                            fullTime = false;
+                          });
+                        }
+                      },
+                      itemBuilder: (context) => [
+                        PopupMenuItem(
+                            value: 1,
+                            child: Text(
+                              "24 Hrs Format",
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onPrimaryContainer),
+                            )),
+                        PopupMenuItem(
+                            value: 2,
+                            child: Text("12 Hrs Format",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer))),
+                      ],
+                      offset: Offset(0, 50),
+                      color: Theme.of(context).colorScheme.primaryContainer,
+                      elevation: 2,
+                    ),
+                  ]
+                : [],
             title: Center(
               child: Text("R E M I N D E R S",
                   style: TextStyle(

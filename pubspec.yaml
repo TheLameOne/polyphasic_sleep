@@ -29,7 +29,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   action_slider: ^0.7.0
-  alarm: ^3.1.7
+  alarm:
+    path: alarm/
   audioplayers: ^6.0.0
   card_swiper: ^3.0.1
   chat_bubbles: ^1.6.0

@@ -51,7 +51,9 @@ class _AlarmBoxState extends State<AlarmBox> {
   _setAlarm(TimeOfDay time, int alarmId, String scheduleName) async {
     final alarmSettings = AlarmSettings(
         id: alarmId,
-        dateTime: timeOfDayToDateTime(time),
+        dateTime:
+            // dateTime,
+            timeOfDayToDateTime(time),
         assetAudioPath: 'assets/alarm/alarm.mp3',
         loopAudio: false,
         vibrate: true,
@@ -60,10 +62,10 @@ class _AlarmBoxState extends State<AlarmBox> {
         notificationTitle: 'This is $scheduleName',
         notificationBody: 'Time to wake up',
         enableNotificationOnKill: Platform.isIOS,
-        // notificationActionSettings: const NotificationActionSettings(
-        //   hasStopButton: true,
-        //   stopButtonText: 'Stop the alarm',
-        // ),
+        notificationActionSettings: const NotificationActionSettings(
+          hasStopButton: true,
+          stopButtonText: 'Stop',
+        ),
         androidFullScreenIntent: true);
     await Alarm.set(alarmSettings: alarmSettings);
   }
@@ -229,15 +231,17 @@ class _AlarmBoxState extends State<AlarmBox> {
                           alarmData![widget.alarmId] = value;
                         });
                       }),
-                  InkWell(
-                    onTap: () => _setAlarm(
-                        TimeOfDay(hour: 18, minute: 55), 1, scheduleName!),
-                    child: Text("Alarm"),
-                  ),
-                  InkWell(
-                    onTap: () => _deleteAlarm(1),
-                    child: Text("del"),
-                  )
+                  // InkWell(
+                  //   onTap: () => _setAlarm(
+                  //       DateTime.now().add(Duration(hours: 0)),
+                  //       1,
+                  //       scheduleName!),
+                  //   child: Text("Alarm"),
+                  // ),
+                  // InkWell(
+                  //   onTap: () => _deleteAlarm(1),
+                  //   child: Text("del"),
+                  // )
                 ],
               )
             ],

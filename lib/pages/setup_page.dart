@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:alarm/alarm.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -54,13 +53,13 @@ class _SetupPageState extends State<SetupPage> {
 
   void _loadData() async {
     data = await fetchData(widget.id);
-    print(data!.classification);
+    // print(data!.classification);
     if (data != null) {
       setupData = convertToTuple(replace(data!.setup));
       finalData = [...setupData];
       setState(() {});
     } else {
-      print('No data found for id ${widget.id}');
+      // print('No data found for id ${widget.id}');
     }
     if (setupData.last.s != 0) {
       setState(() {
@@ -700,23 +699,23 @@ class _SetupPageState extends State<SetupPage> {
     return sleep;
   }
 
-  Future<void> _selectTime(
-      BuildContext context, int i, String s, TimeOfDay selectedTime) async {
-    final TimeOfDay? pickedS = await showTimePicker(
-        context: context,
-        initialTime: selectedTime,
-        builder: (BuildContext context, Widget? child) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-            child: child!,
-          );
-        });
-    if (pickedS != null && pickedS != selectedTime) {
-      setState(() {
-        selectedTime = pickedS;
-      });
-    }
-  }
+  // Future<void> _selectTime(
+  //     BuildContext context, int i, String s, TimeOfDay selectedTime) async {
+  //   final TimeOfDay? pickedS = await showTimePicker(
+  //       context: context,
+  //       initialTime: selectedTime,
+  //       builder: (BuildContext context, Widget? child) {
+  //         return MediaQuery(
+  //           data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+  //           child: child!,
+  //         );
+  //       });
+  //   if (pickedS != null && pickedS != selectedTime) {
+  //     setState(() {
+  //       selectedTime = pickedS;
+  //     });
+  //   }
+  // }
 
   TimeOfDay _timeOfDayConvert(String time) {
     int convertedTime = int.parse(time);
@@ -826,8 +825,4 @@ void _saveData(SetupModel data) async {
   await box.put('reminder_data', alarmData);
   await box.put('classification', data.classification);
   await box.put('reminder_time', 0);
-}
-
-void _stopAlarm() async {
-  await Alarm.stop(1);
 }

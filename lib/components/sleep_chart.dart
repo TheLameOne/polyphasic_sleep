@@ -54,7 +54,7 @@ class _SleepChartState extends State<SleepChart> {
       finalData = [...setupData];
       setState(() {});
     } else {
-      print('No data found for id ${widget.id}');
+      // print('No data found for id ${widget.id}');
     }
     if (setupData.last.s != 0) {
       setState(() {
@@ -65,12 +65,11 @@ class _SleepChartState extends State<SleepChart> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: PieChart(PieChartData(
-            centerSpaceRadius: widget.centerSpaceRadius,
-            startDegreeOffset: offset + rotateChart,
-            sectionsSpace: 0,
-            sections: _list(setupData))));
+    return PieChart(PieChartData(
+        centerSpaceRadius: widget.centerSpaceRadius,
+        startDegreeOffset: offset + rotateChart,
+        sectionsSpace: 0,
+        sections: _list(setupData)));
   }
 
   List<PieChartSectionData> _list(List<({int s, int e})> v) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:polyphasic_sleep_new/components/reminder_box.dart';
@@ -37,9 +36,9 @@ class _RemindersPageState extends State<RemindersPage> {
     });
   }
 
-  _setReminderTime() {
-    Fluttertoast.showToast(msg: "Reminders updated succefully");
-  }
+  // _setReminderTime() {
+  //   Fluttertoast.showToast(msg: "Reminders updated succefully");
+  // }
 
   _setReminder() async {
     var box = Hive.box('myBox');
@@ -125,42 +124,38 @@ class _RemindersPageState extends State<RemindersPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Container(
-                            // color: Colors.red,
-                            child: NumberPicker(
-                              itemCount: 5,
-                              itemWidth: 60,
-                              selectedTextStyle: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 26,
-                                  color:
-                                      Theme.of(context).colorScheme.tertiary),
-                              textStyle: TextStyle(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .tertiary
-                                      .withOpacity(0.8)),
-                              maxValue: 60,
-                              minValue: 0,
-                              axis: Axis.horizontal,
-                              value: reminderTime!,
-                              onChanged: (value) {
-                                setState(() {
-                                  reminderTime = value;
-                                  // print(reminderTime);
-                                  // print((setup![0] - reminderTime!).toString());
-                                  _setReminder();
-                                  _resetReminder();
-                                });
-                              },
-                              // decoration: BoxDecoration(
-                              //   borderRadius: BorderRadius.circular(16),
-                              //   border: Border.all(color: Colors.black26),
-                              // ),
-                              haptics: true,
+                          NumberPicker(
+                            itemCount: 5,
+                            itemWidth: 60,
+                            selectedTextStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 26,
+                                color: Theme.of(context).colorScheme.tertiary),
+                            textStyle: TextStyle(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .tertiary
+                                    .withOpacity(0.8)),
+                            maxValue: 60,
+                            minValue: 0,
+                            axis: Axis.horizontal,
+                            value: reminderTime!,
+                            onChanged: (value) {
+                              setState(() {
+                                reminderTime = value;
+                                // print(reminderTime);
+                                // print((setup![0] - reminderTime!).toString());
+                                _setReminder();
+                                _resetReminder();
+                              });
+                            },
+                            // decoration: BoxDecoration(
+                            //   borderRadius: BorderRadius.circular(16),
+                            //   border: Border.all(color: Colors.black26),
+                            // ),
+                            haptics: true,
 
-                              // decoration: BoxDecoration(color: Colors.red),
-                            ),
+                            // decoration: BoxDecoration(color: Colors.red),
                           ),
                           const SizedBox(height: 8),
                           Text(
@@ -177,16 +172,14 @@ class _RemindersPageState extends State<RemindersPage> {
                     Column(
                       children: [
                         for (int i = 0; i < setup!.length; i += 2)
-                          Container(
-                            child: ReminderBox(
-                                alarmId: i ~/ 2,
-                                // toggle: alarmData![i ~/ 2],
-                                fullTime: fullTime,
-                                time: (setup![i] - reminderTime! < 0)
-                                    ? (1440 - reminderTime! + setup![i])
-                                        .toString()
-                                    : (setup![i] - reminderTime!).toString()),
-                          )
+                          ReminderBox(
+                              alarmId: i ~/ 2,
+                              // toggle: alarmData![i ~/ 2],
+                              fullTime: fullTime,
+                              time: (setup![i] - reminderTime! < 0)
+                                  ? (1440 - reminderTime! + setup![i])
+                                      .toString()
+                                  : (setup![i] - reminderTime!).toString())
                       ],
                     ),
                     const SizedBox(height: 8)

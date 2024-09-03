@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:polyphasic_sleep_new/components/alarm_component.dart';
 import 'package:polyphasic_sleep_new/components/all_schedule_component.dart';
 import 'package:polyphasic_sleep_new/components/current_schedule_component.dart';
@@ -17,38 +16,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool scheduleSelected = false;
-
-  @override
-  void initState() {
-    // _checkData();
-    _loadData();
-    super.initState();
-  }
-
-  // void _checkData() async {
-  //   var box = Hive.box('myBox');
-  //   var id = (box.get('id'));
-  //   var schedulName = (box.get('schedule_name'));
-  //   var setup = (box.get('setup'));
-  //   var svg = (box.get('svg'));
-  //   var totalSleep = (box.get('total_sleep'));
-  // }
-
-  void _loadData() async {
-    var box = Hive.box('myBox');
-    // print(box.get('id'));
-    // print(box.get('schedule_name'));
-    // print(box.get('setup'));
-    // print(box.get('svg'));
-    // print(box.get('total_sleep'));
-    if (box.get('id') != 'null') {
-      scheduleSelected = true;
-    } else {
-      scheduleSelected = false;
-    }
-    print(scheduleSelected);
-  }
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

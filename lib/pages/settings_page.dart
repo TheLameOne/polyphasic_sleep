@@ -382,6 +382,6 @@ int _getCurrentThemeIndex(context) {
   return Provider.of<ThemeProvider>(context, listen: false).currentThemeIndex;
 }
 
-_getDarkMode(context) {
-  return Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
-}
+// _getDarkMode(context) {
+//   return Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
+// }

@@ -23,9 +23,8 @@ class LocalNotifications {
         DarwinInitializationSettings(
       onDidReceiveLocalNotification: (id, title, body, payload) {},
     );
-    final LinuxInitializationSettings initializationSettingsLinux =
-        const LinuxInitializationSettings(
-            defaultActionName: 'Open notification');
+    const LinuxInitializationSettings initializationSettingsLinux =
+        LinuxInitializationSettings(defaultActionName: 'Open notification');
     final InitializationSettings initializationSettings =
         InitializationSettings(
             android: initializationSettingsAndroid,

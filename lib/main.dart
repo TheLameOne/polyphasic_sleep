@@ -37,7 +37,7 @@ void main() async {
   if (initialNotification?.didNotificationLaunchApp == true) {
     // LocalNotifications.onClickNotification.stream.listen((event) {
     Future.delayed(const Duration(seconds: 1), () {
-      print("Main Screen Error");
+      // print("Main Screen Error");
       // navigatorKey.currentState!.pushNamed('/another',
       //     arguments: initialNotification?.notificationResponse?.payload);
     });

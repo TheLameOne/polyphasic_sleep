@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:chat_bubbles/bubbles/bubble_special_one.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:polyphasic_sleep_new/components/my_textfield.dart';
 import 'package:polyphasic_sleep_new/models/qna_model.dart';
@@ -258,7 +257,6 @@ class _HowItWorksPageState extends State<HowItWorksPage> {
                     setState(() {
                       answerList.add(_buildanswer(answer));
                     });
-                    print(answer);
                   },
                   icon: Icon(
                     Icons.arrow_upward,

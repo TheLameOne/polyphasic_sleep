@@ -72,8 +72,9 @@ class _AllSchedulesPageState extends State<AllSchedulesPage> {
                         list[index],
                   ),
                 );
-              } else
+              } else {
                 return const Center(child: CircularProgressIndicator());
+              }
             },
           ),
           Container(

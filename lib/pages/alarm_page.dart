@@ -88,13 +88,11 @@ class _AlarmPageState extends State<AlarmPage> {
                 child: Column(
                   children: [
                     for (int i = 1; i < setup!.length; i += 2)
-                      Container(
-                        child: AlarmBox(
-                            alarmId: i ~/ 2,
-                            // toggle: alarmData![i ~/ 2],
-                            fullTime: fullTime,
-                            time: setup![i].toString()),
-                      )
+                      AlarmBox(
+                          alarmId: i ~/ 2,
+                          // toggle: alarmData![i ~/ 2],
+                          fullTime: fullTime,
+                          time: setup![i].toString())
                   ],
                 ),
               )

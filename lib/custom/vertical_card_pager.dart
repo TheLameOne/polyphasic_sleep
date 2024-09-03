@@ -161,8 +161,8 @@ class _VerticalCardPagerState extends State<VerticalCardPager> {
       return cardMaxHeight;
     } else if (i == 0 || i == 4) {
       return cardMaxHeight - cardMaxHeight * (4 / 5) - 10;
-    } else
-      return cardMaxHeight - cardMaxHeight * (4 / 5);
+    } else{
+      return cardMaxHeight - cardMaxHeight * (4 / 5);}
   }
 }
 

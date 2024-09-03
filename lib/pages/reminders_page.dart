@@ -20,6 +20,7 @@ class _RemindersPageState extends State<RemindersPage> {
   int? reminderTime;
   bool fullTime = true;
 
+  @override
   void initState() {
     _loadData();
     super.initState();
@@ -104,7 +105,7 @@ class _RemindersPageState extends State<RemindersPage> {
                                         .colorScheme
                                         .onPrimaryContainer))),
                       ],
-                      offset: Offset(0, 50),
+                      offset: const Offset(0, 50),
                       color: Theme.of(context).colorScheme.primaryContainer,
                       elevation: 2,
                     ),
@@ -161,7 +162,7 @@ class _RemindersPageState extends State<RemindersPage> {
                               // decoration: BoxDecoration(color: Colors.red),
                             ),
                           ),
-                          SizedBox(height: 8),
+                          const SizedBox(height: 8),
                           Text(
                             "minutes to remind yourself before each schedule",
                             style: TextStyle(
@@ -188,7 +189,7 @@ class _RemindersPageState extends State<RemindersPage> {
                           )
                       ],
                     ),
-                    SizedBox(height: 8)
+                    const SizedBox(height: 8)
                   ],
                 ),
               )

@@ -161,7 +161,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             const SizedBox(),
                           ],
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -170,13 +170,13 @@ class _SettingsPageState extends State<SettingsPage> {
                                 // PIC light Mode
                                 NeuBox(
                                   padding: false,
-                                  child: Container(
+                                  child: SizedBox(
                                     height: 160,
                                     child: Image.asset(
                                         'assets/images/android_light.png'),
                                   ),
                                 ),
-                                SizedBox(height: 12),
+                                const SizedBox(height: 12),
                                 Text(
                                   "Light",
                                   style: TextStyle(
@@ -204,13 +204,13 @@ class _SettingsPageState extends State<SettingsPage> {
                                 // PIC light Mode
                                 NeuBox(
                                   padding: false,
-                                  child: Container(
+                                  child: SizedBox(
                                     height: 160,
                                     child: Image.asset(
                                         'assets/images/android_dark.png'),
                                   ),
                                 ),
-                                SizedBox(height: 12),
+                                const SizedBox(height: 12),
                                 Text(
                                   "Dark",
                                   style: TextStyle(
@@ -238,13 +238,13 @@ class _SettingsPageState extends State<SettingsPage> {
                                 // PIC light Mode
                                 NeuBox(
                                   padding: false,
-                                  child: Container(
+                                  child: SizedBox(
                                     height: 160,
                                     child: Image.asset(
                                         'assets/images/android_system.png'),
                                   ),
                                 ),
-                                SizedBox(height: 12),
+                                const SizedBox(height: 12),
                                 Text(
                                   "System",
                                   style: TextStyle(

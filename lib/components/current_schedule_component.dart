@@ -119,7 +119,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       width: size.width * 0.45,
                                       child: Text(
                                         classification!,
@@ -190,7 +190,7 @@ class _CurrentScheduleComponentState extends State<CurrentScheduleComponent> {
                                 ),
                               ],
                             ),
-                            Container(
+                            SizedBox(
                                 // color: Colors.green,
                                 height: size.height * 0.2,
                                 width: size.width * 0.35,

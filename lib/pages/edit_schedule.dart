@@ -127,7 +127,7 @@ class _EditScheduleState extends State<EditSchedule> {
                             Theme.of(context).colorScheme.onPrimaryContainer),
                   )),
             ],
-            offset: Offset(0, 50),
+            offset: const Offset(0, 50),
             color: Theme.of(context).colorScheme.primaryContainer,
             elevation: 2,
           ),

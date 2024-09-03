@@ -115,7 +115,7 @@ class ScheduleComponent extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Row(
                               children: [
                                 Text("Difficulty : ",
@@ -133,7 +133,7 @@ class ScheduleComponent extends StatelessWidget {
                                         overflow: TextOverflow.clip)),
                               ],
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             Row(
                               children: [
                                 Text("Total Sleep : ",
@@ -191,7 +191,7 @@ _difficultyColor(String name) {
     return const Color.fromARGB(255, 252, 180, 72);
   }
   if (name == "Very High") {
-    return Color.fromARGB(255, 230, 110, 62);
+    return const Color.fromARGB(255, 230, 110, 62);
   }
 }
 

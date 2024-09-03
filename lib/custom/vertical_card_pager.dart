@@ -16,8 +16,8 @@ class VerticalCardPager extends StatefulWidget {
   final int initialPage;
   final ALIGN align;
 
-  VerticalCardPager(
-      {required this.titles,
+  const VerticalCardPager(
+      {super.key, required this.titles,
       required this.images,
       this.onPageChanged,
       this.textStyle,
@@ -76,7 +76,7 @@ class _VerticalCardPagerState extends State<VerticalCardPager> {
             } else if (selectedIndex >= 0) {
               int goToPage = currentPosition.toInt() + selectedIndex - 2;
               controller.animateToPage(goToPage,
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOutExpo);
             }
           }
@@ -203,8 +203,8 @@ class CardControllerWidget extends StatelessWidget {
   final List? titles;
   final List? images;
 
-  CardControllerWidget(
-      {this.titles,
+  const CardControllerWidget(
+      {super.key, this.titles,
       this.images,
       this.cardViewPagerWidth,
       required this.cardViewPagerHeight,
@@ -218,7 +218,7 @@ class CardControllerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> cardList = [];
 
-    var titleTextStyle;
+    TextStyle? titleTextStyle;
 
     if (textStyle != null) {
       titleTextStyle = textStyle;
@@ -238,7 +238,7 @@ class CardControllerWidget extends StatelessWidget {
         start: getStartPositon(cardWidth),
         child: Opacity(
           opacity: getOpacity(i),
-          child: Container(
+          child: SizedBox(
             width: cardWidth,
             height: cardHeight,
             child: Stack(
@@ -257,7 +257,7 @@ class CardControllerWidget extends StatelessWidget {
                 Align(
                     child: Text(
                   titles![i],
-                  style: titleTextStyle.copyWith(fontSize: getFontSize(i)),
+                  style: titleTextStyle?.copyWith(fontSize: getFontSize(i)),
                   textAlign: TextAlign.center,
                 )),
               ],

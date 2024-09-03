@@ -65,14 +65,14 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 26)),
           )),
       // backgroundColor: Colors.amber,
-      body: Padding(
+      body: const Padding(
         padding: EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // SizedBox(height: size.height * 0.05),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: CurrentScheduleComponent(),
             ),
             // SizedBox(height: size.height * 0.05),

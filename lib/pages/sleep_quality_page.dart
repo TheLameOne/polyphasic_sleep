@@ -27,7 +27,7 @@ class SleepQualityPage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => SleepChart(
+                          builder: (context) => const SleepChart(
                                 id: 1,
                               )));
                   // var box = await Hive.openBox('test1');

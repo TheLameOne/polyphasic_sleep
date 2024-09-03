@@ -34,16 +34,16 @@ class TypesModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['schedule_type'] = this.scheduleType;
-    data['short_description'] = this.shortDescription;
-    data['Total Sleep'] = this.totalSleep;
-    data['classification'] = this.classification;
-    data['Difficulty'] = this.difficulty;
-    data['ideal_scheduling'] = this.idealScheduling;
-    data['setup'] = this.setup;
-    data['link'] = this.link;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['schedule_type'] = scheduleType;
+    data['short_description'] = shortDescription;
+    data['Total Sleep'] = totalSleep;
+    data['classification'] = classification;
+    data['Difficulty'] = difficulty;
+    data['ideal_scheduling'] = idealScheduling;
+    data['setup'] = setup;
+    data['link'] = link;
 
     return data;
   }

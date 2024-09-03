@@ -21,10 +21,11 @@ class LocalNotifications {
         AndroidInitializationSettings('@mipmap/launcher_icon');
     final DarwinInitializationSettings initializationSettingsDarwin =
         DarwinInitializationSettings(
-      onDidReceiveLocalNotification: (id, title, body, payload) => null,
+      onDidReceiveLocalNotification: (id, title, body, payload) {},
     );
     final LinuxInitializationSettings initializationSettingsLinux =
-        LinuxInitializationSettings(defaultActionName: 'Open notification');
+        const LinuxInitializationSettings(
+            defaultActionName: 'Open notification');
     final InitializationSettings initializationSettings =
         InitializationSettings(
             android: initializationSettingsAndroid,

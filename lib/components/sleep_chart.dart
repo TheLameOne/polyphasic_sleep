@@ -56,10 +56,11 @@ class _SleepChartState extends State<SleepChart> {
     } else {
       print('No data found for id ${widget.id}');
     }
-    if (setupData.last.s != 0)
+    if (setupData.last.s != 0) {
       setState(() {
         rotateChart = (setupData.last.e.toDouble() * 360 / 1440);
       });
+    }
   }
 
   @override
@@ -104,8 +105,8 @@ class _SleepChartState extends State<SleepChart> {
       if (list[i] > 0) {
         sleep.add(PieChartSectionData(
             radius: widget.thickness,
-            titleStyle:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+            titleStyle: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].toDouble(),
             color: Theme.of(context).colorScheme.tertiary,
             title: list[i].toString(),
@@ -113,8 +114,8 @@ class _SleepChartState extends State<SleepChart> {
       } else {
         sleep.add(PieChartSectionData(
             radius: widget.thickness,
-            titleStyle:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+            titleStyle: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].abs().toDouble(),
             color: Colors.black26,
             title: list[i].toString(),

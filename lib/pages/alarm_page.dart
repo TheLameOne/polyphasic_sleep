@@ -16,6 +16,7 @@ class _AlarmPageState extends State<AlarmPage> {
   List<bool>? alarmData;
   bool fullTime = true;
 
+  @override
   void initState() {
     _loadData();
     super.initState();
@@ -70,7 +71,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                       .onPrimaryContainer),
                             )),
                       ],
-                      offset: Offset(0, 50),
+                      offset: const Offset(0, 50),
                       color: Theme.of(context).colorScheme.primaryContainer,
                       elevation: 2,
                     ),

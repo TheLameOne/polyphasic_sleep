@@ -18,10 +18,10 @@ class ScheduleModel {
     }
   }
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['schedule_name'] = this.scheduleName;
-    if (this.types != null) {
-      data['types'] = this.types!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['schedule_name'] = scheduleName;
+    if (types != null) {
+      data['types'] = types!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -59,7 +59,7 @@ class ScheduleTypeModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data["schedule_type"] = scheduleType;
     data["duration"] = duration;
     data["classification"] = classification;

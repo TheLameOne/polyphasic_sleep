@@ -62,10 +62,11 @@ class _SetupPageState extends State<SetupPage> {
     } else {
       print('No data found for id ${widget.id}');
     }
-    if (setupData.last.s != 0)
+    if (setupData.last.s != 0) {
       setState(() {
         rotateChart = (setupData.last.e.toDouble() * 360 / 1440);
       });
+    }
     // print(rotateChart);
   }
 
@@ -135,7 +136,7 @@ class _SetupPageState extends State<SetupPage> {
                     updateValues(0);
                   });
                 },
-                child: Icon(Icons.refresh)),
+                child: const Icon(Icons.refresh)),
           )
         ],
       ),
@@ -336,7 +337,7 @@ class _SetupPageState extends State<SetupPage> {
                           color: Theme.of(context).colorScheme.error,
                         ),
                       ),
-                      SizedBox(width: 4),
+                      const SizedBox(width: 4),
                       GestureDetector(
                         onTap: () {
                           // print(radialValue);
@@ -346,7 +347,7 @@ class _SetupPageState extends State<SetupPage> {
                             // Haptic Feedback
                           });
                         },
-                        child: Icon(
+                        child: const Icon(
                           size: 28,
                           Icons.add_circle_outline_rounded,
                           color: Colors.greenAccent,
@@ -368,13 +369,13 @@ class _SetupPageState extends State<SetupPage> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          "Sleep " + (i + 1).toString(),
+                          "Sleep ${i + 1}",
                           style: TextStyle(
                             fontSize: 26,
                             color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         // 20m
                         Container(
                             decoration: BoxDecoration(
@@ -490,7 +491,7 @@ class _SetupPageState extends State<SetupPage> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Padding(
                           padding: const EdgeInsets.all(4.0),
                           child: Container(
@@ -680,16 +681,16 @@ class _SetupPageState extends State<SetupPage> {
     for (int i = 0; i < list.length; i++) {
       if (list[i] > 0) {
         sleep.add(PieChartSectionData(
-            titleStyle:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+            titleStyle: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].toDouble(),
             color: Theme.of(context).colorScheme.tertiary,
             showTitle: false,
             title: list[i].toString()));
       } else {
         sleep.add(PieChartSectionData(
-            titleStyle:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+            titleStyle: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w200),
             value: list[i].abs().toDouble(),
             color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
             title: list[i].toString(),
@@ -701,7 +702,7 @@ class _SetupPageState extends State<SetupPage> {
 
   Future<void> _selectTime(
       BuildContext context, int i, String s, TimeOfDay selectedTime) async {
-    final TimeOfDay? picked_s = await showTimePicker(
+    final TimeOfDay? pickedS = await showTimePicker(
         context: context,
         initialTime: selectedTime,
         builder: (BuildContext context, Widget? child) {
@@ -710,10 +711,11 @@ class _SetupPageState extends State<SetupPage> {
             child: child!,
           );
         });
-    if (picked_s != null && picked_s != selectedTime)
+    if (pickedS != null && pickedS != selectedTime) {
       setState(() {
-        selectedTime = picked_s;
+        selectedTime = pickedS;
       });
+    }
   }
 
   TimeOfDay _timeOfDayConvert(String time) {

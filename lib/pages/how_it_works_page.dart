@@ -238,7 +238,7 @@ class _HowItWorksPageState extends State<HowItWorksPage> {
               controller: _messageController,
             ),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Expanded(
             flex: 1,
             child: Container(

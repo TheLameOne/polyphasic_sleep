@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:alarm/alarm.dart';
+import 'package:alarm/model/alarm_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
@@ -59,6 +60,10 @@ class _AlarmBoxState extends State<AlarmBox> {
         notificationTitle: 'This is $scheduleName',
         notificationBody: 'Time to wake up',
         enableNotificationOnKill: Platform.isIOS,
+        // notificationActionSettings: const NotificationActionSettings(
+        //   hasStopButton: true,
+        //   stopButtonText: 'Stop the alarm',
+        // ),
         androidFullScreenIntent: true);
     await Alarm.set(alarmSettings: alarmSettings);
   }
@@ -223,7 +228,16 @@ class _AlarmBoxState extends State<AlarmBox> {
                           _updateAlarm();
                           alarmData![widget.alarmId] = value;
                         });
-                      })
+                      }),
+                  InkWell(
+                    onTap: () => _setAlarm(
+                        TimeOfDay(hour: 18, minute: 55), 1, scheduleName!),
+                    child: Text("Alarm"),
+                  ),
+                  InkWell(
+                    onTap: () => _deleteAlarm(1),
+                    child: Text("del"),
+                  )
                 ],
               )
             ],

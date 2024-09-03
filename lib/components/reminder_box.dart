@@ -183,7 +183,7 @@ class _ReminderBoxState extends State<ReminderBox> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   (reminderData![widget.alarmId])
-                      ? Text("Tomorrow",
+                      ? Text(_tomorrow(_timeOfDayConvert(widget.time)),
                           style: TextStyle(
                             fontSize: 14,
                             color: Theme.of(context)
@@ -244,6 +244,39 @@ class _ReminderBoxState extends State<ReminderBox> {
         ),
       ),
     );
+  }
+}
+
+String _tomorrow(TimeOfDay time) {
+  final now = TimeOfDay.now();
+  final nowDateTime = DateTime(
+    DateTime.now().year,
+    DateTime.now().month,
+    DateTime.now().day,
+    now.hour,
+    now.minute,
+  );
+  final providedDateTime = DateTime(
+    DateTime.now().year,
+    DateTime.now().month,
+    DateTime.now().day,
+    time.hour,
+    time.minute,
+  );
+
+  Duration difference;
+  if (providedDateTime.isBefore(nowDateTime)) {
+    difference =
+        providedDateTime.add(Duration(days: 1)).difference(nowDateTime);
+  } else {
+    difference = providedDateTime.difference(nowDateTime);
+  }
+  final hours = difference.inHours;
+  final minutes = difference.inMinutes % 60;
+  if (hours > 0) {
+    return '$hours Hours and $minutes Minutes';
+  } else {
+    return '$minutes Minutes';
   }
 }
 

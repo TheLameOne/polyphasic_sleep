@@ -1,4 +1,4 @@
-package com.example.polyphasic_sleep_new
+package com.thelameone.polyphasic_sleep
 
 import io.flutter.embedding.android.FlutterActivity
 

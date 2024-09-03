@@ -60,10 +60,10 @@ class _AlarmBoxState extends State<AlarmBox> {
         notificationTitle: 'This is $scheduleName',
         notificationBody: 'Time to wake up',
         enableNotificationOnKill: Platform.isIOS,
-        // notificationActionSettings: const NotificationActionSettings(
-        //   hasStopButton: true,
-        //   stopButtonText: 'Stop the alarm',
-        // ),
+        notificationActionSettings: const NotificationActionSettings(
+          hasStopButton: true,
+          stopButtonText: 'Stop',
+        ),
         androidFullScreenIntent: true);
     await Alarm.set(alarmSettings: alarmSettings);
   }
@@ -229,15 +229,15 @@ class _AlarmBoxState extends State<AlarmBox> {
                           alarmData![widget.alarmId] = value;
                         });
                       }),
-                  InkWell(
-                    onTap: () => _setAlarm(
-                        TimeOfDay(hour: 18, minute: 55), 1, scheduleName!),
-                    child: Text("Alarm"),
-                  ),
-                  InkWell(
-                    onTap: () => _deleteAlarm(1),
-                    child: Text("del"),
-                  )
+                  // InkWell(
+                  //   onTap: () => _setAlarm(
+                  //       TimeOfDay(hour: 22, minute: 58), 1, scheduleName!),
+                  //   child: Text("Alarm"),
+                  // ),
+                  // InkWell(
+                  //   onTap: () => _deleteAlarm(1),
+                  //   child: Text("del"),
+                  // )
                 ],
               )
             ],

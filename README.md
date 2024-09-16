@@ -10,8 +10,8 @@ Polyphasic Sleep  is an app designed to assist users in managing non-traditional
   <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/3.png" alt="Feature Image" width="267" height="478">
 </div>
 <div align="center">
-  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/4.png" alt="Feature Image" width="267" height="478">
   <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/5.png" alt="Feature Image" width="267" height="478">
+  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/4.png" alt="Feature Image" width="267" height="478">
   <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/6.png" alt="Feature Image" width="267" height="478">
 </div>
 

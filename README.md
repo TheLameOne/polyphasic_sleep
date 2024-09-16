@@ -3,16 +3,16 @@
 ## Introduction
 Polyphasic Sleep  is an app designed to assist users in managing non-traditional sleep schedules, such as **Everyman**, **Uberman**, **Dymaxion** and many more schedules. It includes smart alarms, custom reminders, and theming options to provide a seamless and customizable experience for improving productivity and health through optimized sleep patterns.
 ## Screenshots
-<img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/feature.png" alt="Feature Image" width="1024" height="500">
+<img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/feature.png" alt="Feature Image" width="1024" height="400">
 <div align="center">
-  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/1.png" alt="Feature Image" width="283" height="498">
-  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/2.png" alt="Feature Image" width="283" height="498">
-  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/3.png" alt="Feature Image" width="283" height="498">
+  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/1.png" alt="Feature Image" width="267" height="478">
+  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/2.png" alt="Feature Image" width="267" height="478">
+  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/3.png" alt="Feature Image" width="267" height="478">
 </div>
 <div align="center">
-  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/4.png" alt="Feature Image" width="283" height="498">
-  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/5.png" alt="Feature Image" width="283" height="498">
-  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/6.png" alt="Feature Image" width="283" height="498">
+  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/4.png" alt="Feature Image" width="267" height="478">
+  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/5.png" alt="Feature Image" width="267" height="478">
+  <img src="https://github.com/TheLameOne/polyphasic_sleep/blob/main/screenshots/6.png" alt="Feature Image" width="267" height="478">
 </div>
 
 ## Installation

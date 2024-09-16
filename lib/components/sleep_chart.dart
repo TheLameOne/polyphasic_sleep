@@ -65,11 +65,15 @@ class _SleepChartState extends State<SleepChart> {
 
   @override
   Widget build(BuildContext context) {
-    return PieChart(PieChartData(
-        centerSpaceRadius: widget.centerSpaceRadius,
-        startDegreeOffset: offset + rotateChart,
-        sectionsSpace: 0,
-        sections: _list(setupData)));
+    if (data != null) {
+      return PieChart(PieChartData(
+          centerSpaceRadius: widget.centerSpaceRadius,
+          startDegreeOffset: offset + rotateChart,
+          sectionsSpace: 0,
+          sections: _list(setupData)));
+    } else {
+      return CircularProgressIndicator();
+    }
   }
 
   List<PieChartSectionData> _list(List<({int s, int e})> v) {

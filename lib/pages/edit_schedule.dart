@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
@@ -90,9 +92,11 @@ class _EditScheduleState extends State<EditSchedule> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, '/homepage', (Route<dynamic> route) => false);
                 _deleteData();
+                Timer(const Duration(milliseconds: 200), () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/homepage', (Route<dynamic> route) => false);
+                });
               },
               child: const Text(
                 'DELETE',

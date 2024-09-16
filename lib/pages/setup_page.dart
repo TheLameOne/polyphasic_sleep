@@ -175,12 +175,13 @@ class _SetupPageState extends State<SetupPage> {
                       Transform.rotate(
                         angle: ((radialValue) * math.pi / 180 / 4),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: PieChart(PieChartData(
-                              startDegreeOffset: offset + rotateChart,
-                              sectionsSpace: 0,
-                              sections: _list(setupData))),
-                        ),
+                            padding: const EdgeInsets.all(8.0),
+                            child: (data != null)
+                                ? PieChart(PieChartData(
+                                    startDegreeOffset: offset + rotateChart,
+                                    sectionsSpace: 0,
+                                    sections: _list(setupData)))
+                                : CircularProgressIndicator()),
                       ),
                       PieChart(
                           PieChartData(startDegreeOffset: offset, sections: [
@@ -266,12 +267,15 @@ class _SetupPageState extends State<SetupPage> {
                                   color:
                                       Theme.of(context).colorScheme.onSurface),
                             ),
-                            Text(
-                              data!.totalSleep.toString(),
-                              style: TextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.onSurface),
-                            ),
+                            (data != null)
+                                ? Text(
+                                    data!.totalSleep.toString(),
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurface),
+                                  )
+                                : CircularProgressIndicator()
                           ],
                         ),
                       )
@@ -662,11 +666,11 @@ class _SetupPageState extends State<SetupPage> {
       }
     }
     // print(list);
-    if (setupData.last.e > setupData.last.s) {
-      list[0] = list[0] - 1440 + setupData.last.e;
+    if (v.last.e > v.last.s) {
+      list[0] = list[0] - 1440 + v.last.e;
     }
-    if (setupData.last.e < setupData.last.s) {
-      list[0] = list[0] + setupData.last.e;
+    if (v.last.e < v.last.s) {
+      list[0] = list[0] + v.last.e;
     }
 
     // print(widget.id);
